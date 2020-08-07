@@ -45,12 +45,15 @@ $trs: all ease 0.3s 0s;
 			-webkit-transition: $trs;
 			h3 {
 				text-align: center;
+				font-size: 1.4rem;
 			}
 			p {
 				margin-bottom: 0.6rem;
 			}
 			a {
 				color: blue;
+				// display: block;
+    			text-align: left;
 			}
 			.cate {
 				text-align: center;
@@ -65,10 +68,8 @@ $trs: all ease 0.3s 0s;
 }
 .mobile-btn {
 	font-size: 2vh;
-    // text-align: center;
     border-bottom: 2px solid;
     width: fit-content;
-    // margin: auto;
     line-height: 1;
 }
 .ifram-wrapper {
@@ -81,6 +82,7 @@ $trs: all ease 0.3s 0s;
 	position:absolute;
 	width:100%;
 	height:100%;
+	left: 0;
 }
 .work-img {
 	max-width: 100%;

@@ -34,10 +34,10 @@ function About(props) {
 					<p>
 						<span dangerouslySetInnerHTML = {{__html: data.desc}}></span>		
 					</p>
-					<p>
+					<p className="about-center">
 						<span dangerouslySetInnerHTML = {{__html: data.history}}></span>
 					</p>
-					<p>
+					<p className="about-center">
 						<span dangerouslySetInnerHTML = {{__html: data.stack}}></span>
 					</p>
 				</div>

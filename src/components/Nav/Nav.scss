@@ -24,7 +24,8 @@
 		h1 {
 			margin: 0;
 			font-weight: 500;
-			font-size: $ft-s;
+			// font-size: $ft-s;
+			font-size: 1.4rem;
 		}
 		a {
 			margin-top: 0.7rem;
@@ -32,10 +33,10 @@
 		}
 	}
 	.active {
-		border-bottom: 0.3vh solid black;;	
+		// border-bottom: 0.3vh solid black;
+		border-bottom: 2px solid black;	
 		filter: blur(0);
 		-webkit-filter: blur(0);
-		
 	}
 	.inactive {
 		padding: 4px 8px 4px 7px;

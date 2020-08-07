@@ -23,10 +23,10 @@ function SubInfo(props) {
 				</span>
 				
 				<span>
-					{ item.link !== "" ? <a href={item.link} target="_blank" rel="noopener noreferrer">Visit the website<br></br></a> : null }
-					{ item.link_mobile !== "" ? <a href={item.link_mobile} target="_blank" rel="noopener noreferrer">Visit the website(Mobile Only)<br></br></a> : null }
-					{ item.link_git !== "" ? <a href={item.link_git} target="_blank" rel="noopener noreferrer">Visit the Github Code<br></br></a> : null }
-					<Link className="more-btn" to={`/work/${item.id}`}>	
+					{ item.link !== "" ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website<br></br></a> : null }
+					{ item.link_mobile !== "" ? <a href={item.link_mobile} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website(Mobile Only)<br></br></a> : null }
+					{ item.link_git !== "" ? <a href={item.link_git} target="_blank" rel="noopener noreferrer" className="d-block">Visit the Github Code<br></br></a> : null }
+					<Link className="more-btn d-block" to={`/work/${item.id}`}>	
 						Read More >
 					</Link>
 				</span>
