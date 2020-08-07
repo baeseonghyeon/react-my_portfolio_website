@@ -1,0 +1,22 @@
+$trs: all ease 0.3s 0s;
+$trf: scale( 0.95 );
+
+.section {
+	width: 100%;
+	height: 100%;
+    position: fixed;
+	background-color: white;
+	transition: $trs;
+	-moz-transition: $trs;
+	-webkit-transition: $trs;
+}
+.visible {
+	opacity: 1;
+}
+.invisible {
+	opacity: 0;
+	transform: $trf;
+	-moz-transform: $trf;
+	-webkit-transform: $trf;
+	-ms-transform: $trf;
+}

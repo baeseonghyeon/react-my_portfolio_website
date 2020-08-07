@@ -1,0 +1,35 @@
+.row-px {
+	padding: 80px 10px 80px 20px;
+	width: 100%;
+    height: 100vh;
+	overflow: auto;
+	overflow-x: hidden;
+    position: absolute;
+	top: -80px;
+	.scroll-info {
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		z-index: 1;
+		font-weight: bold;
+		margin: auto;
+		font-size: 2rem;
+		height: fit-content;
+	}
+}
+
+
+//== DEVICE SCREEN ==//
+/*Device = 대부분의 스마트폰 모바일 기기(세로)*/
+@media (min-width: 320px) and (max-width: 480px) {
+	.row-px {
+		padding: 0 0 20px;
+		width: initial;
+		height: 100%;
+		position: initial;
+	}
+}
+
+/*Device = 저해상도 태블릿, 모바일(가로)*/
+@media (min-width: 481px) and (max-width: 767px) {
+}

@@ -1,0 +1,74 @@
+@import "../../assets/scss/variable";
+
+#Nav {
+	z-index: 5;
+	position: fixed;
+	top: 6px;
+	padding: 5px 15px;
+	display: flex;
+	align-items: center;
+	line-height: 1;
+	width: 100%;
+	overflow: auto;
+	-ms-overflow-style: none; 
+	scrollbar-width: none;
+	min-height: 65px;
+	.nav-toggle {	
+		margin: 2px;		
+		font-weight: 400;		
+		letter-spacing: 2px;
+		transition: all ease 0.1s 0s;
+		-moz-transition: all ease 0.1s 0s;
+		-webkit-transition: all ease 0.1s 0s;
+		cursor:pointer;
+		h1 {
+			margin: 0;
+			font-weight: 500;
+			font-size: $ft-s;
+		}
+		a {
+			margin-top: 0.7rem;
+			display: block;
+		}
+	}
+	.active {
+		border-bottom: 0.3vh solid black;;	
+		filter: blur(0);
+		-webkit-filter: blur(0);
+		
+	}
+	.inactive {
+		padding: 4px 8px 4px 7px;
+		h1 {
+			font-size: $ft-s-s;
+		}
+	}
+	a {
+		font-size: $ft-s-s;
+	}
+}
+#Nav::-webkit-scrollbar {
+	display:none;
+} 
+
+//== DEVICE SCREEN ==//
+/*
+##Device = 대부분의 스마트폰 모바일 기기(세로)
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+	#Nav {
+		padding: 2px 5px;
+		.active {
+			// font-size: 2.8vh;
+		}
+		.inactive {
+			// font-size: 1.5vh;
+		}
+	}
+}
+
+/*
+##Device = 저해상도 태블릿, 모바일(가로)
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+}

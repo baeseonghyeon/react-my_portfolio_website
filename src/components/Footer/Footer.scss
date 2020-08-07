@@ -1,0 +1,24 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 5; 
+	width: 100%;
+	text-align: center;
+	font-size: 1rem!important;
+	margin-bottom: 5px;
+	font-weight: 600;
+	padding-bottom: 0.5rem;
+	.lang-toggle-box {
+		margin-bottom: 0.2rem;
+		.lang-toggle {
+			margin: 0 5px;
+			cursor:pointer;
+		}
+		.lang-toggle:hover {
+			border-bottom: 2px solid black;
+		}
+		.active {
+			border-bottom: 2px solid black
+		}		
+	}
+}
