@@ -35,12 +35,8 @@ function Card(props) {
 					item.movie1 !== ""
 					?
 					<div class="ifram-wrapper">
-						<iframe className="work-video" width="550" height="344" src={item.movie1} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+						<iframe className="work-video" width="550" height="344" src={item.movie1+'?autoplay=1&showinfo=0&loop=1&mute=1'} frameborder="0" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 					</div>
-					// auto play
-					// <iframe className="work-video" width="550" height="315" src={item.movie1+'?autoplay=1'} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-					// <iframe className="work-video" width="550" height="344" src={item.movie1} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> 
-					
 					:
 						item.thumb !== ""
 						?	
@@ -50,7 +46,7 @@ function Card(props) {
 							?
 								<img src={item.thumb} className="work-img" alt="Responsive image"></img>
 							: 
-								"Thumbnail is Empty :-(" 
+								<div className="empty-thumb"><span>Thumbnail is Empty :-(</span></div>
 				}
 {/* Description part*/}
 				<SubInfo
@@ -62,7 +58,6 @@ function Card(props) {
 			{/* <Link to={`/work/${item.id}`}>	
 			<h3 className="mt-3"><span className="f-n-s">{item.id+1})</span>{item.title}<span className="n-ul">, {item.date}</span></h3>
 			</Link> */}
-			
 		</div>
 	);
 }

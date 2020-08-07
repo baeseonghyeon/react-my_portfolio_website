@@ -18,8 +18,8 @@ function Detail({match, Data, uiData}) {
 						{ item.link_mobile !== "" ? <a href={item.link_mobile} target="_blank" rel="noopener noreferrer">Visit the website(Mobile Only)<br></br></a> : null }
 						{ item.link_git !== "" ? <a href={item.link_git} target="_blank" rel="noopener noreferrer">Visit the Github Code<br></br></a> : null }
 						<div className="row mt-5">
-							{ item.movie1 !== "" ? <div className="col-md-6"><iframe className="work-video" width="550" height="550" src={item.movie1} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  : null }
-							{ item.movie2 !== "" ? <div className="col-md-6"><iframe className="work-video" width="550" height="550" src={item.movie2} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  : null }
+							{ item.movie1 !== "" ? <div className="col-md-6"><iframe className="work-video" width="550" height="550" src={item.movie1+'?showinfo=0&loop=1&mute=1'} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  : null }
+							{ item.movie2 !== "" ? <div className="col-md-6"><iframe className="work-video" width="550" height="550" src={item.movie2+'?showinfo=0&loop=1&mute=1'} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  : null }
 						</div>
 						<div className="row my-5">
 							{/* { item.img1 !== "" ? <div className="col-md-6"><iframe className="work-img" src={item.img1}></iframe></div> : null } */}

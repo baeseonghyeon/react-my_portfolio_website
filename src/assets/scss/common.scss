@@ -1,23 +1,15 @@
 @import "./variable.scss";
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-// @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-// @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800&display=swap');
+
 
 
 //== FONT ==//
-// p,a,h1,h2,h3 {font-family: 'Roboto', sans-serif; font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
-// ul,div {font-family: 'Roboto', sans-serif; font-weight: $f-w; letter-spacing: $l-s;}
-
-
 p,a,h1,h2,h3 {font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
 ul,div {font-weight: $f-w; letter-spacing: $l-s;}
 
+// p,a,h1,h2,h3 {font-family: 'Roboto', sans-serif; font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
+// ul,div {font-family: 'Roboto', sans-serif; font-weight: $f-w; letter-spacing: $l-s;}
 
-// p,a,h1,h2,h3 {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
-// ul,div {font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; font-weight: $f-w; letter-spacing: $l-s;}
-// p,a,h1,h2,h3 {font-family: 'Gothic A1', sans-serif; font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
-// ul,div {font-family: 'Gothic A1', sans-serif; font-weight: $f-w; letter-spacing: $l-s;}
 p {
 	line-height: $l-h;
 	text-align: left;
@@ -48,7 +40,6 @@ a:hover {
 ::selection {
 	color: $bg;
 	background-color: $red;
-	// -webkit-text-stroke: 1px $bg;
 }
 ::-moz-selection {
 	color: $bg;
@@ -74,19 +65,11 @@ a:hover {
 // footnote
 .f-n {
 	font-size: 1.5vh;
-    // -webkit-text-stroke: 1px black;
     vertical-align: 8px;
-}
-.f-n::selection {
-	// -webkit-text-stroke: 1px $bg;
 }
 .f-n-s {
 	font-size: 1.2vh;
-    // -webkit-text-stroke: 1px black;
     vertical-align: 8px;
-}
-.f-n-s::selection {
-	// -webkit-text-stroke: 1px $bg;
 }
 .t-underline {
 	text-decoration: underline;
@@ -126,8 +109,8 @@ body {
 	overflow: auto;
 	word-wrap: break-word;
 }
-.mb-80 {
-	margin-bottom: 80px;
+.mb-100 {
+	margin-bottom: 100px;
 }
 .pd-12 {
 	padding: 0 12px;
