@@ -41,7 +41,7 @@ function About(props) {
 						<span dangerouslySetInnerHTML = {{__html: data.stack}}></span>
 					</p>
 				</div>
-				<div className="col-md-3 mb-80 ft-s-s">
+				<div className="col-md-3 pd-b-60 ft-s-s">
 					<p className="mt-4px">{data.footer1}</p>
 					<p>{data.footer2}</p>
 					<p>© 2020 Bae Seonghyeon (github.io)</p>			

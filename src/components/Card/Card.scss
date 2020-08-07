@@ -31,10 +31,10 @@ $trs: all ease 0.3s 0s;
 			height: 0;
 			padding-bottom: 56.25%;
 			display: flex;
-    		justify-content: center;
+			justify-content: center;
 			span {
 				position: absolute;
-				top: 45%;
+				top: 42%;
 			}
 		}
 		.desc-card {
@@ -52,7 +52,7 @@ $trs: all ease 0.3s 0s;
 			margin: auto;
 			box-shadow: 0.5vh 0.5vh 1vh #000000bd;
 			overflow: auto;
-			// opacity: 0;
+			opacity: 0;
 			transition: $trs;
 			-moz-transition: $trs;
 			-webkit-transition: $trs;
@@ -65,7 +65,8 @@ $trs: all ease 0.3s 0s;
 			}
 			a {
 				color: blue;
-    			text-align: left;
+				text-align: left;
+				width: fit-content;
 			}
 			.cate {
 				text-align: center;
