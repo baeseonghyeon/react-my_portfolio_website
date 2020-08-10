@@ -1,5 +1,6 @@
-.work-layout {
+.detail-layout {
 	max-width: 1200px;
+	height: 100vh;
 	margin: auto;
 	text-align: center;
 	overflow: auto;
@@ -8,14 +9,15 @@
 			text-align: center;
 		}
 		padding: 1rem 0;
+		margin-bottom: 5vh;
 	}
 }
 .detail-video-wrapper {
 	position: relative;
 	height: 0;
 	padding-bottom: 100%;
+	margin: 1px 2px;
 }
-
 .detail-video {
 	max-width: 100%;
 	position:absolute;

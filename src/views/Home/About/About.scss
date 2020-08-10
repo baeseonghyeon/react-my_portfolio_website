@@ -28,4 +28,9 @@
 
 /*Device = 저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
+	.about-mid {
+		padding: 0 10px;
+		height: initial;
+   		top: initial;
+	}
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 import Section from '../../components/Section/Section';
@@ -21,7 +21,6 @@ function Home(props) {
 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>}
 			)	
 		);
-
 	}, [props]);
 
 

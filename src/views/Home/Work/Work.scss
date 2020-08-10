@@ -33,4 +33,11 @@
 
 /*Device = 저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
+	.row-px {
+		padding: 0 0 20px;
+		padding-bottom: 30px;
+		width: initial;
+		height: 100%;
+		position: initial;
+	}
 }

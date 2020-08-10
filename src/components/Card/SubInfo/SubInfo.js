@@ -6,15 +6,10 @@ function SubInfo(props) {
 
 	const item = props.item;
 
-	// const onClick = id => {
-	// 	window.location.href='/work/'+id;
-	// }
-
 	return (
 			<div 
 				className="desc-card ft-s-ss"
 				id={"desc-"+item.id}
-				// onClick={() => onClick(item.id)}
 			>
 				<h3 className="title">{item.title}</h3>
 				{ item.position !== "" ? <p className="cate">[{item.cate}] | [{item.position}]</p> : <p className="cate">[{item.cate}]</p> }
