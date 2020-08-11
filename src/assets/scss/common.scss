@@ -1,22 +1,77 @@
 @import "./variable.scss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+//== DarkMode ==//
+body {
+	--bkg-color: #fff;
+	--text-color: #222;
+	--text-color-blue: Blue;
+}
+body.dark-theme {
+	--text-color: #eee;
+	--text-color-blue: #0078ff;
+	--bkg-color: #121212;
+	--bkg-color-2: black;
+	  
+}
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+	body {
+		--text-color: #eee;
+		--text-color-blue: #0078ff;
+		--bkg-color: #121212;
+		--bkg-color-2: black;
+	}
+	body.light-theme {
+		--text-color: #222;
+		--text-color-blue: Blue;
+		--bkg-color: #fff;
+		--bkg-color-2: white;
+	}
+}
+body {
+  background-color: var(--bkg-color);
+}
 
+h1,h2,h3,p,span,div {
+  color: var(--text-color)!important;
+}
+#Nav .active {
+	border-bottom: 2px solid var(--text-color)!important;
+}
+.footer {
+	color: var(--text-color);
+	.lang-toggle-box {
+		.active {
+			border-color: var(--text-color)!important;
+		}
+	}
+	.dark-active {
+		border-bottom: 2px solid var(--text-color)!important;
+	}
+}
+.card-wrapper{
+	.card {
+		background-color: var(--bkg-color-2);
+		.desc-card  {
+			background-color: var(--bkg-color)!important;
+		}
+		.empty-thumb {
+			background-color: var(--bkg-color-2);
+		}
+	}
+} 
 
 //== FONT ==//
 p,a,h1,h2,h3 {font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
 ul,div {font-weight: $f-w; letter-spacing: $l-s;}
-
-// p,a,h1,h2,h3 {font-family: 'Roboto', sans-serif; font-size: $ft-s; font-weight: $f-w; letter-spacing: $l-s;}
-// ul,div {font-family: 'Roboto', sans-serif; font-weight: $f-w; letter-spacing: $l-s;}
-
 p {
 	line-height: $l-h;
 	text-align: left;
 	margin-bottom: 2rem;
 }
 a {
-	color: $bl;
+	color: var(--text-color-blue);
 	text-decoration: underline;
 	line-height: $l-h;
 }
@@ -34,8 +89,7 @@ ul {
 	
 }
 a:hover {
-	color: $bl;
-	// font-weight: bold;
+	color: var(--text-color-blue);
 	text-decoration: none;
 }
 ::selection {
@@ -58,19 +112,20 @@ a:hover {
 		line-height: $l-h-ss;
 	}
 }
-// highlight
-.h-l {
-	background-color: #ffeb37;
-    color: black;
+a {
+	.f-n {
+		color: var(--text-color-blue)!important;
+	}
 }
-// footnote
 .f-n {
 	font-size: 1.3vh;
-    vertical-align: 6px;
+	vertical-align: 6px;
+	-webkit-text-stroke: 0.2px;
 }
 .f-n-s {
 	font-size: 1.2vh;
-    vertical-align: 6px;
+	vertical-align: 6px;
+	-webkit-text-stroke: 0.2px;
 }
 .t-underline {
 	text-decoration: underline;
@@ -81,7 +136,6 @@ body {
 	min-height: 100vh;
 	max-width: 100vw;
 	margin: 0;
-	background-color: $bg;
 	overflow: hidden;
 }
 .container {
@@ -99,14 +153,11 @@ body {
 	z-index: 0;
 	height: calc(100vh - 60px);
     width: 100%;
-	background-color: $bg;
 }
 .view-layout {
 	height: 100%;
 	width: 100%;
 	padding: 80px 33px 0;
-
-	background-color: $bg;
 	overflow: auto;
 	word-wrap: break-word;
 }
@@ -116,28 +167,19 @@ body {
 .pd-12 {
 	padding: 0 12px;
 }
-.mt-4px {
-	// margin-top: 0.5vw;
-}
 
 //== LINE ==//
 .outLine {
-	border: $b-w solid black;
+	border: $b-w solid var(--text-color);
 	padding: 10px;
 	overflow: auto;
     max-height: 95%;
 }
-.outLine-right {
-	border-right: $b-w solid black;
-	padding: 10px;
-}
-
 .bottomLine{
 	display: inline;
 	font-size: $ft-s;
-	border-bottom: $b-w solid black;
+	border-bottom: $b-w solid var(--text-color);
 }
-
 
 //== DEVICE SCREEN ==//
 /*Device = 대부분의 스마트폰 모바일 기기(세로)*/

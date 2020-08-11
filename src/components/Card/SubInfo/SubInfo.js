@@ -16,13 +16,12 @@ function SubInfo(props) {
 				<span>
 					<p className="desc"><span dangerouslySetInnerHTML = {{__html: item.desc}}></span><br></br></p>
 				</span>
-				
 				<span>
 					{ item.link !== "" ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website<br></br></a> : null }
 					{ item.link_mobile !== "" ? <a href={item.link_mobile} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website(Mobile Only)<br></br></a> : null }
 					{ item.link_git !== "" ? <a href={item.link_git} target="_blank" rel="noopener noreferrer" className="d-block">Visit the Github Code<br></br></a> : null }
 					<Link className="more-btn d-block" to={`/work/${item.id}`}>	
-						Read More >
+						Read More →
 					</Link>
 				</span>
 			</div>

@@ -10,8 +10,34 @@ import './Home.scss';
 
 function Home(props) {
 
-	useEffect(() => {
-		// 데이터 업데이트(언어변경)
+	const [sections, setSections] = useState([
+		{
+			id: 0,
+			title: 'Bae Seonghyeon',			
+			view: <About uiData={props.uiData}/>,
+			active: true,
+		},
+		{
+			id: 1,
+			title: 'Works',
+			view: <Work Data={props.Data} uiData={props.uiData}/>,
+			active: false,
+		},
+	])
+
+	const onToggle = id => {
+		setSections(
+			sections.map(section =>
+				section.id === id
+				? 
+					{...section, active: true}
+				: 
+					{...section, active: false}
+			)	
+		);
+	};
+
+	const visibleSections = () => {
 		setSections(
 			sections.map(section =>
 				section.id === 0 
@@ -21,7 +47,8 @@ function Home(props) {
 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>}
 			)	
 		);
-	}, [props]);
+	};
+	 
 
 
 	// useEffect(() => {
@@ -51,32 +78,11 @@ function Home(props) {
 
 	// }, [props]);
 	
-	const [sections, setSections] = useState([
-		{
-			id: 0,
-			title: 'Bae Seonghyeon',			
-			view: <About uiData={props.uiData}/>,
-			active: true,
-		},
-		{
-			id: 1,
-			title: 'Works',
-			view: <Work Data={props.Data} uiData={props.uiData}/>,
-			active: false,
-		},
-	])
+	
 
-	const onToggle = id => {
-		setSections(
-			sections.map(section =>
-				section.id === id
-				? 
-					{...section, active: true}
-				: 
-					{...section, active: false}
-			)	
-		);
-	};
+	useEffect(() => {
+		visibleSections();
+	}, [props]);
 
 	return (
 		<div id="Home">

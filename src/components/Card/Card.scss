@@ -6,9 +6,7 @@ $trs: all ease 0.3s 0s;
 	padding: 0 5px;
 	color: black;
 	height: fit-content;
-
 	a {
-		color: black;
 		h3 {
 			font-size: 2.3vh;
 		}
@@ -26,17 +24,6 @@ $trs: all ease 0.3s 0s;
 		min-height: 150px;
 		display: flex;
 		justify-content: center;
-		.empty-thumb {
-			position: relative;
-			height: 0;
-			padding-bottom: 56.25%;
-			display: flex;
-			justify-content: center;
-			span {
-				position: absolute;
-				top: 42%;
-			}
-		}
 		.desc-card {
 			z-index: 20;
 			padding: 5px 7px;
@@ -64,12 +51,22 @@ $trs: all ease 0.3s 0s;
 				margin-bottom: 0.6rem;
 			}
 			a {
-				color: blue;
 				text-align: left;
 				width: fit-content;
 			}
 			.cate {
 				text-align: center;
+			}
+		}
+		.empty-thumb {
+			position: relative;
+			height: 0;
+			padding-bottom: 56.25%;
+			display: flex;
+			justify-content: center;
+			span {
+				position: absolute;
+				top: 42%;
 			}
 		}
 	}
