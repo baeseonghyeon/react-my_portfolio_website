@@ -1,22 +1,33 @@
-.detail-layout {
-	max-width: 1200px;
+#Detail {
 	height: 100vh;
+    overflow: auto;
+}
+.detail-layout {
 	margin: auto;
 	text-align: center;
-	overflow: auto;
+	padding: 0 5px;
+	.view-layout {
+		padding-top: 80px;
+		padding-bottom: 20px;
+		position: fixed;
+		height: 100%;
+		left: 0;
+	}
 	.container {
 		p {
 			text-align: center;
+			padding: 0 5px;
 		}
 		padding: 1rem 0;
 		margin-bottom: 5vh;
+		max-width: 1200px!important;
 	}
 }
 .detail-video-wrapper {
 	position: relative;
 	height: 0;
 	padding-bottom: 100%;
-	margin: 1px 2px;
+	margin: 1px 0;
 }
 .detail-video {
 	max-width: 100%;
@@ -24,4 +35,7 @@
 	width:100%;
 	height:100%;
 	left: 0;
+}
+.detail-img {
+	max-width: 100%;
 }

@@ -14,15 +14,7 @@ function Card(props) {
 	const onMouseLeave = id => {
 		document.getElementById("desc-"+id).style.opacity=0;
 	}
-
-	// const onClick = id => {
-	// 	if (document.getElementById("desc-"+id).style.opacity == 0) {
-	// 		document.getElementById("desc-"+id).style.opacity= 1;
-	// 	} else {
-	// 		document.getElementById("desc-"+id).style.opacity= 0;
-	// 	}		 
-	// }
-
+	
 	return (
 		<div className="card-wrapper col-md-6">
 			<div 
@@ -54,14 +46,6 @@ function Card(props) {
 				/>
 				
 			</div>
-
-{/* Click btn */}
-			{/* <p class="mobile-btn" onClick={() => onClick(item.id)}>{item.title}, {item.date}</p> */}
-
-{/* Link title*/}			 
-			{/* <Link to={`/work/${item.id}`}>	
-			<h3 className="mt-3"><span className="f-n-s">{item.id+1})</span>{item.title}<span className="n-ul">, {item.date}</span></h3>
-			</Link> */}
 		</div>
 	);
 }

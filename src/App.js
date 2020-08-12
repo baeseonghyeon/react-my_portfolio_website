@@ -75,10 +75,11 @@ function App() {
 
   return (
     <div className="App">
-		{/* onClick={() => props.onToggle(item.id)} */}
+		<Route path="/" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
+		
 		<Route path="/about" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
 		<Route path="/works" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={1}/>} />
-		<Route path="/" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
+		
 		<Route path="/work/:id" render={(match)=> <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
 		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
     </div>

@@ -94,13 +94,13 @@ $trs: all ease 0.3s 0s;
 }
 
 //== DEVICE SCREEN ==//
-/*Device = 대부분의 스마트폰 모바일 기기(세로)*/
+/*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
 	.card {
 		box-shadow: 0.2vh 0.2vh 0.5vh #000000bd!important;
 	}
 }
 
-/*Device = 저해상도 태블릿, 모바일(가로)*/
+/*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
 }

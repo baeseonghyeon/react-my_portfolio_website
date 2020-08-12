@@ -35,7 +35,25 @@ function Home(props) {
 					{...section, active: false}
 			)	
 		);
+		// window.location.hash = id;
 	};
+
+	// const pathVisibleSections = () => {
+	// 	setSections(
+	// 		sections.map(section =>
+	// 			section.id === props.path
+	// 			? 
+	// 				// {...section, active: true}
+	// 				section.id === 0 
+	// 				? 
+	// 					{...section, view: <About uiData={props.uiData}/>, active: true} 
+	// 				: 
+	// 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>, active: true}
+	// 			: 
+	// 				{...section, active: false}
+	// 		)	
+	// 	);
+	// };
 
 	const visibleSections = () => {
 		setSections(
@@ -48,39 +66,9 @@ function Home(props) {
 			)	
 		);
 	};
-	 
-
-
-	// useEffect(() => {
-	// 	// Path 변경
-	// 	setSections(
-	// 		sections.map(section =>
-
-	// 			// 0(about) 1(works)
-	// 			section.id === props.path
-	// 			? 
-	// 				// {...section, active: true}
-					
-	// 				section.id === 0 
-	// 				? 
-	// 					{...section, view: <About uiData={props.uiData}/>, active: true} 
-	// 				: 
-	// 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>, active: false}
-						
-	// 			: 
-	// 				section.id === 0 
-	// 				? 
-	// 					{...section, view: <About uiData={props.uiData}/>, active: false} 
-	// 				: 
-	// 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>, active: true}
-	// 		)	
-	// 	);
-
-	// }, [props]);
-	
-	
 
 	useEffect(() => {
+		// pathVisibleSections();
 		visibleSections();
 	}, [props]);
 

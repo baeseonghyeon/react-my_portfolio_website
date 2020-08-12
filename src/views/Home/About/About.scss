@@ -1,9 +1,8 @@
 .about-mid {
-	padding: 80px 30px 40px;
+	padding: 80px 10px 40px;
     height: 100vh;
     overflow: auto;
     overflow-x: hidden;
-	top: -80px;
 	text-align: center;
 }
 .title-center {
@@ -15,22 +14,35 @@
 	text-align: center;
 	word-break: keep-all;
 }
+.about-right {
+    margin-top: 80px;
+}
 
 //== DEVICE SCREEN ==//
-/*Device = 대부분의 스마트폰 모바일 기기(세로)*/
+/*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
 	.about-mid {
-		padding: 0 10px;
+		padding: 0 20px;
 		height: initial;
    		top: initial;
 	}
+	.about-right {
+		padding: 0 20px;
+		padding-bottom: 60px;
+		margin-top: 10px;
+	}
 }
 
-/*Device = 저해상도 태블릿, 모바일(가로)*/
+/*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
 	.about-mid {
-		padding: 0 10px;
+		padding: 0 20px;
 		height: initial;
    		top: initial;
+	}
+	.about-right {
+		padding: 0 20px;
+		padding-bottom: 60px;
+		margin-top: 10px;
 	}
 }
