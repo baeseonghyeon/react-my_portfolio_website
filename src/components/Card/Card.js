@@ -10,11 +10,13 @@ function Card(props) {
 	
 	const onMouseEnter = id => {
 		document.getElementById("desc-"+id).style.opacity=1;
+		document.getElementById("desc-"+id).style.zIndex=5;
 		document.getElementById("pointer-"+id).style.opacity=0;
 	};
 	
 	const onMouseLeave = id => {
 		document.getElementById("desc-"+id).style.opacity=0;
+		document.getElementById("desc-"+id).style.zIndex=-1;
 	}
 
 	const pointerPosition = ()=> {

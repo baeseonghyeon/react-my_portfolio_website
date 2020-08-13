@@ -15,7 +15,7 @@ $trf: scale( 0.95 );
 }
 .invisible {
 	opacity: 0;
-	z-index: 0;
+	z-index: -1;
 	transform: $trf;
 	-moz-transform: $trf;
 	-webkit-transform: $trf;

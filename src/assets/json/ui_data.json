@@ -8,7 +8,7 @@
 				"history": "<h2 class='bottomLine title-center'>활동이력</h2> ¶ <a href='https://www.facebook.com/groups/dsckorea/permalink/2412772975680417/' target='_blank'>Google Developer Student Clubs Lead ( 2019-2020 )</a> ¶ 올드루키(주) FE 개발 기획 파트장 ( 2019-2020 ) ¶ (주)오픈버스 개발팀 인턴 ( 2019 ) ¶ <a href='http://sahmyook.likelion.org/users/2' target='_blank'>멋쟁이사자처럼 at 삼육대학교 6기, 7기 대표 ( 2018-2019 )</a>",
 				"stack": "<h2 class='bottomLine title-center'>개발스택</h2> ¶ 웹(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, React) ¶ 앱(React Native, Flutter) ¶ 프로그래밍언어(Pyhton, PHP, Ruby, C, Java) ¶ 데이터베이스(MySQL, SQLite, PostgreSQL, MongoDB) ¶ 인프라(Git, AWS, GCP, Docker)",
 				"footer1": "이 웹사이트는 React.js를 통해 개발, Github.io에 배포 되었습니다.",
-				"footer2": "웹사이트 디자인 및 개발 (배성현)",
+				"footer2": "웹사이트 개발 및 디자인 (배성현)",
 				"work_title" : "All works"
 			}
 		]
@@ -22,7 +22,7 @@
 				"history": "<h2 class='bottomLine title-center'>Career</h2> ¶ <a href='https://www.facebook.com/groups/dsckorea/permalink/2412772975680417/' target='_blank'>Google Developer Student Clubs Lead ( 2019-2020 )</a> ¶ 올드루키(주) FE Development Planning Head ( 2019-2020 ) ¶ (주)오픈버스 Development Team Intern ( 2019 ) ¶  <a href='http://sahmyook.likelion.org/users/2' target='_blank'>LIKELION at Sahmyook University 6th, 7th Leader ( 2018-2019 )</a>",
 				"stack": "<h2 class='bottomLine title-center'>Skill</h2> ¶ WEB(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, React) ¶ APP(React Native, Flutter) ¶ LANGUAGE(Pyhton, PHP, Ruby, C, Java) ¶ DATABASE(MySQL, SQLite, PostgreSQL, MongoDB) ¶ INFRA(Git, AWS, GCP, Docker)",
 				"footer1": "This website was developed using React.js and Deployed on Github.io",
-				"footer2": "Website designed and developed by Bae Seonghyeon",
+				"footer2": "Website developed and designed by Bae Seonghyeon",
 				"work_title" : "All works"
 			}
 		]

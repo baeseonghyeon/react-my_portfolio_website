@@ -16,16 +16,16 @@ body.dark-theme {
 }
 @media (prefers-color-scheme: dark) {
 	body {
-		--text-color: #eee;
-		--text-color-blue: #0078ff;
 		--bkg-color: #121212;
 		--bkg-color-2: black;
+		--text-color: #eee;
+		--text-color-blue: #0078ff;
 	}
 	body.light-theme {
-		--text-color: #222;
-		--text-color-blue: Blue;
 		--bkg-color: #fff;
 		--bkg-color-2: white;
+		--text-color: #222;
+		--text-color-blue: Blue;
 	}
 }
 body,h1,h2,h3,p,span,div {
@@ -86,7 +86,7 @@ body {
 	height: fit-content;
 }
 .layout {
-	z-index: 0;
+	// z-index: 0;
 	width: 100%;
 }
 .view-layout {
@@ -181,6 +181,7 @@ a {
 	overflow: auto;
 	max-height: 95%;
 	margin-top: 80px;
+	// word-break: break-all;
 }
 .bottomLine{
 	display: inline;

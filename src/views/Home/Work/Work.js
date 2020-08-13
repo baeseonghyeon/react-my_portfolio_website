@@ -23,8 +23,8 @@ function Work(props) {
 					</div>
 				</div>
 
-				<div className="col-md-9">
-					<div className="row row-px">
+				<div className="col-md-9 scroll-col-md-9">
+					<div className="row scroll-row">
 						{data.slice(0).reverse().map((item) => {
 							return (
 								<Card

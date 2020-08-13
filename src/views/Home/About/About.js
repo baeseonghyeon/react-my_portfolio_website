@@ -33,13 +33,13 @@ function About(props) {
 					</div>
 				</div>
 				<div className="col-md-6 about-mid">
-					<p>
+					<p className="about-align-left">
 						<span dangerouslySetInnerHTML = {{__html: data.desc}}></span>		
 					</p>
-					<p className="about-center">
+					<p className="about-align-center">
 						<span dangerouslySetInnerHTML = {{__html: data.history}}></span>
 					</p>
-					<p className="about-center">
+					<p className="about-align-center">
 						<span dangerouslySetInnerHTML = {{__html: data.stack}}></span>
 					</p>
 				</div>
