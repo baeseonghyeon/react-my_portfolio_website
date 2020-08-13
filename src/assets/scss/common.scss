@@ -92,8 +92,8 @@ body {
 .view-layout {
 	height: 100%;
 	width: 100%;
-	overflow: auto;
-	overflow-x: hidden;
+	// overflow: auto;
+	overflow: hidden;
 	word-wrap: break-word;
 }
 .pd-12 {
@@ -161,12 +161,12 @@ a {
 	}
 }
 .f-n {
-	font-size: 1.3vh;
+	font-size: .65rem;
 	vertical-align: 6px;
 	-webkit-text-stroke: 0.2px;
 }
 .f-n-s {
-	font-size: 1.2vh;
+	font-size: .5rem;
 	vertical-align: 6px;
 	-webkit-text-stroke: 0.2px;
 }
@@ -193,6 +193,9 @@ a {
 @media (min-width: 320px) and (max-width: 480px) {
 	.view-layout {
 		padding: 0 7px;
+		overflow: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
 	}
 }
 
@@ -200,5 +203,8 @@ a {
 @media (min-width: 481px) and (max-width: 767px) {
 	.view-layout {
 		padding: 0 7px;
+		overflow: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
 	}
 }

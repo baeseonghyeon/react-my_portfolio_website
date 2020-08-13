@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {useEffect}  from 'react';
 // import { Link } from 'react-router-dom';
 import './Card.scss';
 import SubInfo from './SubInfo/SubInfo';
-
+// import Typewriter from 'typewriter-effect';
+ 
 function Card(props) {
 
 	const item = props.item;
-
+	
 	const onMouseEnter = id => {
 		document.getElementById("desc-"+id).style.opacity=1;
+		document.getElementById("pointer-"+id).style.opacity=0;
 	};
 	
 	const onMouseLeave = id => {
 		document.getElementById("desc-"+id).style.opacity=0;
 	}
-	
+
+	const pointerPosition = ()=> {
+		let pointer = document.getElementById("pointer-"+item.id);
+		let parent = document.getElementById("work-"+item.id);
+		pointer.style.left = Math.random() * (parent.offsetWidth - pointer.offsetWidth)+'px';
+		pointer.style.top = Math.random() * (parent.offsetHeight - pointer.offsetHeight)+'px';
+	};
+
+	useEffect(() => {
+		pointerPosition();
+	}, [props]);
+
 	return (
 		<div className="card-wrapper col-md-6">
 			<div 
@@ -23,6 +36,7 @@ function Card(props) {
 				onMouseEnter={() => onMouseEnter(item.id)}
 				onMouseLeave={() => onMouseLeave(item.id)}
 			>
+				<span class="pointer" id={"pointer-"+ item.id}></span>
 				{ 
 					item.movie1 !== ""
 					?
@@ -38,7 +52,18 @@ function Card(props) {
 							?
 								<img src={item.thumb} className="work-img" alt={item.title}></img>
 							: 
-								<div className="empty-thumb"><span>Thumbnail is Empty :-(</span></div>
+								<div className="empty-thumb">
+									<span>
+										{/* <Typewriter
+											options={{
+											strings: ['Thumbnail is Empty :-('],
+											autoStart: true,
+											loop: true,
+											}}
+										/> */}
+										Thumbnail is Empty :-(
+									</span>
+								</div>					  
 				}
 {/* Description part*/}
 				<SubInfo

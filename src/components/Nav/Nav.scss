@@ -1,7 +1,7 @@
 @import "../../assets/scss/variable";
 
 #Nav {
-	z-index: 1;
+	z-index: 10;
 	position: fixed;
 	top: 6px;
 	padding: 5px 15px;
@@ -38,7 +38,11 @@
 		padding: 4px 8px 4px 7px;
 		h1 {
 			font-size: $ft-s-s;
-		}
+		}.visibleBorderLeftRight {
+    display: inline-block;
+    color: hsl(222, 25%, 14%);
+    position: relative;
+}
 	}
 	a {
 		font-size: $ft-s-s;
