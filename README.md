@@ -1,12 +1,16 @@
 # Bae SeongHyeon 배성현(Website)
 
 **이 웹사이트는 React.js를 통해 개발, Github.io에 배포 되었습니다.**
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+[Visit the website](https://baeseonghyeon.github.io/)
+
+(This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).)
 
 - 웹사이트 개발 및 디자인 (배성현)
 - © 2020 Bae Seonghyeon (github.io)
 
 ***
+# Etc.
 ## Available Scripts
 
 In the project directory, you can run:
