@@ -200,13 +200,6 @@ a {
     border-bottom: $b-w solid var(--text-color);
 }
 
-//== SCROLL ==//
-// ::-webkit-scrollbar{width: 5px; position: absolute;}
-// ::-webkit-scrollbar-thumb { background-color: var(--text-color);}
-// ::-webkit-scrollbar-thumb:hover {background: var(--text-color); height: 1px;}
-// ::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {width:16px; height:16px;background:#f1ef79;} 
-// ::-ms-overflow-style {overflow: auto;}
-
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
