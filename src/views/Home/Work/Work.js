@@ -11,7 +11,6 @@ function Work(props) {
 	return (
 		<div className="view-layout container">
 			<div className="row">
-{/* Work All */}
 				<div className="col-md-3">
 					<div className="mb-0 outLine">
 						<h2 className="bottomLine">[{uiData.work_title}]</h2>
@@ -34,7 +33,6 @@ function Work(props) {
 								/>
 							);
 						})}
-						{/* </span> */}
 					</div>
 				</div>
 			</div>
@@ -42,6 +40,4 @@ function Work(props) {
 	);
 }
 
-export default Work;
-
-// /
+export default React.memo(Work);

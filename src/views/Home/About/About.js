@@ -10,7 +10,7 @@ function About(props) {
 
 	return (
 		<div className="view-layout container">
-			<div className="row">
+			<div className="row" id="about-row">
 				<div className="col-md-3">
 					<div className="outLine">
 						<p>
@@ -23,11 +23,11 @@ function About(props) {
 							<li> 
 								<a target="_blank" href="https://github.com/baeseonghyeon" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /> Github</a>
 							</li>
-							<li>
-								<a target="_blank" href="https://www.instagram.com/baeshash/" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /> Instagram</a>
-							</li>
 							<li> 
 								<a target="_blank" href="https://www.linkedin.com/in/%EC%84%B1%ED%98%84-%EB%B0%B0-abb1441a4/" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin}/> Linkedin</a>
+							</li>
+							<li>
+								<a target="_blank" href="https://www.instagram.com/baeshash/" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /> Instagram</a>
 							</li>
 						</ul>
 					</div>
@@ -53,6 +53,6 @@ function About(props) {
 	);
 }
 
-export default About;
+export default React.memo(About);
 
 

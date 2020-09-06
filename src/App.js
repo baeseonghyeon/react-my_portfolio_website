@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Route } from 'react-router-dom';
 
 import Footer from './components/Footer/Footer'
@@ -42,7 +42,8 @@ function App() {
 	const [darkState, setDarkState] = useState(['']);
 	
 	// os ui-mode check
-	const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+	// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+	const prefersDarkScheme = useMemo(() => window.matchMedia("(prefers-color-scheme: dark)"), ["(prefers-color-scheme: dark)"]);
 
 	const uiDarkMode = () => {
 		if (prefersDarkScheme.matches) {
@@ -76,10 +77,6 @@ function App() {
   return (
     <div className="App">
 		<Route path="/" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
-		
-		<Route path="/about" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
-		<Route path="/works" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={1}/>} />
-
 		<Route path="/work/:id" render={(match)=> <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
 		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
     </div>

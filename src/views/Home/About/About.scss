@@ -14,14 +14,22 @@
 	width: fit-content;
 	margin: auto;
 }
-.about-align-left {
-	// word-break: break-all;
-}
 .about-align-center {
 	text-align: center;
 	word-break: keep-all;
 }
-
+#notice {
+	opacity: 0;
+    position: absolute;
+    background: white;
+    border: 1px solid black;
+    bottom: 36px;
+	text-align: center;
+	padding: 3px;
+	p {
+		margin: 0;
+	}
+}
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/

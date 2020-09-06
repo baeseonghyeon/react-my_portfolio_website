@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Route } from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 import Section from '../../components/Section/Section';
@@ -35,40 +34,43 @@ function Home(props) {
 					{...section, active: false}
 			)	
 		);
-		// window.location.hash = id;
-	};
 
-	// const pathVisibleSections = () => {
-	// 	setSections(
-	// 		sections.map(section =>
-	// 			section.id === props.path
-	// 			? 
-	// 				// {...section, active: true}
-	// 				section.id === 0 
-	// 				? 
-	// 					{...section, view: <About uiData={props.uiData}/>, active: true} 
-	// 				: 
-	// 					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>, active: true}
-	// 			: 
-	// 				{...section, active: false}
-	// 		)	
-	// 	);
-	// };
+		id === 0
+		? 
+			window.location.hash = 'about'
+		: 
+			window.location.hash = 'works'
+	};
 
 	const visibleSections = () => {
 		setSections(
 			sections.map(section =>
-				section.id === 0 
+				window.location.hash === '#about'
 				? 
-					{...section, view: <About uiData={props.uiData}/>} 
-				: 
-					{...section, view: <Work Data={props.Data} uiData={props.uiData}/>}
+					section.id === 0
+					? 
+						{...section, view: <About uiData={props.uiData}/>, active: true} 
+					: 
+						{...section, active: false}		
+				:	
+					window.location.hash === '#works'	
+					?
+						section.id === 1
+						? 
+							{...section, view: <Work Data={props.Data} uiData={props.uiData}/>, active: true} 
+						: 
+							{...section, active: false}		
+					:
+						section.id === 0
+						? 
+							{...section, view: <About uiData={props.uiData}/>, active: true} 
+						: 
+							{...section, active: false}	
 			)	
 		);
 	};
 
 	useEffect(() => {
-		// pathVisibleSections();
 		visibleSections();
 	}, [props]);
 
