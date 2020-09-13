@@ -1,14 +1,17 @@
 import React from 'react';
-import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import "./About.scss"
+import { faGithub, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Nav from "../../../components/Nav/Nav";
+import "./About.scss"
 
 function About(props) {
 
 	const data = props.uiData.home[0];
 
 	return (
+		<>
+		<Nav />
 		<div className="view-layout container">
 			<div className="row" id="about-row">
 				<div className="col-md-3">
@@ -50,6 +53,7 @@ function About(props) {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 }
 

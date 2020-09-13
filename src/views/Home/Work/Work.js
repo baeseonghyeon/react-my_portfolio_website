@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import Card from '../../../components/Card/Card';
+import Nav from "../../../components/Nav/Nav";
 import './Work.scss'
 
 function Work(props) {
@@ -9,6 +11,8 @@ function Work(props) {
 	const data = props.Data.data;
 
 	return (
+		<>
+		<Nav />
 		<div className="view-layout container">
 			<div className="row">
 				<div className="col-md-3">
@@ -16,7 +20,7 @@ function Work(props) {
 						<h2 className="bottomLine">[{uiData.work_title}]</h2>
 						{data.map((item) => {
 							return (
-							<span className="mx-2" key={item.id}><Link to={`/work/${item.id}`}><span className="f-n">[{item.id+1}]</span> {item.title} ( {item.date} ) [{item.cate}]</Link></span>
+							<span className="mx-2" key={item.id}><Link to={`/works/${item.id}`}><span className="f-n">[{item.id+1}]</span> {item.title} ( {item.date} ) [{item.cate}]</Link></span>
 							);
 						})}
 					</div>
@@ -37,6 +41,7 @@ function Work(props) {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 }
 

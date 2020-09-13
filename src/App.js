@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Route } from 'react-router-dom';
-
+import { Route, Switch } from 'react-router-dom';
+// components
 import Footer from './components/Footer/Footer'
 import Home from './views/Home/Home'
+import About from './views/Home/About/About';
+import Work from './views/Home/Work/Work';
 import Detail from './views/Detail/Detail'
+import NotFound from './views/NotFound/NotFound'
+// data
 import arrayData from './assets/json/data.json'
 import uiData from './assets/json/ui_data.json'
 
 function App() {
-
 // Language setting
 	// KR 한국어
 	const krUiData = uiData[0];
@@ -76,9 +79,14 @@ function App() {
 
   return (
     <div className="App">
-		<Route path="/" exact={true} render={()=> <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
-		<Route path="/work/:id" render={(match)=> <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
-		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
+	<Switch>
+		<Route path="/" exact={true} render={() => <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
+		<Route path="/about" exact={true} render={() => <About uiData={langs[0].uidata}/>} />
+		<Route path="/works" exact={true} render={() => <Work Data={langs[0].data} uiData={langs[0].uidata}/>} />
+		<Route path="/works/:id" render={(match) => <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
+		<Route path="*" component={NotFound} />
+	</Switch>
+	<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
     </div>
   );
 }

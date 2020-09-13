@@ -1,7 +1,7 @@
 @import "../../assets/scss/variable";
 
 #Nav {
-	z-index: 10;
+	z-index: 15;
 	position: fixed;
 	top: 6px;
 	padding: 5px 15px;
@@ -16,11 +16,12 @@
 	.nav-toggle {	
 		margin: 2px;		
 		font-weight: 400;		
-		letter-spacing: 2px;
 		transition: all ease 0.1s 0s;
 		-moz-transition: all ease 0.1s 0s;
 		-webkit-transition: all ease 0.1s 0s;
-		cursor:pointer;
+		text-decoration: none;
+		padding: 4px 8px 4px 7px;
+		font-weight: 500;
 		h1 {
 			margin: 0;
 			font-weight: 500;
@@ -33,19 +34,12 @@
 	}
 	.active {
 		border-bottom: 2px solid black;	
-	}
-	.inactive {
-		padding: 4px 8px 4px 7px;
-		h1 {
-			font-size: $ft-s-s;
-		}.visibleBorderLeftRight {
-    display: inline-block;
-    color: hsl(222, 25%, 14%);
-    position: relative;
-}
-	}
-	a {
-		font-size: $ft-s-s;
+		font-size: 1.4rem;
+		line-height: 1.2;
+		padding: 0;
+		transition: all ease 0.1s 0s;
+		-moz-transition: all ease 0.1s 0s;
+		-webkit-transition: all ease 0.1s 0s;
 	}
 }
 #Nav::-webkit-scrollbar {

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 
-import "./Card.scss"
-import SubInfo from "./SubInfo/SubInfo"
+import "./Card.scss";
+import DesCard from "./DesCard/DesCard";
 
 function Card(props) {
     const item = props.item
@@ -73,10 +73,10 @@ function Card(props) {
                     </div>
                 )}
                 {/* Description part */}
-                <SubInfo item={item} />
+                <DesCard item={item} />
             </div>
         </div>
     )
 }
 
-export default Card
+export default React.memo(Card);

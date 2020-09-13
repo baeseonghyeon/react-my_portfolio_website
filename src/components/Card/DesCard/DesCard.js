@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function SubInfo(props) {
+function DesCard(props) {
 
 	const item = props.item;
 
@@ -19,7 +19,7 @@ function SubInfo(props) {
 					{ item.link !== "" ? <a href={item.link} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website<br></br></a> : null }
 					{ item.link_mobile !== "" ? <a href={item.link_mobile} target="_blank" rel="noopener noreferrer" className="d-block">Visit the website(Mobile Only)<br></br></a> : null }
 					{ item.link_git !== "" ? <a href={item.link_git} target="_blank" rel="noopener noreferrer" className="d-block">Visit the Github Code<br></br></a> : null }
-					<Link className="more-btn d-block" to={`/work/${item.id}`}>	
+					<Link className="more-btn d-block" to={`/works/${item.id}`}>	
 						Read More →
 					</Link>
 				</span>
@@ -27,4 +27,4 @@ function SubInfo(props) {
 	)
 };
 
-export default SubInfo;
+export default React.memo(DesCard);

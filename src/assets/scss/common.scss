@@ -38,6 +38,11 @@ body {
 h1,h2,h3,p,span,div {
     color: var(--text-color) !important;
 }
+#Nav {
+    .nav-toggle {
+        color: var(--text-color);
+    }
+}
 #Nav .active {
     border-bottom: 2px solid var(--text-color) !important;
 }
