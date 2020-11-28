@@ -12,7 +12,7 @@
 	overflow: auto;
 	-ms-overflow-style: none; 
 	scrollbar-width: none;
-	min-height: 65px;
+	// min-height: 65px;
 	.nav-toggle {	
 		margin: 2px;		
 		font-weight: 400;		
@@ -22,10 +22,11 @@
 		text-decoration: none;
 		padding: 4px 8px 4px 7px;
 		font-weight: 500;
+		color: var(--text-color);
 		h1 {
 			margin: 0;
 			font-weight: 500;
-			font-size: 1.4rem;
+			font-size: $ft-s-title;
 		}
 		a {
 			margin-top: 0.7rem;
@@ -33,8 +34,8 @@
 		}
 	}
 	.active {
-		border-bottom: 2px solid black;	
-		font-size: 1.4rem;
+		border-bottom: $b-w solid var(--text-color) !important;
+		font-size: $ft-s-title;
 		line-height: 1.2;
 		padding: 0;
 		transition: all ease 0.1s 0s;

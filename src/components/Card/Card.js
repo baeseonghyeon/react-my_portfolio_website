@@ -26,6 +26,11 @@ function Card(props) {
             Math.random() * (parent.offsetHeight - pointer.offsetHeight) + "px"
     }
 
+    const onClickIcon = (id) => {
+        document.getElementById("desc-" + id).style.opacity = 1
+        document.getElementById("desc-" + id).style.zIndex = 1
+    }
+
     useEffect(() => {
         pointerPosition()
     }, [props])
@@ -38,7 +43,10 @@ function Card(props) {
                 onMouseEnter={() => onMouseEnter(item.id)}
                 onMouseLeave={() => onMouseLeave(item.id)}
             >
-                <span className="pointer" id={"pointer-" + item.id}></span>
+                <span 
+                    className="pointer" id={"pointer-" + item.id}
+                    onClick={() => onClickIcon(item.id)}
+                ></span>
                 {item.movie1 !== "" ? (
                     <div className="ifram-wrapper">
                         <iframe

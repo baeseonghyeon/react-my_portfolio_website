@@ -1,32 +1,6 @@
 @import "./variable.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-//== DarkMode ==//
-body {
-    --bkg-color: #fff;
-    --text-color: #222;
-    --text-color-blue: Blue;
-}
-body.dark-theme {
-    --text-color: #eee;
-    --text-color-blue: #0078ff;
-    --bkg-color: #121212;
-    --bkg-color-2: black;
-}
-@media (prefers-color-scheme: dark) {
-    body {
-        --bkg-color: #121212;
-        --bkg-color-2: black;
-        --text-color: #eee;
-        --text-color-blue: #0078ff;
-    }
-    body.light-theme {
-        --bkg-color: #fff;
-        --bkg-color-2: white;
-        --text-color: #222;
-        --text-color-blue: Blue;
-    }
-}
 body,h1,h2,h3,p,span,div {
     transition: all ease 0.2s 0s;
     -moz-transition: all ease 0.2s 0s;
@@ -37,41 +11,6 @@ body {
 }
 h1,h2,h3,p,span,div {
     color: var(--text-color) !important;
-}
-#Nav {
-    .nav-toggle {
-        color: var(--text-color);
-    }
-}
-#Nav .active {
-    border-bottom: 2px solid var(--text-color) !important;
-}
-.footer {
-    color: var(--text-color);
-    svg {
-        stroke: var(--text-color);
-        margin-bottom: 1px;
-        width: 20px;
-    }
-    .lang-toggle-box {
-        .active {
-            border-color: var(--text-color) !important;
-        }
-    }
-    .dark-active {
-        border-bottom: 2px solid var(--text-color) !important;
-    }
-}
-.card-wrapper {
-    .card {
-        background-color: var(--bkg-color-2);
-        .desc-card {
-            background-color: var(--bkg-color) !important;
-        }
-        .empty-thumb {
-            background-color: var(--bkg-color-2);
-        }
-    }
 }
 
 //== LAYOUT ==//
@@ -95,15 +34,14 @@ body {
     height: fit-content;
 }
 .layout {
-    // z-index: 0;
     width: 100%;
 }
 .view-layout {
     height: 100%;
     width: 100%;
-    // overflow: auto;
     overflow: hidden;
     word-wrap: break-word;
+    position: fixed;
 }
 .pd-12 {
     padding: 0 12px;
@@ -196,8 +134,8 @@ a {
     padding: 10px;
     overflow: auto;
     max-height: 95%;
-    margin-top: 80px;
-    // word-break: break-all;
+    // margin-top: 80px;
+    margin-top: 6vh;
 }
 .bottomLine {
     display: inline;

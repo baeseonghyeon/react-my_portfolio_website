@@ -1,25 +1,59 @@
-// colorset
+//== DarkMode ==//
+body {
+    --bkg-color: #fff;
+    --text-color: #222;
+    --text-color-blue: Blue;
+}
+body.dark-theme {
+	--bkg-color: #121212;
+    --bkg-color-2: black;
+    --text-color: #eee;
+    --text-color-blue: #0078ff;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        --bkg-color: #121212;
+        --bkg-color-2: black;
+        --text-color: #eee;
+        --text-color-blue: #0078ff;
+    }
+    body.light-theme {
+        --bkg-color: #fff;
+        --bkg-color-2: white;
+        --text-color: #222;
+        --text-color-blue: Blue;
+    }
+}
+
+//== ColorSet ==//
 	$bl : blue;
 	$red : #e10000;
 	$red2 : #e34841;
 	$bg : white;
 
-// font-size
-	$ft-s : initial;
-	$ft-s-s : initial;
-	$ft-s-ss : initial;
+//== Font-Size ==//
+	// $ft-s : initial;
+	// $ft-s-s : initial;
+	// $ft-s-ss : initial;
+	// $ft-s-h1 : 1.4rem;
 
-// letter-spacing
+	$ft-s : 1.6vh;
+	$ft-s-s : 1.6vh;
+	$ft-s-ss : 1.6vh;
+	$ft-s-title : 2.2vh;
+
+//== Letter-Spacing ==//
 	$l-s : initial;
 
-// line-height
+//== Line-Height ==//
 	$l-h : 1.55;
 	$l-h-s : 1.55;
 	$l-h-ss : 1.55;
 
-// font-weight
+//== Font-Weight ==//
 	$f-w : 500;
 
-// border width
-	$b-w : 2px;
+//== Border-Width ==//
+	// $b-w : 2px;
+	$b-w : 1px;
 
