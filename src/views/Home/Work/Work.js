@@ -20,7 +20,7 @@ function Work(props) {
 						<h2 className="bottomLine">[{uiData.work_title}]</h2>
 						{data.map((item) => {
 							return (
-							<span className="mx-2" key={item.id}><Link to={`/works/${item.id}`}><span className="f-n">[{item.id+1}]</span> {item.title} ( {item.date} ) [{item.cate}]</Link></span>
+							<span className="mx-2" key={item.id}><Link to={`/works/${item.id}`} className="text-decoration-none"><span className="f-n">[{item.id+1}]</span> <span className="work-list">{item.title} ( {item.date} ) [{item.cate}]</span></Link></span>
 							);
 						})}
 					</div>
