@@ -9,7 +9,18 @@ function Footer(props) {
 
     return (
         <div className="footer">
-            <div className="mb-1">
+            <span className="copy-right">
+                ©
+                <a
+                    href="https://analytics.google.com/analytics/web/?authuser=1#/report-home/a174985234w242601509p226122997"
+                    target="blank"
+                    rel="noopener noreferrer"
+                >
+                    {" "}
+                </a>
+                2020 Bae Seonghyeon (github.io)
+            </span>
+            <span className="toggle-box">
                 <span className="dark-toggle-box">
                     <span
                         className={
@@ -61,18 +72,7 @@ function Footer(props) {
                         </span>
                     )
                 })}
-            </div>
-            <div>
-                ©
-                <a
-                    href="https://analytics.google.com/analytics/web/?authuser=1#/report-home/a174985234w242601509p226122997"
-                    target="blank"
-                    rel="noopener noreferrer"
-                >
-                    {" "}
-                </a>
-                Bae Seonghyeon (github.io)
-            </div>
+            </span>
         </div>
     )
 }

@@ -3,8 +3,7 @@
 #Nav {
 	z-index: 15;
 	position: fixed;
-	top: 6px;
-	padding: 5px 15px;
+	padding: 7px 12px 8px 12px;
 	display: flex;
 	align-items: center;
 	line-height: 1;
@@ -12,22 +11,16 @@
 	overflow: auto;
 	-ms-overflow-style: none; 
 	scrollbar-width: none;
-	// min-height: 65px;
+	border-bottom: 1px solid var(--border-color);
+	background-color: var(--bkg-color);
+	opacity: 0.95;
 	.nav-toggle {	
-		margin: 2px;		
-		font-weight: 400;		
+		margin: 0px 15px 0px 3px;
 		transition: all ease 0.1s 0s;
 		-moz-transition: all ease 0.1s 0s;
 		-webkit-transition: all ease 0.1s 0s;
 		text-decoration: none;
-		padding: 4px 8px 4px 7px;
-		font-weight: 500;
 		color: var(--text-color);
-		h1 {
-			margin: 0;
-			font-weight: 500;
-			font-size: $ft-s-title;
-		}
 		a {
 			margin-top: 0.7rem;
 			display: block;
@@ -35,12 +28,13 @@
 	}
 	.active {
 		border-bottom: $b-w solid var(--text-color) !important;
-		font-size: $ft-s-title;
+		font-weight: bold;
 		line-height: 1.2;
-		padding: 0;
 		transition: all ease 0.1s 0s;
 		-moz-transition: all ease 0.1s 0s;
 		-webkit-transition: all ease 0.1s 0s;
+		font-family: 'IBMPlexSansKR-Bold';
+		letter-spacing: $l-s-bold;
 	}
 }
 #Nav::-webkit-scrollbar {
@@ -51,7 +45,7 @@
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
 	#Nav {
-		padding: 2px 5px;
+		padding: 7px 8px 8px 8px;
 	}
 }
 

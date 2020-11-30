@@ -6,7 +6,7 @@
                 "intro": "배성현은 프론트엔드 개발자, 웹/앱 개발자, UI개발자, UI/UX디자이너, IT서비스 기획자, 프로덕트 매니저입니다.",
                 "desc": "디자이너의 시선으로 기획하며, 기획자의 생각으로 개발합니다. 심미적으로 아름답고 기능적으로 효과적인 서비스를 만드는 데 관심이 있습니다. 대한민국에 거주하며 삼육대학교에서 경영정보학과를 전공했습니다.",
                 "history": "<h2 class='bottomLine title-center'>활동이력</h2> ¶ <a href='https://google.dev/badges/community/dsc/2019/lead?fbclid=IwAR0bSPj_62TH30Xa5ZbkIfVdjsXLmX9V_yt2oei95m-lfQqTz3veIk5Ry9A' target='_blank'>Google Developer Student Clubs Lead ( 2019-2020 )</a> ¶ <a href='https://www.dhnews.co.kr/news/articleView.html?idxno=116160' target='_blank'>올드루키(주) FE 개발 기획 파트장 ( 2019-2020 )</a> ¶ <a href='http://www.openbus.me/index.php' target='_blank'>(주)오픈버스 개발팀 인턴 ( 2018-2019 )</a> ¶ <a href='http://sahmyook.likelion.org/users/2' target='_blank'>멋쟁이사자처럼 at 삼육대학교 6기, 7기 대표 ( 2018-2019 )</a>",
-                "stack": "<h2 class='bottomLine title-center'>개발스택</h2> ¶ 웹(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, React) ¶ 앱(React Native, Flutter) ¶ 프로그래밍언어(Pyhton, PHP, Ruby, C, Java) ¶ 데이터베이스(MySQL, SQLite, PostgreSQL, MongoDB) ¶ 인프라(Git, AWS, GCP, Docker)",
+                "stack": "<h2 class='bottomLine title-center'>개발스택</h2> ¶ 웹(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, CodeIgniter, React) ¶ 앱(React Native, Flutter) ¶ 프로그래밍언어(Pyhton, PHP, Ruby, C, Java) ¶ 데이터베이스(MySQL, SQLite, PostgreSQL, MongoDB) ¶ 인프라(Git, AWS, GCP, Docker)",
                 "footer1": "이 웹사이트는 React.js를 통해 개발, Github.io에 배포 되었습니다.",
                 "footer2": "웹사이트 개발 및 디자인 (배성현)",
                 "work_title": "All works"
@@ -20,7 +20,7 @@
                 "intro": "Bae Seonghyeon is a Front-end Developer, WEB/APP Developer, UI Developer, UI/UX Designer, IT Service Planner, Product Manager.",
                 "desc": "I plan with the eyes of the designer and develop with the idea of the planner. I'm interested in creating a service that is aesthetically beautiful and functionally effective. I live in Korea and majored in Management Information Systems at Sahmyook University.",
                 "history": "<h2 class='bottomLine title-center'>Career</h2> ¶ <a href='https://google.dev/badges/community/dsc/2019/lead?fbclid=IwAR0bSPj_62TH30Xa5ZbkIfVdjsXLmX9V_yt2oei95m-lfQqTz3veIk5Ry9A' target='_blank'>Google Developer Student Clubs Lead ( 2019-2020 )</a> ¶ <a href='https://www.dhnews.co.kr/news/articleView.html?idxno=116160' target='_blank'>OldRookie Corp FE Development Planning Head ( 2019-2020 )</a> ¶ <a href='http://www.openbus.me/index.php' target='_blank'>OPENBUS Development Team Intern ( 2018-2019 )</a> ¶ <a href='http://sahmyook.likelion.org/users/2' target='_blank'>LIKELION at Sahmyook University 6th, 7th Leader ( 2018-2019 )</a>",
-                "stack": "<h2 class='bottomLine title-center'>Skill</h2> ¶ WEB(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, React) ¶ APP(React Native, Flutter) ¶ LANGUAGE(Pyhton, PHP, Ruby, C, Java) ¶ DATABASE(MySQL, SQLite, PostgreSQL, MongoDB) ¶ INFRA(Git, AWS, GCP, Docker)",
+                "stack": "<h2 class='bottomLine title-center'>Skill</h2> ¶ WEB(HTML5, CSS3, SCSS, JavaScript, Django, Ruby on Rails, CodeIgniter, React) ¶ APP(React Native, Flutter) ¶ LANGUAGE(Pyhton, PHP, Ruby, C, Java) ¶ DATABASE(MySQL, SQLite, PostgreSQL, MongoDB) ¶ INFRA(Git, AWS, GCP, Docker)",
                 "footer1": "This website was developed using React.js and Deployed on Github.io",
                 "footer2": "Website developed and designed by Bae Seonghyeon",
                 "work_title": "All works"

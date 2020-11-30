@@ -15,7 +15,7 @@ function About(props) {
 		<div className="view-layout container">
 			<div className="row" id="about-row">
 				<div className="col-md-3">
-					<div className="outLine">
+					<div className="outLine mb-3">
 						<p>
 							<span dangerouslySetInnerHTML = {{__html: data.intro}}></span>
 						</p>
@@ -47,9 +47,8 @@ function About(props) {
 					</p>
 				</div>
 				<div className="col-md-3 about-right">
-					<p className="mt-4px">{data.footer1}</p>
+					<p>{data.footer1}</p>
 					<p>{data.footer2}</p>
-					<p>© 2020 Bae Seonghyeon (github.io)</p>			
 				</div>
 			</div>
 		</div>

@@ -1,3 +1,5 @@
+@import "../../assets/scss/variable.scss";
+
 #Detail {
 	height: 100vh;
     overflow: auto;
@@ -17,18 +19,25 @@
 			width: 100%;
 			overflow: auto;
 			padding: 80px 5px 20px;
+			padding: 35px 5px 20px;
 		}
 	}
 	.container {
+		h1 {
+			margin: 0;
+			font-weight: bold;
+			font-size: $ft-s-title;
+			font-family: 'IBMPlexSansKR-Bold';
+			letter-spacing: $l-s-bold;
+		}
 		.desc {
 			padding: 0 5px;
-			margin-bottom: 40px;
+			margin-bottom: 20px;
 			p {
 				text-align: center;
 			}
 		}
-		padding: 1rem 0;
-		margin-bottom: 5vh;
+		padding: 0.8rem 0;
 		max-width: 1200px!important;
 	}
 }
@@ -36,7 +45,7 @@
 	position: relative;
 	height: 0;
 	padding-bottom: 100%;
-	margin: 1px 0;
+	border: $b-w solid var(--text-color);
 }
 .detail-video {
 	max-width: 100%;
@@ -47,6 +56,7 @@
 }
 .detail-img {
 	max-width: 100%;
+	border: $b-w solid var(--text-color);
 }
 .pd-03 {
 	margin-top: 2px;

@@ -1,6 +1,8 @@
+@import "../../../assets/scss/variable.scss";
+
 .about-mid {
 	// padding: 80px 10px 40px;
-	padding: 6vh 10px 40px;
+	padding: 50px 10px 40px;
 	height: 100vh;
     overflow: auto;
     overflow-x: hidden;
@@ -8,13 +10,16 @@
 }
 .about-right {
 	// margin-top: 80px;
-	margin-top: 6vh;
+	margin-top: 50px;
+	p {
+		font-size: $ft-s-small;
+	}
 }
 .title-center {
 	display: block;
 	width: fit-content;
 	margin: auto;
-	margin-bottom: 10px;
+	margin-bottom: 1.6vh;
 }
 .about-align-center {
 	text-align: center;

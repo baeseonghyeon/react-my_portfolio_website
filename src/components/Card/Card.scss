@@ -2,8 +2,7 @@
 $trs: all ease 0.3s 0s;
 
 .card-wrapper {
-	margin: 0 0 30px;
-	padding: 0 5px;
+	padding: 0;
 	color: black;
 	height: fit-content;
 	a {
@@ -15,8 +14,6 @@ $trs: all ease 0.3s 0s;
 		} 	
 	}
 	.card {
-		margin: 0 0 15px;
-		border: none;
 		border-radius: 0px;
 		box-shadow: 0.5vh 0.5vh 1vh var(--text-color);
 		width:100%;
@@ -51,7 +48,9 @@ $trs: all ease 0.3s 0s;
 			padding: 5px 7px;
 			color: black;
 			width: 95%;
-			height: 95%;
+			height: 91%;
+			max-width: 474px;
+			max-height: 255px;
 			position: absolute;
 			top: 0;
 			bottom: 0;
@@ -68,6 +67,9 @@ $trs: all ease 0.3s 0s;
 			h3 {
 				text-align: center;
 				font-size: $ft-s-title;
+				font-weight: bold;
+				font-family: 'IBMPlexSansKR-Bold';
+				letter-spacing: $l-s-bold;
 			}
 			p {
 				margin-bottom: 0.6rem;
@@ -78,6 +80,7 @@ $trs: all ease 0.3s 0s;
 			}
 			.cate {
 				text-align: center;
+				font-size: $ft-s-small;
 			}
 		}
 		.empty-thumb {
@@ -120,11 +123,13 @@ $trs: all ease 0.3s 0s;
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
-	.card {
-		box-shadow: 0.2vh 0.2vh 0.5vh var(--text-color)!important;
-	}
-	.desc-card {
-		box-shadow: 0.2vh 0.2vh 0.5vh var(--text-color)!important;
+	.card-wrapper {
+		.card {
+			box-shadow: 0.2vh 0.2vh 0.5vh var(--text-color)!important;
+		}
+		.desc-card {
+			box-shadow: 0.2vh 0.2vh 0.5vh var(--text-color)!important;
+		}
 	}
 }
 

@@ -29,6 +29,7 @@ function Card(props) {
     const onClickIcon = (id) => {
         document.getElementById("desc-" + id).style.opacity = 1
         document.getElementById("desc-" + id).style.zIndex = 1
+        document.getElementById("pointer-" + id).style.opacity = 0
     }
 
     useEffect(() => {

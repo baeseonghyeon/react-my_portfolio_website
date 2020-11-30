@@ -38,9 +38,9 @@ function Nav(props) {
 					</NavLink>
 				</>	
 			: 	
-				<span className="nav-toggle m-auto text-center pt-2">
-					<Link to='/works' className="mt-0 mb-3">← Back to home</Link>
-					<h1 className="ft-s">[ {items.title} ]</h1>
+				<span className="nav-toggle m-auto text-center">
+					<Link to='/works' className="mt-0">← Back to home</Link>
+					{/* <h1 className="ft-s">[ {items.title} ]</h1> */}
 				</span>
 			}
 			

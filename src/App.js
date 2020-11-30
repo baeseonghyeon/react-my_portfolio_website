@@ -79,14 +79,14 @@ function App() {
 
   return (
     <div className="App">
-	<Switch>
-		<Route path="/" exact={true} render={() => <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
-		<Route path="/about" exact={true} render={() => <About uiData={langs[0].uidata}/>} />
-		<Route path="/works" exact={true} render={() => <Work Data={langs[0].data} uiData={langs[0].uidata}/>} />
-		<Route path="/works/:id" render={(match) => <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
-		<Route path="*" component={NotFound} />
-	</Switch>
-	<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
+		<Switch>
+			<Route path="/" exact={true} render={() => <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
+			<Route path="/about" exact={true} render={() => <About uiData={langs[0].uidata}/>} />
+			<Route path="/works" exact={true} render={() => <Work Data={langs[0].data} uiData={langs[0].uidata}/>} />
+			<Route path="/works/:id" render={(match) => <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
+			<Route path="*" component={NotFound} />
+		</Switch>
+		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
     </div>
   );
 }

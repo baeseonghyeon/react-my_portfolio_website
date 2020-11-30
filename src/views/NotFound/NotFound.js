@@ -8,7 +8,7 @@ function NotFound() {
             <h1>404</h1>
             <h1>Page Not Found</h1>
             <p>uh-oh! Nothing here..</p>
-            <Link to='/' className="mt-0 mb-3">← Back to home</Link>
+            <Link to='/' className="mt-0">← Back to home</Link>
         </div>
     );
 }
