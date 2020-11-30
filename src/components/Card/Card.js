@@ -6,30 +6,13 @@ import DesCard from "./DesCard/DesCard";
 function Card(props) {
     const item = props.item
 
-    const onMouseEnter = (id) => {
-        document.getElementById("desc-" + id).style.opacity = 1
-        document.getElementById("desc-" + id).style.zIndex = 1
-        document.getElementById("pointer-" + id).style.opacity = 0
-    }
-
-    const onMouseLeave = (id) => {
-        document.getElementById("desc-" + id).style.opacity = 0
-        document.getElementById("desc-" + id).style.zIndex = -1
-    }
-
     const pointerPosition = () => {
-        let pointer = document.getElementById("pointer-" + item.id)
-        let parent = document.getElementById("work-" + item.id)
+        let pointer = document.getElementById("pointer" + item.id)
+        let parent = document.getElementById("work" + item.id)
         pointer.style.left =
             Math.random() * (parent.offsetWidth - pointer.offsetWidth) + "px"
         pointer.style.top =
             Math.random() * (parent.offsetHeight - pointer.offsetHeight) + "px"
-    }
-
-    const onClickIcon = (id) => {
-        document.getElementById("desc-" + id).style.opacity = 1
-        document.getElementById("desc-" + id).style.zIndex = 1
-        document.getElementById("pointer-" + id).style.opacity = 0
     }
 
     useEffect(() => {
@@ -40,13 +23,13 @@ function Card(props) {
         <div className="card-wrapper col-md-6">
             <div
                 className="card"
-                id={"work-" + item.id}
-                onMouseEnter={() => onMouseEnter(item.id)}
-                onMouseLeave={() => onMouseLeave(item.id)}
+                id={"work" + item.id}
+                onMouseEnter={() => props.onMouseEnter(item.id)}
+                onMouseLeave={() => props.onMouseLeave(item.id)}
             >
                 <span 
-                    className="pointer" id={"pointer-" + item.id}
-                    onClick={() => onClickIcon(item.id)}
+                    className="pointer" id={"pointer" + item.id}
+                    onClick={() => props.onClickIcon(item.id)}
                 ></span>
                 {item.movie1 !== "" ? (
                     <div className="ifram-wrapper">

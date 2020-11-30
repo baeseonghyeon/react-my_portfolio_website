@@ -154,7 +154,8 @@ a {
     margin-top: 50px;
 }
 .bottomLine {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 0;
     font-size: $ft-s;
     font-weight: bold;
     border-bottom: $b-w solid var(--text-color);
@@ -187,5 +188,12 @@ a {
         overflow: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
+    }
+    .outLine {
+        margin-top: 33px;
+    }
+    .col-md-3 {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 }

@@ -18,8 +18,7 @@
 		.view-layout {
 			width: 100%;
 			overflow: auto;
-			padding: 80px 5px 20px;
-			padding: 35px 5px 20px;
+			padding: 35px 5px 21px;
 		}
 	}
 	.container {
@@ -30,6 +29,15 @@
 			font-family: 'IBMPlexSansKR-Bold';
 			letter-spacing: $l-s-bold;
 		}
+		// .work-info {
+		// 	color: #999;
+		// 	width: fit-content;
+		// 	margin: auto;
+		// 	margin-bottom: 20px;
+		// 	li {
+		// 		font-size: $ft-s-small;
+		// 	}
+		// }
 		.desc {
 			padding: 0 5px;
 			margin-bottom: 20px;

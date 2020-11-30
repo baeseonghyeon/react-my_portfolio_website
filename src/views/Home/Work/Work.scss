@@ -10,7 +10,7 @@
 	width: 100%;
 	height: fit-content;
     position: absolute;
-	padding: 50px 20px 3vh 0;
+	padding: 50px 20px 50px 0;
 	padding-right: 15px;
 	.scroll-info {
 		width: 100%;
@@ -60,8 +60,8 @@
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
 	.scroll-row {
-		padding: 0 10px 20px;
-		padding-bottom: 30px;
+		padding: 0 8px 30px;
+		padding-bottom: 34px;
 		width: initial;
 		height: 100%;
 		position: initial;
