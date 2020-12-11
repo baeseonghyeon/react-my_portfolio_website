@@ -1,14 +1,16 @@
 @import "../../../assets/scss/variable.scss";
 
+.about-left {
+	margin-top: 50px;
+}
 .about-mid {
 	padding: 50px 10px 40px;
 	height: 100vh;
-    overflow: auto;
-    overflow-x: hidden;
 	text-align: center;
 }
 .about-right {
 	margin-top: 50px;
+	height: 100vh;
 	p {
 		font-size: $ft-s-small;
 	}
@@ -39,15 +41,19 @@
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
+	.about-left {
+		padding: 0 20px;
+	}
 	.about-mid {
 		padding: 0 20px;
-		height: initial;
+		height: fit-content;
    		top: initial;
 	}
 	.about-right {
 		padding: 0 20px;
-		padding-bottom: 60px;
-		margin-top: 10px;
+		padding-bottom: 20px;
+		margin-top: 0px;
+		height: fit-content;
 	}
 }
 
@@ -55,12 +61,13 @@
 @media (min-width: 481px) and (max-width: 767px) {
 	.about-mid {
 		padding: 0 20px;
-		height: initial;
+		height: fit-content;
    		top: initial;
 	}
 	.about-right {
 		padding: 0 20px;
 		padding-bottom: 60px;
-		margin-top: 10px;
+		margin-top: 0px;
+		height: fit-content;
 	}
 }

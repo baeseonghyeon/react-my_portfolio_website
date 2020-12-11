@@ -1,6 +1,9 @@
  
 @import "../../../assets/scss/variable.scss";
 
+.work-ol {
+	padding: 7px 12px 8px;
+}
 .scroll-col-md-9 {
 	height: 100%;
 	z-index: 10;
@@ -12,6 +15,7 @@
     position: absolute;
 	padding: 50px 20px 50px 0;
 	padding-right: 15px;
+	align-content: baseline;
 	.scroll-info {
 		width: 100%;
 		text-align: center;
@@ -21,6 +25,11 @@
 		margin: auto;
 		font-size: 2rem;
 		height: fit-content;
+	}
+	.bd-t {
+		border-top: 1px solid var(--text-color);
+		width: 100%;
+		display: block;
 	}
 }
 .work-list {
@@ -41,6 +50,11 @@
 		}
 	}
 }
+#popupx {
+    .popup-content {
+        padding: 10px 10px 15px!important;
+    }
+}
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
@@ -51,6 +65,9 @@
 		width: initial;
 		height: 100%;
 		position: initial;
+		.bd-t {
+			display: none;
+		}
 	}
 	.scroll-col-md-9 {
 		height: initial;
@@ -66,6 +83,9 @@
 		height: 100%;
 		position: initial;
 		overflow: hidden;
+		.bd-t {
+			display: none;
+		}
 	}
 	.scroll-col-md-9 {
 		height: initial;

@@ -7,7 +7,10 @@ function Nav(props) {
 	const items = props.data;
 	
 	return (
-		<div id="Nav">
+		<div 
+			id="Nav"
+		 	className={ !items ?  "" : "w-100"}
+		>		
 			{!items 
 			? 
 				<>
@@ -40,7 +43,6 @@ function Nav(props) {
 			: 	
 				<span className="nav-toggle m-auto text-center">
 					<Link to='/works' className="mt-0">← Back to home</Link>
-					{/* <h1 className="ft-s">[ {items.title} ]</h1> */}
 				</span>
 			}
 			

@@ -7,18 +7,17 @@
 	width: 100%;
 	text-align: center;
 	font-size: $ft-s-small;
-	border-top: 1px solid var(--border-color);
-	background-color: var(--bkg-color);
-	color: var(--text-color);
-	opacity: 0.95;
 	display: flex;
 	justify-content: space-between;
 	padding-top: 0.4rem;
 	padding-bottom: 0.5rem;
 	padding-left: 15px;
-    padding-right: 15px;
+	padding-right: 15px;
+	span {
+		color: var(--text-color) !important;
+	}
     svg {
-        stroke: var(--text-color);
+		stroke: var(--text-color);
         margin-bottom: 1px;
         width: $ft-s-small;
     }
@@ -40,8 +39,8 @@
 			cursor:pointer;
 		}
 		.active {
-            border-width: $b-w;
-            border-bottom: $b-w solid var(--text-color);
+			border-width: $b-w;
+			border-bottom: $b-w solid var(--text-color);
         }
 	}
 	.dividing-line {
@@ -53,7 +52,7 @@
 			cursor:pointer;
 		}
 		.dark-active {
-			border-bottom: $b-w solid var(--text-color) !important;
+			border-bottom: $b-w solid var(--text-color);
 		}
 	}
 }

@@ -20,9 +20,9 @@ function Card(props) {
     }, [props])
 
     return (
-        <div className="card-wrapper col-md-6">
+        <div className="card-wrapper">
             <div
-                className="card"
+                className={"card card" + (item.id%2)}
                 id={"work" + item.id}
                 onMouseEnter={() => props.onMouseEnter(item.id)}
                 onMouseLeave={() => props.onMouseLeave(item.id)}

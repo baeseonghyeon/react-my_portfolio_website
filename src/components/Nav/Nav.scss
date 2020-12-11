@@ -3,17 +3,13 @@
 #Nav {
 	z-index: 15;
 	position: fixed;
-	padding: 7px 12px 8px 12px;
+	padding: 10px 12px 10px 12px;
 	display: flex;
 	align-items: center;
 	line-height: 1;
-	width: 100%;
 	overflow: auto;
 	-ms-overflow-style: none; 
 	scrollbar-width: none;
-	border-bottom: 1px solid var(--border-color);
-	background-color: var(--bkg-color);
-	opacity: 0.95;
 	.nav-toggle {	
 		margin: 0px 15px 0px 3px;
 		transition: all ease 0.1s 0s;
@@ -33,7 +29,6 @@
 		transition: all ease 0.1s 0s;
 		-moz-transition: all ease 0.1s 0s;
 		-webkit-transition: all ease 0.1s 0s;
-		font-family: 'IBMPlexSansKR-Bold';
 		letter-spacing: $l-s-bold;
 	}
 }
@@ -45,7 +40,7 @@
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
 	#Nav {
-		padding: 7px 8px 8px 8px;
+		padding: 10px 8px;
 	}
 }
 

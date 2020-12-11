@@ -43,6 +43,8 @@ function App() {
 
 // Dark&Light Mode setting
 	const [darkState, setDarkState] = useState(['']);
+
+	const randomItem = Math.floor(Math.random() * 3);
 	
 	// os ui-mode check
 	// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -56,6 +58,7 @@ function App() {
 		} else {
 			setDarkState('inactive');
 			document.body.classList.add("light-theme");
+			document.body.classList.add("bkg"+randomItem);
 			document.body.classList.remove("dark-theme");
 		}		
 	};
@@ -69,6 +72,7 @@ function App() {
 		} else {
 			setDarkState('inactive');
 			document.body.classList.add("light-theme");
+			document.body.classList.add("bkg"+randomItem);
 			document.body.classList.remove("dark-theme");
 		}
 	};
@@ -87,6 +91,7 @@ function App() {
 			<Route path="*" component={NotFound} />
 		</Switch>
 		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
+		<div className="bg-cover"></div>
     </div>
   );
 }
