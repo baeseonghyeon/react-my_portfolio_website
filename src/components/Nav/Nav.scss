@@ -11,7 +11,8 @@
 	-ms-overflow-style: none; 
 	scrollbar-width: none;
 	.nav-toggle {	
-		margin: 0px 15px 0px 3px;
+		min-width: fit-content;
+		// margin: 0px 15px 0px 3px;
 		transition: all ease 0.1s 0s;
 		-moz-transition: all ease 0.1s 0s;
 		-webkit-transition: all ease 0.1s 0s;
@@ -41,9 +42,12 @@
 @media (min-width: 320px) and (max-width: 480px) {
 	#Nav {
 		padding: 10px 8px;
+		left: 50%;
+		transform: translate(-50%, 0);
 	}
 }
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
+
 }

@@ -59,16 +59,16 @@
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
-	.scroll-row {
-		padding: 0 8px 20px;
-		padding-bottom: 35px;
-		width: initial;
-		height: 100%;
-		position: initial;
-		.bd-t {
-			display: none;
-		}
-	}
+	// .scroll-row {
+	// 	padding: 0 8px 20px;
+	// 	padding-bottom: 35px;
+	// 	width: initial;
+	// 	height: 100%;
+	// 	position: initial;
+	// 	.bd-t {
+	// 		display: none;
+	// 	}
+	// }
 	.scroll-col-md-9 {
 		height: initial;
 	} 
@@ -76,17 +76,17 @@
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
-	.scroll-row {
-		padding: 0 8px 30px;
-		padding-bottom: 34px;
-		width: initial;
-		height: 100%;
-		position: initial;
-		overflow: hidden;
-		.bd-t {
-			display: none;
-		}
-	}
+	// .scroll-row {
+	// 	padding: 0 8px 30px;
+	// 	padding-bottom: 34px;
+	// 	width: initial;
+	// 	height: 100%;
+	// 	position: initial;
+	// 	overflow: hidden;
+	// 	.bd-t {
+	// 		display: none;
+	// 	}
+	// }
 	.scroll-col-md-9 {
 		height: initial;
 	} 

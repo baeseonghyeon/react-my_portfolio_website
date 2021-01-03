@@ -1,6 +1,8 @@
 import React from "react"
 import "./Footer.scss"
 
+import TopBtn from '../Button/TopBtn';
+
 import { FiSun } from "react-icons/fi"
 import { FiMoon } from "react-icons/fi"
 
@@ -9,6 +11,7 @@ function Footer(props) {
 
     return (
         <div className="footer">
+            <TopBtn/>
             <span className="copy-right">
                 ©
                 <a

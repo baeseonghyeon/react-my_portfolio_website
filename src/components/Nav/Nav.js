@@ -18,7 +18,7 @@ function Nav(props) {
 					?
 					<NavLink
 						to="/about"
-						className="nav-toggle active"
+						className="nav-toggle mr-3 active"
 						activeClassName="active"
 					>
 						Bae Seonghyeon
@@ -26,7 +26,7 @@ function Nav(props) {
 					:
 					<NavLink
 						to="/about"
-						className="nav-toggle"
+						className="nav-toggle mr-3"
 						activeClassName="active"
 					>
 						Bae Seonghyeon
@@ -45,7 +45,6 @@ function Nav(props) {
 					<Link to='/works' className="mt-0">← Back to home</Link>
 				</span>
 			}
-			
 		</div>
 	);
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Card from '../../../components/Card/Card';
-import Popup from '../../../components/Popup/Popup';
 import Nav from "../../../components/Nav/Nav";
+import Popup from '../../../components/Popup/Popup';
+import Card from '../../../components/Card/Card';
+
+import {animateScroll as scroll } from 'react-scroll'
+
 import './Work.scss'
 
 function Work(props) {
@@ -24,26 +27,30 @@ function Work(props) {
 
 	const onClickIcon = (id) => {
 		hideCard()
-		hidePopup()
         document.getElementById("desc" + id).style.opacity = 1
         document.getElementById("desc" + id).style.zIndex = 1
 		document.getElementById("pointer" + id).style.opacity = 0
-		document.getElementById("popup" + id).style.zIndex = 9
 	}
 
 	const onMouseEnter = (id) => {
 		hideCard()
-		hidePopup()
         document.getElementById("desc" + id).style.opacity = 1
         document.getElementById("desc" + id).style.zIndex = 1
 		document.getElementById("pointer" + id).style.opacity = 0
-		document.getElementById("popup" + id).style.zIndex = 9
     }
 
 	const onMouseLeave = (id) => {
         hideCard()
     }
 	
+	// Initialize Popup
+	const hidePopup = () => {
+		data.map((item) => {
+			document.getElementById("popup" + item.id).style.zIndex = 5
+		})
+	}
+
+	// Initialize Card
 	const hideCard = () => {
 		data.map((item) => {
 			document.getElementById("desc" + item.id).style.opacity = 0
@@ -51,42 +58,25 @@ function Work(props) {
 		})
 	}
 
-	const hidePopup = () => {
-		data.map((item) => {
-			document.getElementById("popup" + item.id).style.zIndex = 5
-		})
-	}
-
+	
 	const scrollSet = (id) => {
-		if (id > 1) {
-			setTimeout(function () {
-				document.getElementById("work-row").scrollBy({top: -(document.getElementById("work-row").offsetHeight/2-(document.getElementById("work-row").offsetHeight * 0.15)), behavior: "smooth" })
-			},2);
-		} 
-		else if (id === 2) {
-			setTimeout(function () {
-				document.getElementById("work-row").scrollBy({top: -(document.getElementById("work-row").offsetHeight/2-(document.getElementById("work-row").offsetHeight * 0.325)), behavior: "smooth" })
-			},2);
-		}
+		scroll.scrollTo(document.getElementById("popup" + id).offsetTop - 40)
 	}
-
-	const onClickGoTop = () => {
-		setTimeout(function () {
-			document.getElementById("work-row").scrollTo({top: 0, behavior: "smooth" })
-		},2);
-    }
 
 	return (
 		<>
 		<Nav />
-		<div className="view-layout container" id="work-row">
+		<div 
+			className="view-layout container" 
+			id="work-row"
+		>
 			<Popup
 				id = "x"
 				title = {uiData.work_title}
 				width = "400"
 				position = {true}
-				top = "4"
-				left = "2"						
+				top = "50"
+				left = "26"						
 				padding = {true}
 				highlight = {true}
 			>
@@ -101,31 +91,25 @@ function Work(props) {
 				return (
 					<Popup
 						id = {item.id}
+						key = {item.id}
 						title = {item.title}
 						width = "500"
 						position = {false}
 						padding = {false}
 						highlight = {false}
 					>
-					<Card
-						key={item.id}
-						index={item.id}
-						item={item}
-						onClickIcon={onClickIcon}
-						onMouseEnter={onMouseEnter}
-						onMouseLeave={onMouseLeave}
-					/>
+						<Card
+							key={item.id}
+							index={item.id}
+							item={item}
+							onClickIcon={onClickIcon}
+							onMouseEnter={onMouseEnter}
+							onMouseLeave={onMouseLeave}
+						/>
 					</Popup>
 				);
 			})}
 		</div>
-		<span 
-			className="gotop-btn"
-			id = "gotop-btn"
-			onClick={()=>onClickGoTop()}
-		>
-		↑
-		</span>
 		</>
 	);
 }

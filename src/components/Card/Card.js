@@ -31,7 +31,7 @@ function Card(props) {
                     className="pointer" id={"pointer" + item.id}
                     onClick={() => props.onClickIcon(item.id)}
                 ></span>
-                {item.movie1 !== "" ? (
+                {item.movie1 ? (
                     <div className="ifram-wrapper">
                         <iframe
                             title={item.title}
@@ -47,13 +47,13 @@ function Card(props) {
                             allowFullScreen
                         ></iframe>
                     </div>
-                ) : item.thumb !== "" ? (
+                ) : item.thumb ? (
                     <img
                         src={item.thumb}
                         className="work-img"
                         alt={item.title}
                     ></img>
-                ) : item.img1 !== "" ? (
+                ) : item.img1 ? (
                     <img
                         src={item.thumb}
                         className="work-img"

@@ -3,7 +3,8 @@
 
 .popup-line {
     box-shadow: 0vh 0vh 1vh var(--text-color);
-    background: var(--bkg-color-2);
+    background: var(--bkg-color);
+    border: 1px solid var(--text-color);
     position: absolute;
     z-index: 5;
     p {
@@ -17,6 +18,7 @@
     }
 }
 .popup-title {
+    // border-bottom: 1px solid var(--text-color);
     border-bottom: 1px solid var(--border-color);
     text-align: left;
     padding: 4px 11px 5px;
@@ -32,16 +34,21 @@
 }
 .popup-title:hover {
     // border-color: #00ffad;
-    border-color: #00d300;
+    // border-color: #00d300;
+    border-color: var(--text-color);
 }
 .highlight {
     z-index: 10;
     .popup-title {
         // background-color: #00ffad;
-        background-color: #00d300;
-        color: #222!important;
+        // background-color: #00d300;
+        background-color: var(--text-color);
+        // background-color: var(--selection-text-color);
+        color: var(--bkg-color)!important;
+        // color: white!important;
         .close-btn {
-            color: #222!important;
+            color: var(--bkg-color)!important;
+            // color: white!important;
         }
     }
 }
@@ -61,6 +68,7 @@
         top: auto!important;
         left: auto!important;
         box-shadow: 0vh 0vh 0.5vh var(--text-color)!important;
+        transform: initial!important;
     }
 }
 
@@ -74,5 +82,6 @@
         top: auto!important;
         left: auto!important;
         box-shadow: 0vh 0vh 0.5vh var(--text-color)!important;
+        transform: initial!important;
     }
 }
