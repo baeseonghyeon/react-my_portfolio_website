@@ -1,53 +1,35 @@
 import React from 'react';
-import './Header.scss'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import './Header.scss';
 
-function Header(props) {
+const Header = () => {
+  const location = useLocation();
 
-	const items = props.data;
-
-	return (
-		<div 
-			id="Nav"
-		 	className={ !items ?  "" : "w-100"}
-		>		
-			{!items 
-			? 
-				<>
-					{ window.location.pathname === '/'
-					?
-					<NavLink
-						to="/about"
-						className="nav-toggle mr-3 active"
-						activeClassName="active"
-					>
-						Bae Seonghyeon
-					</NavLink>
-					:
-					<NavLink
-						to="/about"
-						className="nav-toggle mr-3"
-						activeClassName="active"
-					>
-						Bae Seonghyeon
-					</NavLink>
-					}			
-					<NavLink
-						to="/works"
-						className="nav-toggle"
-						activeClassName="active"
-					>
-						Works
-					</NavLink>
-				</>	
-			: 	
-				<span className="nav-toggle m-auto text-center">
-					<Link to='/works' className="mt-0">← Back to home</Link>
-				</span>
-			}
-		</div>
-	);
-}
+  if (location.pathname.includes('/works/')) {
+    return (
+      <div id="Nav" className="w-100">
+        <span className="nav-toggle m-auto text-center">
+          <Link to="/works" className="mt-0">
+            ← Back to home
+          </Link>
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div id="Nav">
+      <NavLink
+        to="/about"
+        className={`nav-toggle mr-3 ${location.pathname === '/' && 'active'}`}
+        activeClassName="active"
+      >
+        Bae Seonghyeon
+      </NavLink>
+      <NavLink to="/works" className="nav-toggle" activeClassName="active">
+        Works
+      </NavLink>
+    </div>
+  );
+};
 
 export default React.memo(Header);
-

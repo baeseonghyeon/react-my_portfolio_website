@@ -1,0 +1,99 @@
+@import '../../scss/variable.scss';
+
+.work-ol {
+  padding: 7px 12px 8px;
+}
+.scroll-col-md-9 {
+  height: 100%;
+  z-index: 10;
+  overflow: auto;
+}
+.scroll-row {
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  padding: 50px 20px 50px 0;
+  padding-right: 15px;
+  align-content: baseline;
+  .scroll-info {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    font-weight: bold;
+    margin: auto;
+    font-size: 2rem;
+    height: fit-content;
+  }
+  .bd-t {
+    border-top: 1px solid var(--text-color);
+    width: 100%;
+    display: block;
+  }
+}
+.work-list {
+  color: var(--text-color-blue) !important;
+  text-decoration: underline;
+}
+.work-list:hover {
+  text-decoration: none;
+}
+.visible {
+  .view-layout {
+    .row {
+      .col-md-9 {
+        .scroll-row {
+          z-index: 10;
+        }
+      }
+    }
+  }
+}
+#popupx {
+  z-index: 9999;
+  .popup-content {
+    padding: 10px 10px 15px !important;
+  }
+}
+
+//== DEVICE SCREEN ==//
+/*대부분의 스마트폰 모바일 기기(세로)*/
+@media (min-width: 320px) and (max-width: 480px) {
+  // .scroll-row {
+  // 	padding: 0 8px 20px;
+  // 	padding-bottom: 35px;
+  // 	width: initial;
+  // 	height: 100%;
+  // 	position: initial;
+  // 	.bd-t {
+  // 		display: none;
+  // 	}
+  // }
+  #works-layout {
+    overflow: auto;
+  }
+  .scroll-col-md-9 {
+    height: initial;
+  }
+}
+
+/*저해상도 태블릿, 모바일(가로)*/
+@media (min-width: 481px) and (max-width: 767px) {
+  // .scroll-row {
+  // 	padding: 0 8px 30px;
+  // 	padding-bottom: 34px;
+  // 	width: initial;
+  // 	height: 100%;
+  // 	position: initial;
+  // 	overflow: hidden;
+  // 	.bd-t {
+  // 		display: none;
+  // 	}
+  // }
+  #works-layout {
+    overflow: auto;
+  }
+  .scroll-col-md-9 {
+    height: initial;
+  }
+}

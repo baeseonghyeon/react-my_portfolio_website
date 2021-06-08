@@ -1,13 +1,13 @@
 import React from "react"
 import "./Footer.scss"
 
-import TopBtn from '../Topbtn';
+import TopBtn from '../TopBtn';
 
 import { FiSun } from "react-icons/fi"
 import { FiMoon } from "react-icons/fi"
 
 function Footer(props) {
-    const langs = props.langs
+    const {langs, darkState } = props
 
     return (
         <div className="footer">
@@ -27,9 +27,7 @@ function Footer(props) {
                 <span className="dark-toggle-box">
                     <span
                         className={
-                            props.darkState === "inactive"
-                                ? "dark-toggle dark-active"
-                                : "dark-toggle"
+                            !darkState ? "dark-toggle dark-active" : "dark-toggle"
                         }
                         onClick={() => props.darkModeToggle(false)}
                     >
@@ -37,11 +35,7 @@ function Footer(props) {
                         {/* Day */}
                     </span>
                     <span
-                        className={
-                            props.darkState === "active"
-                                ? "dark-toggle dark-active"
-                                : "dark-toggle"
-                        }
+                        className={ darkState ? "dark-toggle dark-active" : "dark-toggle" }
                         onClick={() => props.darkModeToggle(true)}
                     >
                         <FiMoon size="18" />

@@ -1,6 +1,6 @@
-import React, { useEffect, useState }  from 'react';
-import { animateScroll as scroll } from 'react-scroll'
-import "./TopBtn.scss";
+import React, { useEffect, useState } from 'react';
+import { animateScroll as scroll } from 'react-scroll';
+import './TopBtn.scss';
 
 function TopBtn() {
   const [opacityValue, setOpacity] = useState(0);
@@ -20,15 +20,15 @@ function TopBtn() {
     scroll.scrollToTop();
   };
 
-	return (
-		<span
-			className='go-top-btn'
-			style={{ opacity: opacityValue }}
-			onClick={()=>onClickGoTop()}
-		>
-		↑
-		</span>
-	)
-};
+  return (
+    <span
+      className="go-top-btn"
+      style={{ opacity: opacityValue }}
+      onClick={() => onClickGoTop()}
+    >
+      ↑
+    </span>
+  );
+}
 
 export default React.memo(TopBtn);
