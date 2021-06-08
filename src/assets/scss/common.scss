@@ -25,17 +25,6 @@ body {
     margin: 0;
     // overflow: hidden;
 }
-.bg-cover {
-    // background-image: url(../img/bg.png);
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
 .container {
     max-width: 100% !important;
 }
@@ -53,11 +42,11 @@ body {
     width: 100%;
 }
 .view-layout {
-    // height: 100%;
-    // width: 100%;
-    // overflow: hidden;
     word-wrap: break-word;
-    // position: fixed;
+    opacity: 0;
+    -webkit-overflow-scrolling: touch;
+    transform: scale(0.95);
+    transition: all ease 0.4s 0s;
 }
 .pd-12 {
     padding: 0 12px;
@@ -105,14 +94,6 @@ ul {
         }
     }
 }
-// ::selection {
-//     color: var(--selection-text-color);
-// 	background-color: var(--selection-bkg-color);
-// }
-// ::-moz-selection {
-//     color: var(--selection-text-color);
-// 	background-color: var(--selection-bkg-color);
-// }
 .ft-s-s {
     p,a {
         font-size: $ft-s-s;
@@ -129,10 +110,10 @@ ul {
     a {
         font-size: $ft-s-f-n;
     }
-    // vertical-align: 4px;
     position: relative;
     top: -4px;
     -webkit-text-stroke: 0.2px;
+    margin-right: 2px;
 }
 .f-n-s {
     font-size: 0.5rem;
@@ -178,11 +159,7 @@ ul {
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
     .view-layout {
-        // padding: 0 7px;
-        padding: 42px 11px;
-        // overflow: auto;
-        // overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
+        padding: 45px 11px;
     }
     .outLine {
         margin-top: 33px;
@@ -198,10 +175,7 @@ ul {
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
     .view-layout {
-        // padding: 0 7px;
-        padding: 42px 11px;
-        // overflow: auto;
-        // overflow-x: hidden;
+        padding: 45px 11px;
         -webkit-overflow-scrolling: touch;
     }
     .outLine {

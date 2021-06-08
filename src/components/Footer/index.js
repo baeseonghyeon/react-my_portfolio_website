@@ -1,7 +1,7 @@
 import React from "react"
 import "./Footer.scss"
 
-import TopBtn from '../Button/TopBtn';
+import TopBtn from '../Topbtn';
 
 import { FiSun } from "react-icons/fi"
 import { FiMoon } from "react-icons/fi"
@@ -21,7 +21,7 @@ function Footer(props) {
                 >
                     {" "}
                 </a>
-                2020 Bae Seonghyeon (github.io)
+                2021 Bae Seonghyeon (github.io)
             </span>
             <span className="toggle-box">
                 <span className="dark-toggle-box">

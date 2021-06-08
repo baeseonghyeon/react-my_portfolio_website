@@ -1,15 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-import Nav from "../../../components/Nav/Nav";
-import Popup from '../../../components/Popup/Popup';
-import Card from '../../../components/Card/Card';
+import Nav from "../../../components/Header";
+import Popup from '../../../components/Popup';
+import Card from '../../../components/Card';
 
-import {animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll';
+import { useMediaQuery } from '../../../assets/js/common';
 
 import './Work.scss'
 
 function Work(props) {
+	
+	useEffect(() => {
+		document.getElementById("view-layout").style.opacity = 1;
+		document.getElementById("view-layout").style.transform = 'initial';
+	}, []);
 
 	const uiData = props.uiData.home[0];
 	const data = props.Data.data;
@@ -17,7 +23,7 @@ function Work(props) {
 	const onClickFootnote = (id) => {
 		hideCard()
 		hidePopup()
-        document.getElementById("desc" + id).style.opacity = 1
+    document.getElementById("desc" + id).style.opacity = 1
 		document.getElementById("desc" + id).style.zIndex = 1
 		document.getElementById("popup" + id).style.zIndex = 5
 		document.getElementById("pointer" + id).style.opacity = 0
@@ -27,40 +33,53 @@ function Work(props) {
 
 	const onClickIcon = (id) => {
 		hideCard()
-        document.getElementById("desc" + id).style.opacity = 1
-        document.getElementById("desc" + id).style.zIndex = 1
+		document.getElementById("desc" + id).style.opacity = 1
+		document.getElementById("desc" + id).style.zIndex = 1
 		document.getElementById("pointer" + id).style.opacity = 0
 	}
 
 	const onMouseEnter = (id) => {
 		hideCard()
-        document.getElementById("desc" + id).style.opacity = 1
-        document.getElementById("desc" + id).style.zIndex = 1
+		document.getElementById("desc" + id).style.opacity = 1
+		document.getElementById("desc" + id).style.zIndex = 1
 		document.getElementById("pointer" + id).style.opacity = 0
-    }
+	}
 
 	const onMouseLeave = (id) => {
-        hideCard()
-    }
+		hideCard()
+	}
 	
 	// Initialize Popup
 	const hidePopup = () => {
 		data.map((item) => {
-			document.getElementById("popup" + item.id).style.zIndex = 5
+			return document.getElementById("popup" + item.id).style.zIndex = 5
 		})
 	}
 
 	// Initialize Card
 	const hideCard = () => {
 		data.map((item) => {
-			document.getElementById("desc" + item.id).style.opacity = 0
-			document.getElementById("desc" + item.id).style.zIndex = -1
+			return (
+				document.getElementById("desc" + item.id).style.opacity = 0,
+				document.getElementById("desc" + item.id).style.zIndex = -1
+			)
 		})
 	}
-
 	
+	// Popup Scroll Set
 	const scrollSet = (id) => {
-		scroll.scrollTo(document.getElementById("popup" + id).offsetTop - 40)
+		const height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+		const target_height = 	document.getElementById("popup" + id).offsetHeight;
+		scroll.scrollTo(document.getElementById("popup" + id).offsetTop - ((height/2)-(target_height/2)))
+	}
+
+	// Popup Touch Screen Redirect Set
+	let history = useHistory();
+	const [width] = useMediaQuery();
+	const touchRedirect = (url) => {
+		if (width > 769){
+			history.push(url)
+		}
 	}
 
 	return (
@@ -68,7 +87,7 @@ function Work(props) {
 		<Nav />
 		<div 
 			className="view-layout container" 
-			id="work-row"
+			id="view-layout"
 		>
 			<Popup
 				id = "x"
@@ -80,9 +99,24 @@ function Work(props) {
 				padding = {true}
 				highlight = {true}
 			>
-				{data.map((item) => {
+				{data.slice(0).reverse().map((item) => {
 					return (
-					<span className="mr-2" key={item.id}><span className="f-n"><a href={`#work${item.id}`} onClick={() => onClickFootnote(item.id)} >[{item.id+1}]</a></span> <Link to={`/works/${item.id}`} className="text-decoration-none"><span className="work-list">{item.title} ( {item.date} ) [{item.cate}]</span></Link></span>
+					<span className="mr-2" key={item.id}>
+						<span className="f-n">
+							<a 
+								href={`#work${item.id}`} 
+								onClick={() => onClickFootnote(item.id)} 
+								onTouchStart={()=>onClickFootnote(item.id)}>
+									[{item.id+1}]
+							</a>
+						</span>
+						<Link 
+							to={`/works/${item.id}`}
+							className="text-decoration-none"
+							onTouchStart={()=> touchRedirect(`/works/${item.id}`)}>
+								<span className="work-list">{item.title} ( {item.date} ) [{item.cate}]</span>
+						</Link>
+					</span>
 					);
 				})}
 			</Popup>	

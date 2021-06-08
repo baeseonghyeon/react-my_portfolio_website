@@ -1,14 +1,12 @@
 @import "../../assets/scss/variable.scss";
 
 #Detail {
-	// height: 100vh;
     overflow: auto;
 }
 .detail-layout {
 	margin: auto;
 	text-align: center;
 	.detail-section {
-		// position: fixed;
 		width: 100%;
 		height: 100%;
 		left: 0;
@@ -17,7 +15,8 @@
 		.view-layout {
 			width: 100%;
 			overflow: auto;
-			padding: 42px 5px 21px;
+			// padding: 42px 5px 21px; //fs .8
+			padding: 45px 5px 21px;
 		}
 	}
 	.container {
@@ -38,7 +37,6 @@
 	position: relative;
 	height: 0;
 	padding-bottom: 100%;
-	// border: $b-w solid var(--text-color);
 }
 .detail-video {
 	max-width: 100%;
@@ -47,12 +45,8 @@
 	height:100%;
 	left: 0;
 }
-.video2 {
-	// border-left: none;
-}
 .detail-img {
 	max-width: 100%;
-	// border: $b-w solid var(--text-color);
 }
 .img2, .img4 {
 	border-left: none;
@@ -68,18 +62,11 @@
 	.pd-03 {
 		padding: 0;
 	}
-	.video2 {
-		// border-left: none;
-		// border-left: $b-w solid var(--text-color);
-	}
 	.detail-img {
 		border-top: none;
 	}
 	.video2 {
 		border-top: none;
-	}
-	.img2, .img4 {
-		// border-left: $b-w solid var(--text-color);
 	}
 }
 
@@ -93,8 +80,5 @@
 	}
 	.video2 {
 		border-top: none;
-	}
-	.img2, .img4 {
-		// border-left: $b-w solid var(--text-color);
 	}
 }

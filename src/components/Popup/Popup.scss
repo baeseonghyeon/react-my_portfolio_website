@@ -18,43 +18,38 @@
     }
 }
 .popup-title {
-    // border-bottom: 1px solid var(--text-color);
     border-bottom: 1px solid var(--border-color);
     text-align: left;
     padding: 4px 11px 5px;
     font-size: $ft-s;
     font-weight: bold;
+    touch-action:auto;
     cursor: pointer;
     .close-btn {
         position: absolute;
         right: 8px;
-        top: 2px;
+        top: 4px;
         font-size: 0.9rem;
+        touch-action:auto;
     }
 }
 .popup-title:hover {
-    // border-color: #00ffad;
-    // border-color: #00d300;
     border-color: var(--text-color);
 }
 .highlight {
     z-index: 10;
     .popup-title {
-        // background-color: #00ffad;
-        // background-color: #00d300;
         background-color: var(--text-color);
-        // background-color: var(--selection-text-color);
         color: var(--bkg-color)!important;
-        // color: white!important;
         .close-btn {
             color: var(--bkg-color)!important;
-            // color: white!important;
         }
     }
 }
 
 .popup-content {
     text-align: left;
+    touch-action:auto;
 }
 
 //== DEVICE SCREEN ==//

@@ -1,11 +1,11 @@
 import React from 'react';
-import './Nav.scss'
+import './Header.scss'
 import { Link, NavLink } from 'react-router-dom';
 
-function Nav(props) {
+function Header(props) {
 
 	const items = props.data;
-	
+
 	return (
 		<div 
 			id="Nav"
@@ -49,5 +49,5 @@ function Nav(props) {
 	);
 }
 
-export default React.memo(Nav);
+export default React.memo(Header);
 

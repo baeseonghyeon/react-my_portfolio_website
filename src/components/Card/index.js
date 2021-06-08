@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 
 import "./Card.scss";
-import DesCard from "./DesCard/DesCard";
+import DesCard from "./CardHover";
 
 function Card(props) {
+
     const item = props.item
+
+    useEffect(() => {
+        pointerPosition()
+    }, [])
 
     const pointerPosition = () => {
         let pointer = document.getElementById("pointer" + item.id)
@@ -14,10 +19,6 @@ function Card(props) {
         pointer.style.top =
             Math.random() * (parent.offsetHeight - pointer.offsetHeight) + "px"
     }
-
-    useEffect(() => {
-        pointerPosition()
-    }, [props])
 
     return (
         <div className="card-wrapper">
@@ -30,6 +31,7 @@ function Card(props) {
                 <span 
                     className="pointer" id={"pointer" + item.id}
                     onClick={() => props.onClickIcon(item.id)}
+                    onTouchStart={() => props.onClickIcon(item.id)}
                 ></span>
                 {item.movie1 ? (
                     <div className="ifram-wrapper">
@@ -64,7 +66,7 @@ function Card(props) {
                         <span>Thumbnail is Empty :-(</span>
                     </div>
                 )}
-                {/* Description part */}
+                {/* Description */}
                 <DesCard item={item} />
             </div>
         </div>

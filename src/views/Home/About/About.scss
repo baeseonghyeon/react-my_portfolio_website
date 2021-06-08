@@ -37,6 +37,17 @@
 		margin: 0;
 	}
 }
+.contact-link {
+	// display: flex;
+	// align-items: center;
+}
+.icon__tistory {
+	width: 10px;
+	height: 10px;
+	fill: currentColor;
+	position: relative;
+	top: -1px;
+}
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/

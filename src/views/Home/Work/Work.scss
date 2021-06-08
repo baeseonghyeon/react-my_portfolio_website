@@ -51,6 +51,7 @@
 	}
 }
 #popupx {
+	z-index: 9999;
     .popup-content {
         padding: 10px 10px 15px!important;
     }
@@ -69,6 +70,9 @@
 	// 		display: none;
 	// 	}
 	// }
+	#works-layout {
+		overflow: auto;
+	}
 	.scroll-col-md-9 {
 		height: initial;
 	} 
@@ -87,6 +91,9 @@
 	// 		display: none;
 	// 	}
 	// }
+	#works-layout {
+		overflow: auto;
+	}
 	.scroll-col-md-9 {
 		height: initial;
 	} 

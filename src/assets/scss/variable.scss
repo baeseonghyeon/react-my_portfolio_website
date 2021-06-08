@@ -2,7 +2,7 @@
 body {
 	--bkg-color: white;
 	--bkg-color-2: white;
-    --text-color: #222;
+	--text-color: #222;
 	--text-color-blue: Blue;
 	--border-color: #ddd;
 	--box-shadow-1: #777777;
@@ -10,27 +10,10 @@ body {
 	--selection-text-color: rgb(255, 82, 2);
 	--selection-bkg-color: transparent;
 }
-  
-// body.bkg0{
-// 	--bkg-color: #fa5200;
-// }
-// body.bkg1{
-// 	--bkg-color: #31a0ff;
-// }
-// body.bkg2{
-// 	--bkg-color: #FFEB3B;
-// }
-// body.bkg3{
-// 	--bkg-color: #00d300;
-// }
-// body.bkg4{
-// 	--bkg-color: white;
-// }
-
 body.dark-theme {
 	--bkg-color: #111;
-    --bkg-color-2: black;
-    --text-color: #eee;
+	--bkg-color-2: black;
+	--text-color: #eee;
 	--text-color-blue: #0078ff;
 	--border-color: #333;
 	--box-shadow-1: black;
@@ -38,30 +21,30 @@ body.dark-theme {
 	--selection-text-color: #f9ff5a;
 	--selection-bkg-color: transparent;
 }
+
 @media (prefers-color-scheme: dark) {
-    body {
-        --bkg-color: #272727;
-        --bkg-color-2: black;
-        --text-color: #eee;
+	body {
+		--bkg-color: #272727;
+		--bkg-color-2: black;
+		--text-color: #eee;
 		--text-color-blue: #0078ff;
 		--border-color: #333;
 		--box-shadow-1: black;
 		--box-shadow-2: black;
 		--selection-text-color: #f9ff5a;
 		--selection-bkg-color: transparent;
-    }
-    body.light-theme {
-		// --bkg-color: #f3f3f3;
+	}
+	body.light-theme {
 		--bkg-color: white;
-        --bkg-color-2: white;
-        --text-color: #222;
+		--bkg-color-2: white;
+		--text-color: #222;
 		--text-color-blue: Blue;
 		--border-color: #ddd;
 		--box-shadow-1: #777777;
 		--box-shadow-2: #c6c6c6;
 		--selection-text-color: rgb(255, 82, 2);
 		--selection-bkg-color: transparent;
-    }
+	}
 }
 
 //== ColorSet ==//
@@ -72,23 +55,17 @@ body.dark-theme {
 	$bg : white;
 
 //== Font-Size ==//
-	// $ft-s : 0.7rem;
-	// $ft-s-s : 0.7rem;
-	// $ft-s-ss : 0.7rem;
+	$ft-s : 0.9rem;
+	$ft-s-s : 0.9rem;
+	$ft-s-ss : 0.9rem;
 
-	$ft-s : 0.8rem;
-	$ft-s-s : 0.8rem;
-	$ft-s-ss : 0.8rem;
-
-	//= card-title, deatil-title =//
+	// card-title, deatil-title //
 	$ft-s-title : 0.9rem;
 
-	//= footer, about-right-section =//
-	// $ft-s-small : 0.65rem;
-
+	// footer, about-right-section //
 	$ft-s-small : 0.75rem;
 	
-	//= f-n =//
+	// foot-note //
 	$ft-s-f-n : 0.6rem;
 	
 //== Letter-Spacing ==//
@@ -96,17 +73,13 @@ body.dark-theme {
 	$l-s-bold : initial;
 
 //== Line-Height ==//
-	// $l-h : 1.55;
-	// $l-h-s : 1.55;
-	// $l-h-ss : 1.55;
-
 	$l-h : 1.6;
 	$l-h-s : 1.6;
 	$l-h-ss : 1.6;
 	$l-h-ul : 1.9;
 
 //== Font-Weight ==//
-	$f-w : 500;
+	$f-w : 400;
 
 //== Border-Width ==//
 	$b-w : 1px;

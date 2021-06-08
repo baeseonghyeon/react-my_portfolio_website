@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Route, Switch, useLocation, withRouter } from 'react-router-dom';
 // components
-import Footer from './components/Footer/Footer'
+import Footer from './components/Footer'
 import Home from './views/Home/Home'
 import About from './views/Home/About/About';
 import Work from './views/Home/Work/Work';
@@ -11,6 +11,8 @@ import NotFound from './views/NotFound/NotFound'
 import arrayData from './assets/json/data.json'
 import uiData from './assets/json/ui_data.json'
 
+
+// Render Scroll Top Set
 function _ScrollToTop(props) {
     const { pathname } = useLocation();
     useEffect(() => {
@@ -20,7 +22,6 @@ function _ScrollToTop(props) {
 }
 
 const ScrollToTop = withRouter(_ScrollToTop)
-
 
 function App() {
 // Language setting
@@ -52,14 +53,11 @@ function App() {
 		);
 	};
 
-// Dark&Light Mode setting
+	// Dark&Light Mode setting
 	const [darkState, setDarkState] = useState(['']);
-
-	// const randomItem = Math.floor(Math.random() * 5);
 	
-	// os ui-mode check
-	// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-	const prefersDarkScheme = useMemo(() => window.matchMedia("(prefers-color-scheme: dark)"), ["(prefers-color-scheme: dark)"]);
+	// OS UI-Mode Check
+	const prefersDarkScheme = useMemo(() => window.matchMedia("(prefers-color-scheme: dark)"), []);
 
 	const uiDarkMode = () => {
 		if (prefersDarkScheme.matches) {
@@ -69,7 +67,6 @@ function App() {
 		} else {
 			setDarkState('inactive');
 			document.body.classList.add("light-theme");
-			// document.body.classList.add("bkg"+randomItem);
 			document.body.classList.remove("dark-theme");
 		}		
 	};
@@ -83,7 +80,6 @@ function App() {
 		} else {
 			setDarkState('inactive');
 			document.body.classList.add("light-theme");
-			// document.body.classList.add("bkg"+randomItem);
 			document.body.classList.remove("dark-theme");
 		}
 	};
@@ -94,17 +90,16 @@ function App() {
 
   return (
     <div className="App">
-		<ScrollToTop>
-			<Switch>
-				<Route path="/" exact={true} render={() => <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
-				<Route path="/about" exact={true} render={() => <About uiData={langs[0].uidata}/>} />
-				<Route path="/works" exact={true} render={() => <Work Data={langs[0].data} uiData={langs[0].uidata}/>} />
-				<Route path="/works/:id" render={(match) => <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
-				<Route path="*" component={NotFound} />
-			</Switch>
-		</ScrollToTop>
-		<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
-		<div className="bg-cover"></div>
+			<ScrollToTop>
+				<Switch>
+					<Route path="/" exact={true} render={() => <Home Data={langs[0].data} uiData={langs[0].uidata} path={0}/>} />
+					<Route path="/about" exact={true} render={() => <About uiData={langs[0].uidata}/>} />
+					<Route path="/works" exact={true} render={() => <Work Data={langs[0].data} uiData={langs[0].uidata}/>} />
+					<Route path="/works/:id" render={(match) => <Detail Data={langs[0].data} uiData={langs[0].uidata} {...match}/>} />
+					<Route path="*" component={NotFound} />
+				</Switch>
+			</ScrollToTop>
+			<Footer langs={langs} langToggle={langToggle} darkModeToggle={darkModeToggle} darkState={darkState}/>
     </div>
   );
 }
