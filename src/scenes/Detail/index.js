@@ -4,9 +4,11 @@ import './Detail.scss';
 
 import useMediaQuery from '../../hook/useMediaQuery';
 import NotFound from '../NotFound';
+import YoutubeIframe from '../../components/YoutubeIframe';
+import externalLinkText from '../../lib/externalLinkText';
 
-function Detail({ match, Data }) {
-  const item = Data.data[match.params.id];
+function Detail({ match, data }) {
+  const item = data[match.params.id - 1];
 
   // Popup Touch Screen Redirect Set
   const [width] = useMediaQuery();
@@ -23,10 +25,110 @@ function Detail({ match, Data }) {
     }
   });
 
-  // 404
-  if (Data.data.length - 1 < match.params.id) {
+  // 404 Error (Data 범주 초과, 문자 포함 접근)
+  if (
+    match.params.id < 1 ||
+    data.length < match.params.id ||
+    match.params.id.match(/[^0-9]/)
+  ) {
     return <NotFound />;
   }
+
+  const detailInfos = [
+    {
+      content: item.info.date,
+      type: 'Date'
+    },
+    {
+      content: item.info.cate,
+      type: 'Category'
+    },
+    {
+      content: item.info.role,
+      type: 'Role'
+    },
+    {
+      content: item.info.stack,
+      type: 'Stack'
+    },
+    {
+      content: item.info.collabor,
+      type: 'Collaborator'
+    }
+  ];
+
+  const popupContents = [
+    // 상세 정보 팝업
+    {
+      width: 350,
+      position: true,
+      top: 25,
+      left: 20,
+      isHighlight: true,
+      children: [
+        <ul className="work-info">
+          {detailInfos.map((info) => {
+            if (info.content) {
+              return (
+                <li>
+                  <strong>{info.type}:</strong> {info.content}
+                </li>
+              );
+            }
+            return null;
+          })}
+        </ul>
+      ]
+    },
+    // 컨텐츠 팝업
+    {
+      width: 450,
+      position: true,
+      top: 270,
+      left: 40,
+      isHighlight: false,
+      children: [
+        <div className="desc px-0">
+          <p>
+            {/* Text */}
+            {item.content.text}
+            {/* Content Links */}
+            {item.content.links &&
+              item.content.links.map((link, idx) => {
+                return (
+                  <a
+                    href={link.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onTouchStart={() => touchRedirect(link.src)}
+                  >
+                    {idx === 0 && ' ('}
+                    {link.title}
+                    {idx !== item.content.links.length - 1 ? ', ' : ') '}
+                  </a>
+                );
+              })}
+          </p>
+          {/* Links */}
+          {item.links &&
+            item.links.map((link) => {
+              return (
+                <a
+                  href={link.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  // className="d-block"
+                  onTouchStart={() => touchRedirect(link.src, true)}
+                >
+                  {externalLinkText(link.type)}
+                  <br />
+                </a>
+              );
+            })}
+        </div>
+      ]
+    }
+  ];
 
   return (
     <div id="Detail">
@@ -35,212 +137,63 @@ function Detail({ match, Data }) {
           <div className="view-layout px-0" id="detail-scroll">
             <div className="container ft-s-s">
               <div className="detail-desc">
-                <Popup
-                  id={`info${item.id}`}
-                  title={item.title}
-                  maxWidth="320"
-                  position
-                  top="25"
-                  left="20"
-                  padding
-                  highlight
-                >
-                  <ul className="work-info">
-                    <li>
-                      <strong>Date:</strong> {item.date}
-                    </li>
-                    <li>
-                      <strong>Category:</strong> {item.cate}
-                    </li>
-                    <li>
-                      <strong>Position:</strong> {item.position}
-                    </li>
-                    <li>
-                      <strong>Stack:</strong> {item.stack}
-                    </li>
-                    {item.Collabor && (
-                      <li>
-                        <strong>Collaborator:</strong> {item.Collabor}
-                      </li>
-                    )}
-                  </ul>
-                </Popup>
-                <Popup
-                  id={item.id}
-                  title={item.title}
-                  width="450"
-                  position
-                  top="270"
-                  left="40"
-                  padding
-                  highlight={false}
-                >
-                  <div className="desc px-0">
-                    <p>
-                      <span dangerouslySetInnerHTML={{ __html: item.desc }} />
-                      {item.rel_urls && ' ('}
-                      {item.rel_urls &&
-                        item.rel_urls.map((rel, idx) => {
-                          return (
-                            <>
-                              <a
-                                href={rel.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onTouchStart={() => touchRedirect(rel.url)}
-                              >
-                                {rel.title}
-                              </a>
-                              {item.rel_urls.length - 1 !== idx && ', '}
-                            </>
-                          );
-                        })}
-                      {item.rel_urls && ') '}
-                    </p>
-                    {item.link && (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onTouchStart={() => touchRedirect(item.link)}
-                      >
-                        Visit the website →<br />
-                      </a>
-                    )}
-                    {item.link_mobile && (
-                      <a
-                        href={item.link_mobile}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onTouchStart={() => touchRedirect(item.link_mobile)}
-                      >
-                        Visit the website(Mobile Only) →<br />
-                      </a>
-                    )}
-                    {item.link_git && (
-                      <a
-                        href={item.link_git}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onTouchStart={() => touchRedirect(item.link_git)}
-                      >
-                        Visit the Github Code →<br />
-                      </a>
-                    )}
-                  </div>
-                </Popup>
+                {popupContents.map((content, idx) => {
+                  return (
+                    <Popup
+                      id={idx}
+                      title={item.title}
+                      width={content.width}
+                      position={content.position ? content.position : false}
+                      top={content.top && content.top}
+                      left={content.left && content.left}
+                      padding
+                      highlight={content.isHighlight}
+                    >
+                      {content.children}
+                    </Popup>
+                  );
+                })}
               </div>
+
+              {/* Videos */}
               <div className="row mt-5 m-auto justify-content-center">
-                {item.movie1 && (
-                  <div className="col-md-6 mb-0 p-0">
-                    <div className="detail-video-wrapper">
-                      <iframe
-                        title={item.title}
-                        className="detail-video"
-                        width="550"
-                        height="350"
-                        src={`${item.movie1}?autoplay=1&showinfo=0&loop=1&mute=1&rel=0`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                )}
-                {item.movie2 && (
-                  <div className="col-md-6 mb-0 p-0">
-                    <div className="detail-video-wrapper video2">
-                      <iframe
-                        title={item.title}
-                        className="detail-video"
-                        width="550"
-                        height="350"
-                        src={`${item.movie2}?autoplay=1&showinfo=0&loop=1&mute=1&rel=0`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                )}
+                {item.videos &&
+                  item.videos.map((video) => {
+                    return (
+                      <div className="col-md-6 mb-0 p-0">
+                        <div className="detail-video-wrapper">
+                          <YoutubeIframe
+                            className="detail-video"
+                            width={550}
+                            height={350}
+                            src={video.src}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
+
+              {/* Images */}
               <div className="row mb-4 m-auto justify-content-center">
-                {item.img1_full
-                  ? item.img1 && (
-                      <div className="col-md-12 mb-0 p-0">
+                {item.images &&
+                  item.images.map((image) => {
+                    return (
+                      <div
+                        className={
+                          image.fullSize
+                            ? 'col-md-12 mb-0 p-0'
+                            : 'col-md-6 mb-0 p-0'
+                        }
+                      >
                         <img
-                          src={item.img1}
+                          src={image.src}
                           className="detail-img"
                           alt={item.title}
                         />
                       </div>
-                    )
-                  : item.img1 && (
-                      <div className="col-md-6 mb-0 p-0">
-                        <img
-                          src={item.img1}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    )}
-                {item.img2_full
-                  ? item.img2 && (
-                      <div className="col-md-12 mb-0 p-0">
-                        <img
-                          src={item.img2}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    )
-                  : item.img2 && (
-                      <div className="col-md-6 mb-0 p-0">
-                        <img
-                          src={item.img2}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    )}
-                {item.img3_full
-                  ? item.img3 && (
-                      <div className="col-md-12 mb-0 p-0">
-                        <img
-                          src={item.img3}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    )
-                  : item.img3 && (
-                      <div className="col-md-6 mb-0 p-0">
-                        <img
-                          src={item.img3}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    )}
-                {item.img4_full
-                  ? item.img4 && (
-                      <div className="col-md-12 mb-0 p-0">
-                        <img
-                          src={item.img4}
-                          className="detail-img img4"
-                          alt={item.title}
-                        />
-                      </div>
-                    )
-                  : item.img4 && (
-                      <div className="col-md-6 mb-0 p-0">
-                        <img
-                          src={item.img4}
-                          className="detail-img img4"
-                          alt={item.title}
-                        />
-                      </div>
-                    )}
+                    );
+                  })}
               </div>
             </div>
           </div>

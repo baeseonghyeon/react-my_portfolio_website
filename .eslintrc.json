@@ -33,6 +33,8 @@
     "no-nested-ternary": 0,
     "react/prop-types": "off",
     "import/no-unresolved": "off",
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "import/no-extraneous-dependencies": ["error",  {"devDependencies": true}],
+    "react/jsx-props-no-spreading": "off",
   }
 }

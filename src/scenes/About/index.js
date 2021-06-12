@@ -13,7 +13,7 @@ import useMediaQuery from '../../hook/useMediaQuery';
 import './About.scss';
 
 function About(props) {
-  const data = props.uiData.home[0];
+  const { data } = props;
 
   useEffect(() => {
     document.getElementById('view-layout').style.opacity = 1;
@@ -64,11 +64,7 @@ function About(props) {
       top: 50,
       left: 26,
       isHighlight: true,
-      children: [
-        <p>
-          <span dangerouslySetInnerHTML={{ __html: data.intro }} />
-        </p>
-      ]
+      children: [<p>{data.intro}</p>]
     },
     {
       title: 'CONTACT',
@@ -98,11 +94,7 @@ function About(props) {
     {
       title: 'COMMENT',
       width: 400,
-      children: [
-        <p className="about-align-left">
-          <span dangerouslySetInnerHTML={{ __html: data.desc }} />
-        </p>
-      ]
+      children: [<p className="about-align-left">{data.comment}</p>]
     },
     {
       title: 'CAREER',
@@ -120,10 +112,10 @@ function About(props) {
                       rel="noopener noreferrer"
                       onTouchStart={() => touchRedirect(item.url)}
                     >
-                      {item.title}
+                      {item.title} ( {item.date} )
                     </a>
                   ) : (
-                    item.title
+                    `${item.title} ( ${item.date} )`
                   )}
                 </li>
               );
@@ -136,10 +128,17 @@ function About(props) {
       title: 'SKILL',
       width: 500,
       children: [
-        <span
-          className="style-list"
-          dangerouslySetInnerHTML={{ __html: data.stack }}
-        />
+        <span className="style-list">
+          <ul>
+            {data.stack.map((item) => {
+              return (
+                <li>
+                  {item.category}({item.stacks})
+                </li>
+              );
+            })}
+          </ul>
+        </span>
       ]
     },
     {
@@ -147,8 +146,14 @@ function About(props) {
       width: 300,
       children: [
         <span>
-          <p>{data.footer1}</p>
-          <p>{data.footer2}</p>
+          {data.footer.map((item, idx) => {
+            return (
+              <>
+                <p>{item.text}</p>
+                {idx !== data.footer.length - 1 && <br />}
+              </>
+            );
+          })}
         </span>
       ]
     }

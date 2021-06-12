@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Popup from '../../Popup';
 import useMediaQuery from '../../../hook/useMediaQuery';
 import './CardHover.scss';
+import externalLinkText from '../../../lib/externalLinkText';
 
 function CardHover(props) {
   const { item } = props;
@@ -25,18 +26,14 @@ function CardHover(props) {
     <div className="desc-card ft-s-s" id={`desc${item.id}`}>
       <Popup
         id={`desc${item.id}`}
-        title={`${item.cate} - ${item.position}`}
+        title={`${item.info.cate} - ${item.info.role}`}
         padding
         highlight={false}
       >
         <span>
           <p className="desc">
-            <span
-              dangerouslySetInnerHTML={{
-                __html: item.desc.substr(0, item.eg ? 110 : 65)
-              }}
-            />
-            {item.desc.length > (item.eg ? 110 : 65) ? (
+            {item.content.text.substr(0, item.eg ? 110 : 65)}
+            {item.content.text.length > (item.eg ? 110 : 65) ? (
               <span>
                 ...
                 <Link
@@ -54,40 +51,25 @@ function CardHover(props) {
           </p>
         </span>
         <span>
-          {item.link && (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-block"
-              onTouchStart={() => touchRedirect(item.link, true)}
-            >
-              Visit the website →<br />
-            </a>
-          )}
-          {item.link_mobile && (
-            <a
-              href={item.link_mobile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-block"
-              onTouchStart={() => touchRedirect(item.link_mobile, true)}
-            >
-              Visit the website(Mobile Only) →<br />
-            </a>
-          )}
-          {item.link_git && (
-            <a
-              href={item.link_git}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-block"
-              onTouchStart={() => touchRedirect(item.link_git, true)}
-            >
-              Visit the Github Code →<br />
-            </a>
-          )}
-          {item.desc.length < (item.eg ? 110 : 65) && (
+          {/* 외부 링크 */}
+          {item.links &&
+            item.links.map((link) => {
+              return (
+                <a
+                  href={link.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="d-block"
+                  onTouchStart={() => touchRedirect(link.src, true)}
+                >
+                  {externalLinkText(link.type)}
+                  <br />
+                </a>
+              );
+            })}
+
+          {/* 더보기 버튼 */}
+          {item.content.text.length < (item.eg ? 110 : 65) && (
             <Link
               className="more-btn d-block"
               to={`/works/${item.id}`}

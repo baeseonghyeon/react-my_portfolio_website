@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import YoutubeIframe from '../YoutubeIframe';
 import './Card.scss';
 import CardHover from './CardHover';
 
@@ -34,23 +35,21 @@ function Card(props) {
           onClick={() => props.onClickIcon(item.id)}
           onTouchStart={() => props.onClickIcon(item.id)}
         />
-        {item.movie1 ? (
+        {item.videos ? (
           <div className="ifram-wrapper">
-            <iframe
-              title={item.title}
+            <YoutubeIframe
               className="work-video"
-              width="550"
-              height="344"
-              src={`${item.movie1}?autoplay=1&showinfo=0&loop=1&mute=1&rel=0`}
-              frameBorder="0"
-              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              width={550}
+              height={344}
+              src={item.videos[0].src}
             />
           </div>
-        ) : item.thumb ? (
-          <img src={item.thumb} className="work-img" alt={item.title} />
-        ) : item.img1 ? (
-          <img src={item.thumb} className="work-img" alt={item.title} />
+        ) : item.thumb || item.images ? (
+          <img
+            src={item.thumb ? item.thumb : item.images[0].src}
+            className="work-img"
+            alt={item.title}
+          />
         ) : (
           <div className="empty-thumb">
             <span>Thumbnail is Empty :-(</span>

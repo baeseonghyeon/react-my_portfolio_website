@@ -8,8 +8,8 @@ import Work from './scenes/Work';
 import Detail from './scenes/Detail';
 import NotFound from './scenes/NotFound';
 // data
-import workData from './data/work.json';
-import profileData from './data/profile.json';
+import workData from './data/work';
+import profileData from './data/profile';
 
 // Render Scroll Top Set
 function _ScrollToTop(props) {
@@ -24,8 +24,8 @@ const ScrollToTop = withRouter(_ScrollToTop);
 
 function App() {
   // Data Setting
-  const Data = {
-    ui: {
+  const DATA = {
+    profile: {
       kr: profileData[0],
       en: profileData[1]
     },
@@ -39,8 +39,8 @@ function App() {
   const [langs, setLangs] = useState([
     {
       set: 'KR',
-      data: Data.work.kr,
-      uidata: Data.ui.kr
+      work_data: DATA.work.kr,
+      profile_data: DATA.profile.kr
     }
   ]);
 
@@ -48,8 +48,18 @@ function App() {
     setLangs(
       langs.map((lang) =>
         data === 'EN'
-          ? { ...lang, set: 'EN', data: Data.work.en, uidata: Data.ui.en }
-          : { ...lang, set: 'KR', data: Data.work.kr, uidata: Data.ui.kr }
+          ? {
+              ...lang,
+              set: 'EN',
+              work_data: DATA.work.en,
+              profile_data: DATA.profile.en
+            }
+          : {
+              ...lang,
+              set: 'KR',
+              work_data: DATA.work.kr,
+              profile_data: DATA.profile.kr
+            }
       )
     );
   };
@@ -89,28 +99,24 @@ function App() {
           <Route
             path="/"
             exact
-            render={() => <About uiData={langs[0].uidata} path={0} />}
+            render={() => (
+              <About data={langs[0].profile_data.data[0]} path={0} />
+            )}
           />
           <Route
             path="/about"
             exact
-            render={() => <About uiData={langs[0].uidata} />}
+            render={() => <About data={langs[0].profile_data.data[0]} />}
           />
           <Route
             path="/works"
             exact
-            render={() => (
-              <Work Data={langs[0].data} uiData={langs[0].uidata} />
-            )}
+            render={() => <Work data={langs[0].work_data.data} />}
           />
           <Route
             path="/works/:id"
             render={(match) => (
-              <Detail
-                Data={langs[0].data}
-                uiData={langs[0].uidata}
-                {...match}
-              />
+              <Detail data={langs[0].work_data.data} {...match} />
             )}
           />
           <Route path="*" component={NotFound} />

@@ -10,13 +10,14 @@ import useMediaQuery from '../../hook/useMediaQuery';
 import './Work.scss';
 
 function Work(props) {
+  const { data } = props;
+
   useEffect(() => {
     document.getElementById('view-layout').style.opacity = 1;
     document.getElementById('view-layout').style.transform = 'initial';
   }, []);
 
-  const uiData = props.uiData.home[0];
-  const { data } = props.Data;
+  // const uiData = props.uiData.data[0];
 
   const onClickFootnote = (id) => {
     hideCard();
@@ -90,7 +91,7 @@ function Work(props) {
     <div className="view-layout container" id="view-layout">
       <Popup
         id="x"
-        title={uiData.work_title}
+        title="All works"
         width="400"
         position
         top="50"
@@ -110,7 +111,7 @@ function Work(props) {
                     onClick={() => onClickFootnote(item.id)}
                     onTouchStart={() => onClickFootnote(item.id)}
                   >
-                    [{item.id + 1}]
+                    [{item.id}]
                   </a>
                 </span>
                 <Link
@@ -119,7 +120,7 @@ function Work(props) {
                   onTouchStart={() => touchRedirect(`/works/${item.id}`)}
                 >
                   <span className="work-list">
-                    {item.title} ( {item.date} ) [{item.cate}]
+                    {item.title} ( {item.info.date} ) [{item.info.cate}]
                   </span>
                 </Link>
               </span>
