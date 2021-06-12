@@ -1,23 +1,26 @@
 import React, { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { animateScroll as scroll } from 'react-scroll';
 import Popup from '../../components/Popup';
 import Card from '../../components/Card';
 
 import useMediaQuery from '../../hook/useMediaQuery';
+import touchRedirect from '../../lib/touchRedirect';
 
 import './Work.scss';
 
+
 function Work(props) {
   const { data } = props;
+  const [screenSize] = useMediaQuery();
 
+  // 랜더 애니메이션
   useEffect(() => {
     document.getElementById('view-layout').style.opacity = 1;
     document.getElementById('view-layout').style.transform = 'initial';
   }, []);
 
-  // const uiData = props.uiData.data[0];
 
   const onClickFootnote = (id) => {
     hideCard();
@@ -78,15 +81,6 @@ function Work(props) {
     );
   };
 
-  // Popup Touch Screen Redirect Set
-  const history = useHistory();
-  const [width] = useMediaQuery();
-  const touchRedirect = (url) => {
-    if (width > 769) {
-      history.push(url);
-    }
-  };
-
   return (
     <div className="view-layout container" id="view-layout">
       <Popup
@@ -117,7 +111,7 @@ function Work(props) {
                 <Link
                   to={`/works/${item.id}`}
                   className="text-decoration-none"
-                  onTouchStart={() => touchRedirect(`/works/${item.id}`)}
+                  onTouchStart={() => touchRedirect(`/works/${item.id}`, screenSize)}
                 >
                   <span className="work-list">
                     {item.title} ( {item.info.date} ) [{item.info.cate}]

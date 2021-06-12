@@ -90,9 +90,9 @@ function Detail({ match, data }) {
       children: [
         <div className="desc px-0">
           <p>
-            {/* Text */}
+            {/* 내용 */}
             {item.content.text}
-            {/* Content Links */}
+            {/* 관련 링크 */}
             {item.content.links &&
               item.content.links.map((link, idx) => {
                 return (
@@ -155,7 +155,7 @@ function Detail({ match, data }) {
                 })}
               </div>
 
-              {/* Videos */}
+              {/* 영상 */}
               <div className="row mt-5 m-auto justify-content-center">
                 {item.videos &&
                   item.videos.map((video) => {
@@ -174,7 +174,7 @@ function Detail({ match, data }) {
                   })}
               </div>
 
-              {/* Images */}
+              {/* 이미지 */}
               <div className="row mb-4 m-auto justify-content-center">
                 {item.images &&
                   item.images.map((image) => {

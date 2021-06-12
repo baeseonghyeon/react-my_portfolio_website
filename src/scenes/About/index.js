@@ -9,24 +9,19 @@ import TistoryIcon from '../../components/Icon/TistoryIcon';
 
 import Popup from '../../components/Popup';
 import useMediaQuery from '../../hook/useMediaQuery';
+import touchRedirect from '../../lib/touchRedirect';
 
 import './About.scss';
 
 function About(props) {
   const { data } = props;
+  const [screenSize] = useMediaQuery();
 
+  // 랜더 애니메이션
   useEffect(() => {
     document.getElementById('view-layout').style.opacity = 1;
     document.getElementById('view-layout').style.transform = 'initial';
   });
-
-  // Popup Touch Screen Redirect Set
-  const [width] = useMediaQuery();
-  const touchRedirect = (url) => {
-    if (width > 769) {
-      window.location.href = url;
-    }
-  };
 
   const contactContents = [
     {
@@ -81,7 +76,7 @@ function About(props) {
                   target="_blank"
                   href={item.url}
                   rel="noopener noreferrer"
-                  onTouchStart={() => touchRedirect(item.url)}
+                  onTouchStart={() => touchRedirect(item.url, screenSize)}
                 >
                   {item.icon && item.icon} {item.text}
                 </a>
@@ -110,7 +105,7 @@ function About(props) {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onTouchStart={() => touchRedirect(item.url)}
+                      onTouchStart={() => touchRedirect(item.url, screenSize)}
                     >
                       {item.title} ( {item.date} )
                     </a>

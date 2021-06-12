@@ -6,6 +6,7 @@ const NotFound = () => {
   const [counter, setCounter] = useState(5);
   const history = useHistory();
 
+  // 카운트 인터벌
   useEffect(() => {
     const countdown = setInterval(() => {
       if (counter > 0) {
@@ -18,6 +19,7 @@ const NotFound = () => {
     return () => clearInterval(countdown);
   }, [counter]);
 
+  // 메인 리다이렉트
   useEffect(() => {
     const timeout = setTimeout(() => {
       history.push('/');
