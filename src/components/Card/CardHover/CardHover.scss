@@ -1,0 +1,40 @@
+@import '../../../scss/variable.scss';
+
+$trs: all ease 0.3s 0s;
+
+.desc-card {
+  z-index: -1;
+  opacity: 0;
+  color: black;
+  width: 95%;
+  max-width: 474px;
+  max-height: 255px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: $trs;
+  -moz-transition: $trs;
+  -webkit-transition: $trs;
+  background-color: var(--bkg-color);
+  background-color: transparent;
+  h3 {
+    text-align: center;
+    font-size: $ft-s-title;
+    font-weight: bold;
+    letter-spacing: $l-s-bold;
+  }
+  p {
+    margin-bottom: 0.6rem;
+  }
+  a {
+    text-align: left;
+    width: fit-content;
+  }
+  .cate {
+    text-align: center;
+    font-size: $ft-s-small;
+  }
+}
