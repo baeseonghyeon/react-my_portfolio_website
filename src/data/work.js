@@ -1,31 +1,39 @@
 /* eslint-disable no-use-before-define */
 
-const egDataForm = (idx, data) => {
-  const index = idx - 1;
+const egDataForm = (data) => {
+  const index = data.id - 1;
   const egData = {
-    id: index,
+    id: data.id,
     title: data.title,
     content: {
       text: data.text,
       get links() {
-        const newWorkData = JSON.parse(
-          JSON.stringify(workData[0].data[index].content.links)
-        );
-        if (data.descLinks) {
-          data.descLinks.map((link, id) => {
-            newWorkData[id].title = link.title;
-            return null;
-          });
+        if (workData[0].data[index].content.links) {
+          const newWorkData = JSON.parse(
+            JSON.stringify(workData[0].data[index].content.links)
+          );
+          if (data.descLinks) {
+            data.descLinks.map((link, id) => {
+              newWorkData[id].title = link.title;
+              return null;
+            });
+          } 
+          return newWorkData;
         }
-        return newWorkData;
-      }
+      },
     },
     get info() {
-      const newWorkData = JSON.parse(
-        JSON.stringify(workData[0].data[index].info)
-      );
-      if (data.collabor) newWorkData.collabor = data.collabor;
-      return newWorkData;
+      if(workData[0].data[index].info.collabor) {
+        const newWorkData = JSON.parse(
+          JSON.stringify(workData[0].data[index].info)
+        );
+        if (data.collabor) {
+          newWorkData.collabor = data.collabor;
+        } 
+        return newWorkData;
+      } else {
+        return workData[0].data[index].info;
+      }
     },
     get links() {
       return workData[0].data[index].links;
@@ -297,7 +305,7 @@ const workData = [
           collabor: '박기홍'
         },
         content: {
-          text: '미술전시, 관람 서비스 마스터피스의 애플리케이션 프로토타입 입니다.',
+          text: "Developer Student Clubs 삼육대학교 에서 진행한 Github 정원사들('두유 Know 잔디?)이벤트 출석부 웹사이트입니다. GDG 판교의 정원사들 시즌5 출석부의 코드 및 디자인 리팩토링을 통해 개발하였습니다.",
           links: [
             {
               title: 'junho85 Github Link',
@@ -407,21 +415,25 @@ const workData = [
   {
     lang: 'eg',
     data: [
-      egDataForm(1, {
+      egDataForm({
+        id: 1,
         title: 'Likelion at Sahmyook University',
         text: 'It is a website of Likelion at Sahmyook University. It is produced for the purpose of managing members, posting notices, posting assignments, posting class materials, and promoting activities during activities Likelion. I was in charge of planning, design, function development, and server deploy of the website.'
       }),
-      egDataForm(2, {
+      egDataForm({
+        id: 2,
         title: 'Sahmyook University Library Event',
         text: 'This is the attendance check event page of Sahmyook University Academic Information Service. After participating in the event, you can attendance and check attendance details. I developed attendance check event function, administrator function, server and screen design, and UI.',
         collabor: 'OPENBUS'
       }),
-      egDataForm(3, {
+      egDataForm({
+        id: 3,
         title: 'FarmCloud',
         text: 'It is User Web module for the farm cloud. The Web-based modules allow to monitor and control the growing environment of unattended smart farms. I was responsible for planning, screen design, and front-end development of early web module prototypes.',
         collabor: 'OPENBUS'
       }),
-      egDataForm(4, {
+      egDataForm({
+        id: 4,
         title: 'Port Self-driving Car Interface',
         text: "This is the web interface for monitoring and control of port self-driving vehicles. Web-based interfaces allow you to monitor, manage and control prototype self-driving vehicles developed use Arduino. I worked with the YAHAIT team to design the interface and develop the front end. As a result of this project, we won the 2019 Smart Port Logistics Project Competition (Smart Port Logistics Contest) 'Port Intelligent Autonomous Transport Smart Vehicle' and was selected as the '2019 Smart Port Logistics Startup Item Discovery Support Project' by Ulsan Port Corporation. Through this, we received business funds 26.4 million won.",
         collabor: 'YAHAIT',
@@ -434,27 +446,32 @@ const workData = [
           }
         ]
       }),
-      egDataForm(5, {
+      egDataForm({
+        id: 5,
         title: 'SYUFESTA',
         text: 'This is the website of the Cheonbo Festival & Athletic Competition of Sahmyook University. It was developed for the purpose of promoting Sahmyook University Festival (Cheonbo Festival) and Athletic Competition, posting information, and support events. Through the one main page, you can experience two website with a different design and concept. Like the student council of Sahmyook University and Likelion at Sahmyook University collaborated and produced it. I taken the lead of planning the project and front-end developing the front-end.',
         collabor: 'LIKELION at SYU'
       }),
-      egDataForm(6, {
+      egDataForm({
+        id: 6,
         title: 'OldRookie Corp.(Prototype)',
         text: "This is website of the OldRookie corporate. It is designed to publish the company's information. I was in charge of website planning and front-end development. (This project is still in development.)",
         collabor: 'OldRookie'
       }),
-      egDataForm(7, {
+      egDataForm({
+        id: 7,
         title: 'Masterpiece(Prototype)',
         text: "This is an application prototype for the 'Masterpiece' of the art exhibition and viewing service.",
         collabor: 'OldRookie'
       }),
-      egDataForm(8, {
+      egDataForm({
+        id: 8,
         title: 'Do you Know Jandi?',
         text: "This is the Github gardener's ('Do you Know Grass?') event attendance website held by the Developer Student Clubs Sahmyook University. This website was developed through code and design refactoring of Gardeners season5 of GDG Pangyo.",
         collabor: 'Gihong-Park'
       }),
-      egDataForm(9, {
+      egDataForm({
+        id: 9,
         title: 'Diesel Truck',
         text: 'We have developed a dealer app, seller app client, and admin web client for the cargo trading platform named Diesel Truck.',
         collabor: 'OldRookie, Yumis',
@@ -467,7 +484,8 @@ const workData = [
           }
         ]
       }),
-      egDataForm(10, {
+      egDataForm({
+        id: 10,
         title: 'CLUBBER',
         text: 'We have developed the app client, and admin web client for the club party connection platform named Clubber.',
         collabor: 'OldRookie, Yumis'

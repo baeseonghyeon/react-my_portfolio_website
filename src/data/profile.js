@@ -1,7 +1,7 @@
 const profileData = [
   {
     lang: 'kr',
-    data: [
+    data: 
       {
         intro:
           '배성현은 프론트엔드 개발자, UI개발자, 웹/앱 개발자, UI/UX 기획자, IT서비스 기획자, 프로덕트 매니저입니다.',
@@ -11,7 +11,7 @@ const profileData = [
           {
             title: '올드루키(주) 프론트엔드 개발자, 서비스 기획자',
             date: '2019-2021',
-            url: 'https://www.naver.com/'
+            url: 'https://nt.oldrookiecorp.com/6b2d9843993f4cf4adc434d686f86cfa'
           },
           {
             title: 'Google Developer Student Clubs Lead',
@@ -61,12 +61,11 @@ const profileData = [
           }
         ]
       }
-    ]
   },
   /** English :: Data Language */
   {
     lang: 'eg',
-    data: [
+    data: 
       {
         intro:
           'Bae Seonghyeon is a Front-end Developer, UI Developer, WEB/APP Developer, UI/UX Planner, IT Service Planner, Product Manager.',
@@ -76,37 +75,37 @@ const profileData = [
           {
             title: 'OldRookie Corp FE Developer, Service Planner ',
             get date() {
-              return profileData[0].data[0].career[0].date;
+              return profileData[0].data.career[0].date;
             },
             get url() {
-              return profileData[0].data[0].career[0].url;
+              return profileData[0].data.career[0].url;
             }
           },
           {
             title: 'Google Developer Student Clubs Lead',
             get date() {
-              return profileData[0].data[0].career[1].date;
+              return profileData[0].data.career[1].date;
             },
             get url() {
-              return profileData[0].data[0].career[1].url;
+              return profileData[0].data.career[1].url;
             }
           },
           {
             title: 'LIKELION at Sahmyook University 6th, 7th Leader',
             get date() {
-              return profileData[0].data[0].career[2].date;
+              return profileData[0].data.career[2].date;
             },
             get url() {
-              return profileData[0].data[0].career[2].url;
+              return profileData[0].data.career[2].url;
             }
           },
           {
             title: 'OPENBUS Development Team Intern',
             get date() {
-              return profileData[0].data[0].career[3].date;
+              return profileData[0].data.career[3].date;
             },
             get url() {
-              return profileData[0].data[0].career[3].url;
+              return profileData[0].data.career[3].url;
             }
           }
         ],
@@ -114,31 +113,31 @@ const profileData = [
           {
             category: 'WEB',
             get stacks() {
-              return profileData[0].data[0].stack[0].stacks;
+              return profileData[0].data.stack[0].stacks;
             }
           },
           {
             category: 'APP',
             get stacks() {
-              return profileData[0].data[0].stack[1].stacks;
+              return profileData[0].data.stack[1].stacks;
             }
           },
           {
             category: 'LANGUAGE',
             get stacks() {
-              return profileData[0].data[0].stack[2].stacks;
+              return profileData[0].data.stack[2].stacks;
             }
           },
           {
             category: 'DATABASE',
             get stacks() {
-              return profileData[0].data[0].stack[3].stacks;
+              return profileData[0].data.stack[3].stacks;
             }
           },
           {
             category: 'INFRA',
             get stacks() {
-              return profileData[0].data[0].stack[4].stacks;
+              return profileData[0].data.stack[4].stacks;
             }
           }
         ],
@@ -151,7 +150,7 @@ const profileData = [
           }
         ]
       }
-    ]
+    
   }
 ];
 

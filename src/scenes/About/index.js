@@ -55,7 +55,6 @@ function About(props) {
     {
       title: 'BAE-SEONGHYEON',
       width: 350,
-      position: true,
       top: 50,
       left: 26,
       isHighlight: true,
@@ -64,7 +63,6 @@ function About(props) {
     {
       title: 'CONTACT',
       width: 250,
-      position: true,
       top: 195,
       left: 50,
       children: [
@@ -162,7 +160,6 @@ function About(props) {
             id={idx}
             title={item.title}
             width={item.width}
-            position={item.position ? item.position : false}
             top={item.top && item.top}
             left={item.left && item.left}
             padding

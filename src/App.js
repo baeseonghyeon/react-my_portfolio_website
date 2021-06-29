@@ -100,13 +100,13 @@ function App() {
             path="/"
             exact
             render={() => (
-              <About data={langs[0].profile_data.data[0]} path={0} />
+              <About data={langs[0].profile_data.data} />
             )}
           />
           <Route
             path="/about"
             exact
-            render={() => <About data={langs[0].profile_data.data[0]} />}
+            render={() => <About data={langs[0].profile_data.data} />}
           />
           <Route
             path="/works"

@@ -1,120 +1,91 @@
-import React, { useEffect } from 'react';
-import './Popup.scss';
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './Popup.module.scss';
+import cb from 'classnames/bind';
 import Draggable from 'react-draggable';
 import useMediaQuery from '../../hook/useMediaQuery';
 
-function Popup(props) {
-  const [width] = useMediaQuery();
+const cn = cb.bind(styles);
+
+const Popup = (props) => {
+  const { highlight, title, maxWidth, width, top, left, id, children, padding ,fixed} = props;
+  const [screenWidth] = useMediaQuery();
+
 
   // Popup Render Position Set
+  const myRef = useRef(null);
+
   useEffect(() => {
-    if (props.position === false) {
+    if (!fixed && (!top || !left)) {
       popupPosition();
     }
-  });
+  }, []);
 
   const popupPosition = () => {
-    const popup = document.getElementById(`popup${props.id}`);
-    popup.style.left = `${
-      Math.random() * ((window.innerWidth - popup.offsetWidth) * 0.8) +
-      window.innerWidth * 0.1
-    }px`;
-    popup.style.top = `${
-      Math.random() * ((window.innerHeight - popup.offsetHeight) * 0.7) +
-      window.innerHeight * 0.1
-    }px`;
-  };
-
-  // Popup TopUp
-  const onMouseEnterPopup = (id) => {
-    document.getElementById(`popup${id}`).style.zIndex = 9;
-  };
-
-  const onMouseLeavePopup = (id) => {
-    document.getElementById(`popup${id}`).style.zIndex = 5;
+    if(myRef.current){
+      myRef.current.style.left = `${ Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.15 }px`;
+      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.15 }px`;
+    }
   };
 
   // Popup Close
-  const onClickClose = (id) => {
-    document.getElementById(`popup${id}`).style.opacity = 0;
-    document.getElementById(`popup${id}`).style.zIndex = -1;
+  const [hide, setHide] = useState(false);
+  const [hidePosition, setHidePosition] = useState(false);
 
+  const onClickClose = () => {
+    setHide(true);
     setTimeout(function () {
-      document.getElementById(`popup${id}`).style.position = 'fixed';
-      document.getElementById(`popup${id}`).style.top = `${9999}px`;
-      document.getElementById(`popup${id}`).style.left = `${9999}px`;
+      setHidePosition(true);
     }, 400);
   };
 
-  return width > 769 ? (
+  // Popup zIndex
+  const [zindex, setZindex] = useState(highlight? 100 : 5);
+
+  return (
     <Draggable
+      disabled={screenWidth > 769 ? false : true}
       axis="both"
-      handle=".popup-line"
+      handle={'.handleTarget' }
       defaultPosition={{ x: 0, y: 0 }}
       position={null}
       grid={[25, 25]}
       scale={1}
+      onDrag={() => setZindex(9999)}
     >
       <div
-        className={props.highlight ? 'popup-line highlight' : 'popup-line'}
-        id={`popup${props.id}`}
+        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', hidePosition && 'hide--position')}
+        id={`popup${id}`}
         style={{
-          width: `${props.width}px`,
-          maxWidth: `${props.maxWidth}px`,
-          top: `${props.top}px`,
-          left: `${props.left}px`
+          width: `${width}px`,
+          maxWidth: `${maxWidth}px`,
+          top: `${top && top}px`,
+          left: `${left && left}px`,
+          zIndex: `${zindex && zindex}` 
         }}
-        onMouseEnter={() => onMouseEnterPopup(props.id)}
-        onTouchStart={() => onMouseEnterPopup(props.id)}
-        onMouseLeave={() => onMouseLeavePopup(props.id)}
-        onTouchEnd={() => onMouseLeavePopup(props.id)}
+        onMouseEnter={() => setZindex(999)}
+        onTouchStart={() => screenWidth > 769 && setZindex(999)}
+        onMouseLeave={() => setZindex(highlight? 100 : 5)}
+        onTouchEnd={() =>  screenWidth > 769 && setZindex(highlight? 100 : 5)}
+        ref={myRef}
       >
-        <div className="popup-title">
-          {props.title}
+        <div className={cn('title')}>
+          {title}
           <span
-            className="close-btn"
-            onClick={() => onClickClose(props.id)}
-            onTouchStart={() => onClickClose(props.id)}
+            className={cn('btn--close')}
+            onClick={() => onClickClose()}
+            onTouchStart={() => screenWidth > 769 && onClickClose()}
           >
             ×
           </span>
         </div>
         <div
-          className="popup-content"
-          style={
-            props.padding ? { padding: '12px 10px 15px' } : { padding: '' }
-          }
+          className={cn('content', padding && 'content--isPadding')}
         >
-          {props.children}
+          {children}
         </div>
       </div>
     </Draggable>
-  ) : (
-    <div
-      className={props.highlight ? 'popup-line highlight' : 'popup-line'}
-      id={`popup${props.id}`}
-      style={{
-        width: `${props.width}px`,
-        top: `${props.top}px`,
-        left: `${props.left}px`
-      }}
-      onMouseEnter={() => onMouseEnterPopup(props.id)}
-      onMouseLeave={() => onMouseLeavePopup(props.id)}
-    >
-      <div className="popup-title">
-        {props.title}
-        <span className="close-btn" onClick={() => onClickClose(props.id)}>
-          ×
-        </span>
-      </div>
-      <div
-        className="popup-content"
-        style={props.padding ? { padding: '12px 10px 15px' } : { padding: '' }}
-      >
-        {props.children}
-      </div>
-    </div>
-  );
+  ) 
 }
 
 export default React.memo(Popup);

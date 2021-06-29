@@ -1,6 +1,6 @@
 @import '../../scss/variable.scss';
 
-.popup-line {
+.container {
   box-shadow: 0vh 0vh 1vh var(--text-color);
   background: var(--bkg-color);
   border: 1px solid var(--text-color);
@@ -15,46 +15,55 @@
       margin-bottom: 5px;
     }
   }
-}
-.popup-title {
-  border-bottom: 1px solid var(--border-color);
-  text-align: left;
-  padding: 4px 11px 5px;
-  font-size: $ft-s;
-  font-weight: bold;
-  touch-action: auto;
-  cursor: pointer;
-  .close-btn {
-    position: absolute;
-    right: 8px;
-    top: 4px;
-    font-size: 0.9rem;
+
+  .title {
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    padding: 4px 11px 5px;
+    font-size: $ft-s;
+    font-weight: bold;
     touch-action: auto;
+    cursor: pointer;
+    .btn {
+      &--close {
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        font-size: 0.9rem;
+        touch-action: auto;
+      }
+    }
+    &:hover {
+      border-color: var(--text-color);
+    }
   }
-}
-.popup-title:hover {
-  border-color: var(--text-color);
-}
-.highlight {
-  z-index: 10;
-  .popup-title {
-    background-color: var(--text-color);
-    color: var(--bkg-color) !important;
-    .close-btn {
-      color: var(--bkg-color) !important;
+
+  .content {
+    text-align: left;
+    touch-action: auto;
+    &--isPadding {
+      padding: 12px 10px 15px;
     }
   }
 }
 
-.popup-content {
-  text-align: left;
-  touch-action: auto;
+.highlight {
+  z-index: 100;
+  .title {
+    background-color: var(--text-color);
+    color: var(--bkg-color) !important;
+    .btn {
+      &--close {
+        color: var(--bkg-color) !important;
+      }
+    }
+  }
 }
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
-  .popup-line {
+  .container {
     position: relative;
     width: 100% !important;
     max-width: 100% !important;
@@ -68,7 +77,7 @@
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
-  .popup-line {
+  .container {
     position: relative;
     width: 100% !important;
     max-width: 100% !important;
@@ -77,5 +86,16 @@
     left: auto !important;
     box-shadow: 0vh 0vh 0.5vh var(--text-color) !important;
     transform: initial !important;
+  }
+}
+
+/* close 포지션 조정 */
+.hide {
+  opacity: 0;
+  z-index: -1;
+  &--position {
+    position: fixed !important;
+    top: 9999px !important;
+    left: 9999px !important;
   }
 }

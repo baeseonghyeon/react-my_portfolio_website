@@ -87,7 +87,6 @@ function Work(props) {
         id="x"
         title="All works"
         width="400"
-        position
         top="50"
         left="26"
         padding
@@ -132,7 +131,6 @@ function Work(props) {
               key={item.id}
               title={item.title}
               width="500"
-              position={false}
               padding={false}
               highlight={false}
             >

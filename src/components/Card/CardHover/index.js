@@ -29,6 +29,7 @@ function CardHover(props) {
         title={`${item.info.cate} - ${item.info.role}`}
         padding
         highlight={false}
+        fixed={true}
       >
         <span>
           <p className="desc">
