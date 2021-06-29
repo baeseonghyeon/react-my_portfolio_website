@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef }  from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Popup from '../../Popup';
 import useMediaQuery from '../../../hook/useMediaQuery';
-import './CardHover.scss';
 import externalLinkText from '../../../lib/externalLinkText';
 
-function CardHover(props) {
-  const { item } = props;
+// import './CardHover.scss';
+import styles from './CardHover.module.scss';
+import cb from 'classnames/bind';
+
+
+const cn = cb.bind(styles);
+
+
+const CardHover = (props) => {
+  const { item, isVisible } = props;
+
+  // Initialize style
+  const myRef = useRef(null);
+  useEffect(()=>{
+    if(myRef.current) {
+      myRef.current.removeAttribute("style");
+    }
+  }, [isVisible])
 
   // Popup Touch Screen Redirect Set
   const history = useHistory();
@@ -23,7 +38,11 @@ function CardHover(props) {
   };
 
   return (
-    <div className="desc-card ft-s-s" id={`desc${item.id}`}>
+    <div 
+      className={cn('container', 'ft-s-s', isVisible && 'show')}
+      id={`desc${item.id}`}
+      ref={myRef}
+    >
       <Popup
         id={`desc${item.id}`}
         title={`${item.info.cate} - ${item.info.role}`}

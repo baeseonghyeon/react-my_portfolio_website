@@ -23,7 +23,7 @@ const Popup = (props) => {
   const popupPosition = () => {
     if(myRef.current){
       myRef.current.style.left = `${ Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.15 }px`;
-      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.15 }px`;
+      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.13 }px`;
     }
   };
 
@@ -34,8 +34,10 @@ const Popup = (props) => {
   const onClickClose = () => {
     setHide(true);
     setTimeout(function () {
-      setHidePosition(true);
-    }, 400);
+      if(myRef.current){
+        myRef.current.remove();
+      }
+    }, 250);
   };
 
   // Popup zIndex
@@ -60,7 +62,7 @@ const Popup = (props) => {
           maxWidth: `${maxWidth}px`,
           top: `${top && top}px`,
           left: `${left && left}px`,
-          zIndex: `${zindex && zindex}` 
+          zIndex: `${zindex && zindex+id}` 
         }}
         onMouseEnter={() => setZindex(999)}
         onTouchStart={() => screenWidth > 769 && setZindex(999)}

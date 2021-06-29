@@ -1,62 +1,91 @@
-import React, { useEffect } from 'react';
-import './Card.scss';
+import React, { useEffect, useRef, useState } from 'react';
+// import './Card.scss';
+import styles from './Card.module.scss';
+import cb from 'classnames/bind';
 import CardHover from './CardHover';
 import YoutubeIframe from '../YoutubeIframe';
 
-function Card(props) {
-  const { item } = props;
+const cn = cb.bind(styles);
+
+const Card = (props) => {
+  const { item  } = props;
+
+  // Pointer Icon Position Set
+  const cardRef = useRef(null);
+  const iconRef = useRef(null);
 
   useEffect(() => {
     pointerPosition();
   }, []);
 
   const pointerPosition = () => {
-    const pointer = document.getElementById(`pointer${item.id}`);
-    const parent = document.getElementById(`work${item.id}`);
-    pointer.style.left = `${
-      Math.random() * (parent.offsetWidth - pointer.offsetWidth)
-    }px`;
-    pointer.style.top = `${
-      Math.random() * (parent.offsetHeight - pointer.offsetHeight)
-    }px`;
+    if (cardRef.current && iconRef.current) {
+      iconRef.current.style.left = `${
+        Math.random() * (cardRef.current.offsetWidth - iconRef.current.offsetWidth)
+      }px`;
+      iconRef.current.style.top = `${
+        Math.random() * (cardRef.current.offsetHeight - iconRef.current.offsetHeight)
+      }px`;
+    }
+  };
+
+  // Close Set
+  const [visibility, setVisibility] = useState(false);
+  const [pointerVisibility, setPointerVisibility] = useState(true);
+
+  const onClickIcon = () => {
+    setPointerVisibility(false);
+    setVisibility(true);
+  };
+
+  const onMouseEnter = () => {
+    setPointerVisibility(false);
+    setVisibility(true);
   };
 
   return (
-    <div className="card-wrapper">
+    <div className={cn('container')}>
       <div
-        className={`card card${item.id % 2}`}
+        className={cn('card', 'wrapper')}
+        // className={`card card${item.id % 2}`}
         id={`work${item.id}`}
-        onMouseEnter={() => props.onMouseEnter(item.id)}
-        onMouseLeave={() => props.onMouseLeave(item.id)}
+        onMouseEnter={() => onMouseEnter(item.id)}
+        onMouseLeave={()=> setVisibility(false)}
+        ref={cardRef}
       >
+
+      {pointerVisibility && 
         <span
-          className="pointer"
+          className={cn('icon--pointer')}
           id={`pointer${item.id}`}
-          onClick={() => props.onClickIcon(item.id)}
-          onTouchStart={() => props.onClickIcon(item.id)}
+          onClick={() => onClickIcon(item.id)}
+          onTouchStart={() => onClickIcon(item.id)}
+          ref={iconRef}
         />
-        {item.videos ? (
-          <div className="ifram-wrapper">
-            <YoutubeIframe
-              className="work-video"
-              width={550}
-              height={344}
-              src={item.videos[0].src}
-            />
-          </div>
-        ) : item.thumb || item.images ? (
-          <img
-            src={item.thumb ? item.thumb : item.images[0].src}
-            className="work-img"
-            alt={item.title}
+      }
+
+      {item.videos ? (
+        <div className={cn('iframe--wrapper')}>
+          <YoutubeIframe
+            className={cn('iframe--video')}
+            width={550}
+            height={344}
+            src={item.videos[0].src}
           />
-        ) : (
-          <div className="empty-thumb">
-            <span>Thumbnail is Empty :-(</span>
-          </div>
-        )}
+        </div>
+      ) : item.thumb || item.images ? (
+        <img
+          src={item.thumb ? item.thumb : item.images[0].src}
+          className={cn('image')}
+          alt={item.title}
+        />
+      ) : (
+        <div className={cn('placeholder')}>
+          <span>Thumbnail is Empty :-(</span>
+        </div>
+      )}
         {/* Description */}
-        <CardHover item={item} />
+        <CardHover item={item} isVisible={visibility} />
       </div>
     </div>
   );

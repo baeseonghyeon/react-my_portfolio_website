@@ -93,9 +93,4 @@
 .hide {
   opacity: 0;
   z-index: -1;
-  &--position {
-    position: fixed !important;
-    top: 9999px !important;
-    left: 9999px !important;
-  }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import { animateScroll as scroll } from 'react-scroll';
@@ -9,52 +9,46 @@ import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
 
 import './Work.scss';
+import { useState } from 'react';
 
 
-function Work(props) {
+const Work = (props) => {
   const { data } = props;
   const [screenSize] = useMediaQuery();
 
   // 랜더 애니메이션
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    document.getElementById('view-layout').style.opacity = 1;
-    document.getElementById('view-layout').style.transform = 'initial';
+    if (containerRef.current) {
+      containerRef.current.style.opacity = 1;
+      containerRef.current.style.transform = 'initial'
+    }
   }, []);
 
 
+  // FootNote
   const onClickFootnote = (id) => {
     hideCard();
     hidePopup();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`popup${id}`).style.zIndex = 5;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-    document.getElementById(`popup${id}`).style.zIndex = 9;
-    scrollSet(id);
-  };
 
-  const onClickIcon = (id) => {
-    hideCard();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-  };
+    if(document.getElementById(`popup${id}`)) {
+      document.getElementById(`desc${id}`).style.opacity = 1;
+      document.getElementById(`desc${id}`).style.zIndex = 1;
+      document.getElementById(`popup${id}`).style.zIndex = 5;
+      if ( document.getElementById(`pointer${id}`)) {
+        document.getElementById(`pointer${id}`).style.opacity = 0;
+      }      
+      document.getElementById(`popup${id}`).style.zIndex = 999;
+      scrollSet(id);
+    }
 
-  const onMouseEnter = (id) => {
-    hideCard();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-  };
-
-  const onMouseLeave = (id) => {
-    hideCard();
   };
 
   // Initialize Popup
   const hidePopup = () => {
     data.map((item) => {
-      return (document.getElementById(`popup${item.id}`).style.zIndex = 5);
+      return (document.getElementById(`popup${item.id}`) ? document.getElementById(`popup${item.id}`).style.zIndex = 5+item.id : undefined);
     });
   };
 
@@ -62,8 +56,13 @@ function Work(props) {
   const hideCard = () => {
     data.map((item) => {
       return (
-        (document.getElementById(`desc${item.id}`).style.opacity = 0),
-        (document.getElementById(`desc${item.id}`).style.zIndex = -1)
+        document.getElementById(`desc${item.id}`) ? 
+        (
+          (document.getElementById(`desc${item.id}`).style.opacity = 0),
+          (document.getElementById(`desc${item.id}`).style.zIndex = -1)
+        )
+        : 
+          undefined
       );
     });
   };
@@ -82,7 +81,7 @@ function Work(props) {
   };
 
   return (
-    <div className="view-layout container" id="view-layout">
+    <div className="view-layout container" id="view-layout" ref={containerRef}>
       <Popup
         id="x"
         title="All works"
@@ -131,16 +130,15 @@ function Work(props) {
               key={item.id}
               title={item.title}
               width="500"
-              padding={false}
-              highlight={false}
             >
               <Card
                 key={item.id}
                 index={item.id}
                 item={item}
-                onClickIcon={onClickIcon}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
+                // onClickIcon={onClickIcon}
+                // onMouseEnter={onMouseEnter}
+                // onMouseLeave={onMouseLeave}
+                // hoverVisible={visibility}
               />
             </Popup>
           );
