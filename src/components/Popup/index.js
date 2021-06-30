@@ -7,36 +7,49 @@ import useMediaQuery from '../../hook/useMediaQuery';
 const cn = cb.bind(styles);
 
 const Popup = (props) => {
-  const { highlight, title, maxWidth, width, top, left, id, children, padding ,fixed} = props;
-  const [screenWidth] = useMediaQuery();
+  const { 
+    id,
+    children,
+    highlight,
+    title,
+    width,
+    maxWidth,
+    top,
+    left,
+    isPadding = true,
+    isFixed,
+    onClickCloseBtn,
+  } = props;
 
+  const [screenWidth] = useMediaQuery();
 
   // Popup Render Position Set
   const myRef = useRef(null);
 
   useEffect(() => {
-    if (!fixed && (!top || !left)) {
+    if (!isFixed && (!top || !left)) {
       popupPosition();
     }
   }, []);
 
   const popupPosition = () => {
     if(myRef.current){
-      myRef.current.style.left = `${ Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.15 }px`;
-      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.13 }px`;
+      myRef.current.style.left = `${ Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.13 }px`;
+      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.12 }px`;
     }
   };
 
   // Popup Close
   const [hide, setHide] = useState(false);
-  const [hidePosition, setHidePosition] = useState(false);
 
   const onClickClose = () => {
     setHide(true);
     setTimeout(function () {
-      if(myRef.current){
-        myRef.current.remove();
-      }
+      
+    if(myRef.current){
+      myRef.current.remove();
+    }      
+
     }, 250);
   };
 
@@ -55,7 +68,7 @@ const Popup = (props) => {
       onDrag={() => setZindex(9999)}
     >
       <div
-        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', hidePosition && 'hide--position')}
+        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide')}
         id={`popup${id}`}
         style={{
           width: `${width}px`,
@@ -74,14 +87,14 @@ const Popup = (props) => {
           {title}
           <span
             className={cn('btn--close')}
-            onClick={() => onClickClose()}
+            onClick={() => onClickCloseBtn ? onClickCloseBtn() : onClickClose()}
             onTouchStart={() => screenWidth > 769 && onClickClose()}
           >
             ×
           </span>
         </div>
         <div
-          className={cn('content', padding && 'content--isPadding')}
+          className={cn('content', isPadding && 'content--isPadding')}
         >
           {children}
         </div>

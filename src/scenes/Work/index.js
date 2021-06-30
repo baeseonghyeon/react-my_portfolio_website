@@ -1,69 +1,44 @@
-import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import { animateScroll as scroll } from 'react-scroll';
 import Popup from '../../components/Popup';
 import Card from '../../components/Card';
+import Layout from '../../components/Layout';
 
 import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
 
-import './Work.scss';
-import { useState } from 'react';
+// import './Work.scss';
+import styles from './Work.module.scss';
+import cb from 'classnames/bind';
 
+const cn = cb.bind(styles);
 
 const Work = (props) => {
   const { data } = props;
   const [screenSize] = useMediaQuery();
-
-  // 랜더 애니메이션
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.style.opacity = 1;
-      containerRef.current.style.transform = 'initial'
-    }
-  }, []);
-
-
+  const [targetVisble, setTargetVisible] = useState(null);
+  const history = useHistory();
+    
+  
   // FootNote
   const onClickFootnote = (id) => {
-    hideCard();
-    hidePopup();
-
+    initPopup();
+    setTargetVisible(id);
     if(document.getElementById(`popup${id}`)) {
-      document.getElementById(`desc${id}`).style.opacity = 1;
-      document.getElementById(`desc${id}`).style.zIndex = 1;
-      document.getElementById(`popup${id}`).style.zIndex = 5;
-      if ( document.getElementById(`pointer${id}`)) {
-        document.getElementById(`pointer${id}`).style.opacity = 0;
-      }      
+      history.push(`#work${id}`)
       document.getElementById(`popup${id}`).style.zIndex = 999;
       scrollSet(id);
+    } else {
+      history.push(`/works/${id}`);
     }
-
   };
 
   // Initialize Popup
-  const hidePopup = () => {
+  const initPopup = () => {
     data.map((item) => {
       return (document.getElementById(`popup${item.id}`) ? document.getElementById(`popup${item.id}`).style.zIndex = 5+item.id : undefined);
-    });
-  };
-
-  // Initialize Card
-  const hideCard = () => {
-    data.map((item) => {
-      return (
-        document.getElementById(`desc${item.id}`) ? 
-        (
-          (document.getElementById(`desc${item.id}`).style.opacity = 0),
-          (document.getElementById(`desc${item.id}`).style.zIndex = -1)
-        )
-        : 
-          undefined
-      );
     });
   };
 
@@ -81,14 +56,12 @@ const Work = (props) => {
   };
 
   return (
-    <div className="view-layout container" id="view-layout" ref={containerRef}>
+    <Layout>
       <Popup
-        id="x"
         title="All works"
         width="400"
         top="50"
         left="26"
-        padding
         highlight
       >
         {data
@@ -96,24 +69,19 @@ const Work = (props) => {
           .reverse()
           .map((item) => {
             return (
-              <span className="mr-2" key={item.id}>
-                <span className="f-n">
-                  <a
-                    href={`#work${item.id}`}
-                    onClick={() => onClickFootnote(item.id)}
-                    onTouchStart={() => onClickFootnote(item.id)}
-                  >
-                    [{item.id}]
-                  </a>
+              <span className={cn('list--wrapper', 'mr-2')} key={item.id}>
+                <span className={cn('list--footnote')}
+                  onClick={() => onClickFootnote(item.id)}
+                  onTouchStart={() => onClickFootnote(item.id)}
+                >
+                  [{item.id}]
                 </span>
                 <Link
                   to={`/works/${item.id}`}
-                  className="text-decoration-none"
+                  className={cn('list--link')}
                   onTouchStart={() => touchRedirect(`/works/${item.id}`, screenSize)}
                 >
-                  <span className="work-list">
-                    {item.title} ( {item.info.date} ) [{item.info.cate}]
-                  </span>
+                  {item.title} ( {item.info.date} ) [{item.info.cate}] 
                 </Link>
               </span>
             );
@@ -130,20 +98,18 @@ const Work = (props) => {
               key={item.id}
               title={item.title}
               width="500"
+              isPadding={false}
             >
               <Card
                 key={item.id}
-                index={item.id}
                 item={item}
-                // onClickIcon={onClickIcon}
-                // onMouseEnter={onMouseEnter}
-                // onMouseLeave={onMouseLeave}
-                // hoverVisible={visibility}
+                targetId={item.id === targetVisble && targetVisble}
+                onMouseOut={()=> setTargetVisible(null)}
               />
             </Popup>
           );
         })}
-    </div>
+    </Layout>
   );
 }
 

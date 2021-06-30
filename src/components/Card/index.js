@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import './Card.scss';
 import styles from './Card.module.scss';
 import cb from 'classnames/bind';
 import CardHover from './CardHover';
@@ -8,7 +7,7 @@ import YoutubeIframe from '../YoutubeIframe';
 const cn = cb.bind(styles);
 
 const Card = (props) => {
-  const { item  } = props;
+  const { item, targetId, onMouseOut } = props;
 
   // Pointer Icon Position Set
   const cardRef = useRef(null);
@@ -43,14 +42,23 @@ const Card = (props) => {
     setVisibility(true);
   };
 
+  // FootNote Target Show 
+  useEffect(()=>{
+    if (visibility) setVisibility(false);
+    if (targetId) {
+      setVisibility(true)
+      setPointerVisibility(false);
+    } 
+  }, [targetId])
+
+
   return (
     <div className={cn('container')}>
       <div
         className={cn('card', 'wrapper')}
-        // className={`card card${item.id % 2}`}
         id={`work${item.id}`}
         onMouseEnter={() => onMouseEnter(item.id)}
-        onMouseLeave={()=> setVisibility(false)}
+        onMouseLeave={()=> [setVisibility(false), onMouseOut()]}
         ref={cardRef}
       >
 

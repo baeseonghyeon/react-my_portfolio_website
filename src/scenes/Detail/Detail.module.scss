@@ -1,0 +1,36 @@
+@import '../../scss/variable.scss';
+
+.container {
+  max-width: 1200px !important;
+  margin: auto;
+  padding-top: 45px;
+  padding-bottom: 40px;
+
+  // video
+  .video {
+    max-width: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    &--wrapper {
+      position: relative;
+      height: 0;
+      padding-bottom: 100%;
+    }
+  }
+
+  // Image
+  .image {
+    width: 100%;
+  }
+}
+
+//== DEVICE SCREEN ==//
+/*대부분의 스마트폰 모바일 기기(세로)*/
+@media (min-width: 320px) and (max-width: 480px) {
+}
+
+/*저해상도 태블릿, 모바일(가로)*/
+@media (min-width: 481px) and (max-width: 767px) {
+}

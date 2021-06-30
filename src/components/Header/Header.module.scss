@@ -1,16 +1,17 @@
 @import '../../scss/variable.scss';
 
-#Nav {
+.container {
   z-index: 10000;
   position: fixed;
-  padding: 10px 12px 10px 12px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   line-height: 1;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  .nav-toggle {
+  transition: none;
+  .toggle {
     min-width: fit-content;
     transition: all ease 0.1s 0s;
     -moz-transition: all ease 0.1s 0s;
@@ -31,15 +32,20 @@
     -webkit-transition: all ease 0.1s 0s;
     letter-spacing: $l-s-bold;
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
-#Nav::-webkit-scrollbar {
-  display: none;
+
+.center {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
-  #Nav {
+  .container {
     padding: 10px 8px;
     left: 50%;
     transform: translate(-50%, 0);

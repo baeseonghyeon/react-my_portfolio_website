@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import {
   faGithub,
   faInstagram,
@@ -12,16 +12,11 @@ import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
 
 import './About.scss';
+import Layout from '../../components/Layout';
 
 function About(props) {
   const { data } = props;
   const [screenSize] = useMediaQuery();
-
-  // 랜더 애니메이션
-  useEffect(() => {
-    document.getElementById('view-layout').style.opacity = 1;
-    document.getElementById('view-layout').style.transform = 'initial';
-  });
 
   const contactContents = [
     {
@@ -153,7 +148,7 @@ function About(props) {
   ];
 
   return (
-    <div className="view-layout container" id="view-layout">
+    <Layout>
       {popupContents.map((item, idx) => {
         return (
           <Popup
@@ -162,14 +157,13 @@ function About(props) {
             width={item.width}
             top={item.top && item.top}
             left={item.left && item.left}
-            padding
             highlight={item.isHighlight}
           >
             {item.children}
           </Popup>
         );
       })}
-    </div>
+    </Layout>
   );
 }
 

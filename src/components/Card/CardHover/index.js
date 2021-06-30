@@ -1,14 +1,12 @@
-import React, { useEffect, useRef }  from 'react';
+import React, { useEffect, useRef, useState }  from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Popup from '../../Popup';
 import useMediaQuery from '../../../hook/useMediaQuery';
 import externalLinkText from '../../../lib/externalLinkText';
 
-// import './CardHover.scss';
 import styles from './CardHover.module.scss';
 import cb from 'classnames/bind';
-
 
 const cn = cb.bind(styles);
 
@@ -18,10 +16,13 @@ const CardHover = (props) => {
 
   // Initialize style
   const myRef = useRef(null);
+  const [visibility, setVisibility] = useState();
+
   useEffect(()=>{
     if(myRef.current) {
       myRef.current.removeAttribute("style");
     }
+    setVisibility(isVisible);
   }, [isVisible])
 
   // Popup Touch Screen Redirect Set
@@ -37,18 +38,19 @@ const CardHover = (props) => {
     }
   };
 
+
   return (
     <div 
-      className={cn('container', 'ft-s-s', isVisible && 'show')}
+      className={cn('container', 'ft-s-s', visibility && 'show')}
       id={`desc${item.id}`}
       ref={myRef}
     >
       <Popup
         id={`desc${item.id}`}
         title={`${item.info.cate} - ${item.info.role}`}
-        padding
-        highlight={false}
-        fixed={true}
+        isPadding
+        isFixed
+        onClickCloseBtn={() => setVisibility(false)}
       >
         <span>
           <p className="desc">
