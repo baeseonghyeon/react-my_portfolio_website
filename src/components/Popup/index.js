@@ -44,10 +44,10 @@ const Popup = (props) => {
   // Popup Close
   const [hide, setHide] = useState(false);
 
-  const onClickClose = () => {
+  const onClickClose = (id) => {
     setHide(true);
     setTimeout(function () {
-      if(myRef.current){
+      if(myRef.current && myRef.current.id === `popup${id}`){
         myRef.current.remove();
       }      
     }, 250);
@@ -94,8 +94,8 @@ const Popup = (props) => {
           {title}
           <span
             className={cn('btn--close')}
-            onClick={() => onClickCloseBtn ? onClickCloseBtn() : onClickClose()}
-            onTouchStart={() => screenWidth > 769 && onClickCloseBtn ? onClickCloseBtn() : onClickClose()}
+            onClick={() => onClickCloseBtn ? onClickCloseBtn() : onClickClose(id)}
+            onTouchStart={() => screenWidth > 769 && (onClickCloseBtn ? onClickCloseBtn() : onClickClose(id))}
           >
             ×
           </span>
