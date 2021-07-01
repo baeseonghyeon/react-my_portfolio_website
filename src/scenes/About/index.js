@@ -152,7 +152,7 @@ function About(props) {
       {popupContents.map((item, idx) => {
         return (
           <Popup
-            id={idx}
+            id={popupContents.length-idx}
             title={item.title}
             width={item.width}
             top={item.top && item.top}

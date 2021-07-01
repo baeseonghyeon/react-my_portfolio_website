@@ -17,5 +17,5 @@
   text-shadow: 0 0 3px var(--box-shadow-1);
   cursor: pointer;
   border: 1px solid var(--text-color);
-  z-index: 10000;
+  z-index: $z-layout;
 }

@@ -16,9 +16,11 @@ const Popup = (props) => {
     maxWidth,
     top,
     left,
+    className,
     isPadding = true,
     isFixed,
     onClickCloseBtn,
+    zIndex,
   } = props;
 
   const [screenWidth] = useMediaQuery();
@@ -45,16 +47,18 @@ const Popup = (props) => {
   const onClickClose = () => {
     setHide(true);
     setTimeout(function () {
-      
-    if(myRef.current){
-      myRef.current.remove();
-    }      
-
+      if(myRef.current){
+        myRef.current.remove();
+      }      
     }, 250);
   };
 
   // Popup zIndex
-  const [zindex, setZindex] = useState(highlight? 100 : 5+id);
+  const [zIndexValue, setZIndexValue] = useState(highlight? 100 : 5+id);
+
+  useEffect(()=>{
+    setZIndexValue(highlight? zIndex+100 : zIndex)
+  },[zIndex])
 
   return (
     <Draggable
@@ -65,22 +69,25 @@ const Popup = (props) => {
       position={null}
       grid={[25, 25]}
       scale={1}
-      onDrag={() => setZindex(9999)}
+      onDrag={() => setZIndexValue(9999)}
+      onStop={() => setZIndexValue(highlight? 100 : 5+id)}
+      // onTouchStart={() => setZIndexValue(999)}
+      // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
     >
       <div
-        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide')}
+        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', className )}
         id={`popup${id}`}
         style={{
           width: `${width}px`,
           maxWidth: `${maxWidth}px`,
           top: `${top && top}px`,
           left: `${left && left}px`,
-          zIndex: `${zindex && zindex}` 
+          zIndex: `${zIndexValue && zIndexValue}` 
         }}
-        onMouseEnter={() => setZindex(999)}
-        onTouchStart={() => screenWidth > 769 && setZindex(999)}
-        onMouseLeave={() => setZindex(highlight? 100 : 5)}
-        onTouchEnd={() =>  screenWidth > 769 && setZindex(highlight? 100 : 5)}
+        onMouseEnter={() => screenWidth > 769 && setZIndexValue(999)}
+        onMouseLeave={() => screenWidth > 769 && setZIndexValue(highlight? 100 : 5+id)}
+        // onTouchStart={() => setZIndexValue(999)}
+        // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
         ref={myRef}
       >
         <div className={cn('title')}>
@@ -88,7 +95,7 @@ const Popup = (props) => {
           <span
             className={cn('btn--close')}
             onClick={() => onClickCloseBtn ? onClickCloseBtn() : onClickClose()}
-            onTouchStart={() => screenWidth > 769 && onClickClose()}
+            onTouchStart={() => screenWidth > 769 && onClickCloseBtn ? onClickCloseBtn() : onClickClose()}
           >
             ×
           </span>
