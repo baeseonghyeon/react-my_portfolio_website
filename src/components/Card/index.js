@@ -55,7 +55,7 @@ const Card = (props) => {
     <div
       className={cn('card', 'container')}
       id={`work${item.id}`}
-      onMouseEnter={() => width > 769 && showInnerCard()}
+      onMouseEnter={() => width > 769 && [onClickIcon(), showInnerCard()]}
       onMouseLeave={() => width > 769 && hideInnerCard()}
       ref={cardRef}
     >
