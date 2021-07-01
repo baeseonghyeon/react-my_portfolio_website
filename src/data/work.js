@@ -388,7 +388,7 @@ const workData = [
           collabor: 'OldRookie(유경수, 박기홍, 김혜원), 유미스'
         },
         content: {
-          text: '클럽 모임 커뮤니티, 연결 플랫폼 클러버(Diesel Truck)의 앱 클라이언트, 관리자 웹 클라이언트를 외주 개발하였습니다.',
+          text: '클럽 모임 커뮤니티, 연결 플랫폼 클러버(CULBBER)의 앱 클라이언트, 관리자 웹 클라이언트를 외주 개발하였습니다.',
           links: [
             {
               title: 'GooglePlay',
@@ -494,7 +494,7 @@ const workData = [
       egDataForm({
         id: 10,
         title: 'CLUBBER',
-        text: 'We have developed the app client, and admin web client for the club party connection platform named Clubber.',
+        text: 'We have developed the app client, and admin web client for the club party connection platform named CULBBER.',
         collabor: 'OldRookie, Yumis'
       })
     ]
