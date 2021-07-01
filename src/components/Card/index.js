@@ -7,7 +7,7 @@ import YoutubeIframe from '../YoutubeIframe';
 const cn = cb.bind(styles);
 
 const Card = (props) => {
-  const { item, targetId, onMouseOut } = props;
+  const { item, targetId, onMouseEnter, onMouseLeave, onClickIcon } = props;
 
   // Pointer Icon Position Set
   const cardRef = useRef(null);
@@ -29,27 +29,27 @@ const Card = (props) => {
   };
 
   // Close Set
-  const [visibility, setVisibility] = useState(false);
-  const [pointerVisibility, setPointerVisibility] = useState(true);
+  // const [visibility, setVisibility] = useState(false);
+  // const [pointerVisibility, setPointerVisibility] = useState(true);
 
-  const onClickIcon = () => {
-    setPointerVisibility(false);
-    setVisibility(true);
-  };
+  // const onClickIcon = () => {
+  //   setPointerVisibility(false);
+  //   setVisibility(true);
+  // };
 
-  const onMouseEnter = () => {
-    setPointerVisibility(false);
-    setVisibility(true);
-  };
+  // const onMouseEnter = () => {
+  //   setPointerVisibility(false);
+  //   setVisibility(true);
+  // };
 
-  // FootNote Target Show 
-  useEffect(()=>{
-    if (visibility) setVisibility(false);
-    if (targetId) {
-      setVisibility(true)
-      setPointerVisibility(false);
-    } 
-  }, [targetId])
+  // // FootNote Target Show 
+  // useEffect(()=>{
+  //   if (visibility) setVisibility(false);
+  //   if (targetId) {
+  //     setVisibility(true)
+  //     setPointerVisibility(false);
+  //   } 
+  // }, [targetId])
 
 
   return (
@@ -57,12 +57,14 @@ const Card = (props) => {
       <div
         className={cn('card', 'wrapper')}
         id={`work${item.id}`}
+        // onMouseEnter={() => onMouseEnter(item.id)}
+        // onMouseLeave={()=> [setVisibility(false), onMouseOut()]}
         onMouseEnter={() => onMouseEnter(item.id)}
-        onMouseLeave={()=> [setVisibility(false), onMouseOut()]}
+        onMouseLeave={() => onMouseLeave(item.id)}
         ref={cardRef}
       >
 
-      {pointerVisibility && 
+      {/* {pointerVisibility &&  */}
         <span
           className={cn('icon--pointer')}
           id={`pointer${item.id}`}
@@ -70,7 +72,7 @@ const Card = (props) => {
           onTouchStart={() => onClickIcon(item.id)}
           ref={iconRef}
         />
-      }
+      {/* } */}
 
       {item.videos ? (
         <div className={cn('iframe--wrapper')}>
@@ -93,7 +95,9 @@ const Card = (props) => {
         </div>
       )}
         {/* Description */}
-        <CardHover item={item} isVisible={visibility} />
+        <CardHover item={item} 
+        // isVisible={visibility} 
+        />
       </div>
     </div>
   );

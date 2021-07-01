@@ -54,7 +54,7 @@ const Popup = (props) => {
   };
 
   // Popup zIndex
-  const [zindex, setZindex] = useState(highlight? 100 : 5);
+  const [zindex, setZindex] = useState(highlight? 100 : 5+id);
 
   return (
     <Draggable
@@ -75,7 +75,7 @@ const Popup = (props) => {
           maxWidth: `${maxWidth}px`,
           top: `${top && top}px`,
           left: `${left && left}px`,
-          zIndex: `${zindex && zindex+id}` 
+          zIndex: `${zindex && zindex}` 
         }}
         onMouseEnter={() => setZindex(999)}
         onTouchStart={() => screenWidth > 769 && setZindex(999)}

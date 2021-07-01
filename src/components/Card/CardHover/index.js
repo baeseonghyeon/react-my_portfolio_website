@@ -12,18 +12,18 @@ const cn = cb.bind(styles);
 
 
 const CardHover = (props) => {
-  const { item, isVisible } = props;
+  const { item } = props;
 
-  // Initialize style
+  // // Initialize style
   const myRef = useRef(null);
-  const [visibility, setVisibility] = useState();
+  // const [visibility, setVisibility] = useState();
 
-  useEffect(()=>{
-    if(myRef.current) {
-      myRef.current.removeAttribute("style");
-    }
-    setVisibility(isVisible);
-  }, [isVisible])
+  // useEffect(()=>{
+  //   if(myRef.current) {
+  //     myRef.current.removeAttribute("style");
+  //   }
+  //   setVisibility(isVisible);
+  // }, [isVisible])
 
   // Popup Touch Screen Redirect Set
   const history = useHistory();
@@ -38,10 +38,15 @@ const CardHover = (props) => {
     }
   };
 
+  const onHidePopup = () => {
+    myRef.current.removeAttribute("style");
+  }
 
   return (
     <div 
-      className={cn('container', 'ft-s-s', visibility && 'show')}
+      className={cn('container', 'ft-s-s'
+      // , visibility && 'show'
+      )}
       id={`desc${item.id}`}
       ref={myRef}
     >
@@ -50,7 +55,8 @@ const CardHover = (props) => {
         title={`${item.info.cate} - ${item.info.role}`}
         isPadding
         isFixed
-        onClickCloseBtn={() => setVisibility(false)}
+        // onClickCloseBtn={() => setVisibility(false)}
+        onClickCloseBtn={() => onHidePopup()}
       >
         <span>
           <p className="desc">
