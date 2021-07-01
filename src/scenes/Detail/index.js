@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
-import Popup from '../../components/Popup';
-import './Detail.scss';
+import React from 'react';
+import styles from './Detail.module.scss';
+import cb from 'classnames/bind';
 
 import useMediaQuery from '../../hook/useMediaQuery';
 import NotFound from '../NotFound';
 import YoutubeIframe from '../../components/YoutubeIframe';
 import externalLinkText from '../../lib/externalLinkText';
+import Popup from '../../components/Popup';
+import Layout from '../../components/Layout';
+
+const cn = cb.bind(styles);
 
 function Detail({ match, data }) {
   const item = data[match.params.id - 1];
@@ -17,13 +21,6 @@ function Detail({ match, data }) {
       window.location.href = url;
     }
   };
-
-  useEffect(() => {
-    if (document.getElementById('detail-scroll')) {
-      document.getElementById('detail-scroll').style.opacity = 1;
-      document.getElementById('detail-scroll').style.transform = 'initial';
-    }
-  });
 
   // 404 Error (Data 범주 초과, 문자 포함 접근)
   if (
@@ -117,7 +114,6 @@ function Detail({ match, data }) {
                   href={link.src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  // className="d-block"
                   onTouchStart={() => touchRedirect(link.src, true)}
                 >
                   {externalLinkText(link.type)}
@@ -131,75 +127,62 @@ function Detail({ match, data }) {
   ];
 
   return (
-    <div id="Detail">
-      <div className="detail-layout">
-        <div className="detail-section">
-          <div className="view-layout px-0" id="detail-scroll">
-            <div className="container ft-s-s">
-              <div className="detail-desc">
-                {popupContents.map((content, idx) => {
-                  return (
-                    <Popup
-                      id={idx}
-                      title={item.title}
-                      width={content.width}
-                      position={content.position ? content.position : false}
-                      top={content.top && content.top}
-                      left={content.left && content.left}
-                      padding
-                      highlight={content.isHighlight}
-                    >
-                      {content.children}
-                    </Popup>
-                  );
-                })}
-              </div>
+    <Layout className={cn('container')}>
+      {popupContents.map((content, idx) => {
+        return (
+          <Popup
+            id={idx}
+            title={item.title}
+            width={content.width}
+            position={content.position ? content.position : false}
+            top={content.top && content.top}
+            left={content.left && content.left}
+            highlight={content.isHighlight}
+          >
+            {content.children}
+          </Popup>
+        );
+      })}
 
-              {/* 영상 */}
-              <div className="row mt-5 m-auto justify-content-center">
-                {item.videos &&
-                  item.videos.map((video) => {
-                    return (
-                      <div className="col-md-6 mb-0 p-0">
-                        <div className="detail-video-wrapper">
-                          <YoutubeIframe
-                            className="detail-video"
-                            width={550}
-                            height={350}
-                            src={video.src}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
+      {/* 영상 */}
+      <div className="row mt-5 m-auto justify-content-center">
+        {item.videos &&
+          item.videos.map((video) => {
+            return (
+              <div className="col-md-6 mb-0 p-0">
+                <div className={cn("video--wrapper")}>
+                  <YoutubeIframe
+                    className={cn('video')}
+                    width={550}
+                    height={350}
+                    src={video.src}
+                  />
+                </div>
               </div>
-
-              {/* 이미지 */}
-              <div className="row mb-4 m-auto justify-content-center">
-                {item.images &&
-                  item.images.map((image) => {
-                    return (
-                      <div
-                        className={
-                          image.fullSize
-                            ? 'col-md-12 mb-0 p-0'
-                            : 'col-md-6 mb-0 p-0'
-                        }
-                      >
-                        <img
-                          src={image.src}
-                          className="detail-img"
-                          alt={item.title}
-                        />
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
-          </div>
-        </div>
+            );
+          })}
       </div>
-    </div>
+
+      {/* 이미지 */}
+      <div className="row mb-4 m-auto justify-content-center">
+        {item.images &&
+          item.images.map((image) => {
+            return (
+              <div
+                className={`
+                  ${image.fullSize ? 'col-md-12' : 'col-md-6'} mb-0 p-0
+                `}
+              >
+                <img
+                  src={image.src}
+                  className={cn('image')}
+                  alt={item.title}
+                />
+              </div>
+            );
+          })}
+      </div>
+    </Layout> 
   );
 }
 

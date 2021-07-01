@@ -1,0 +1,19 @@
+@import '../../../scss/variable.scss';
+
+$trs: all ease 0.3s 0s;
+
+.container {
+  position: absolute;
+  top: 0 !important;
+  margin: 10px;
+  width: calc(100% - 20px) !important;
+}
+
+.hide {
+  opacity: 0;
+  z-index: -1 !important;
+}
+
+.show {
+  opacity: 1;
+}

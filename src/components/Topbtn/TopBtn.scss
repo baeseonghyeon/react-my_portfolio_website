@@ -13,9 +13,9 @@
   line-height: 1.9rem;
   border-radius: 100%;
   text-align: center;
-  z-index: 20;
   margin-left: -17.5px;
   text-shadow: 0 0 3px var(--box-shadow-1);
   cursor: pointer;
   border: 1px solid var(--text-color);
+  z-index: $z-layout;
 }

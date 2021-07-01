@@ -1,95 +1,57 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import { animateScroll as scroll } from 'react-scroll';
 import Popup from '../../components/Popup';
 import Card from '../../components/Card';
+import Layout from '../../components/Layout';
 
 import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
 
-import './Work.scss';
+import styles from './Work.module.scss';
+import cb from 'classnames/bind';
 
+const cn = cb.bind(styles);
 
-function Work(props) {
+const Work = (props) => {
   const { data } = props;
   const [screenSize] = useMediaQuery();
-
-  // 랜더 애니메이션
-  useEffect(() => {
-    document.getElementById('view-layout').style.opacity = 1;
-    document.getElementById('view-layout').style.transform = 'initial';
-  }, []);
-
-
+  const history = useHistory();
+  
+  const [targetId, setTargetId] = useState(null);  
+  
+  // FootNote Click Event
   const onClickFootnote = (id) => {
-    hideCard();
-    hidePopup();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`popup${id}`).style.zIndex = 5;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-    document.getElementById(`popup${id}`).style.zIndex = 9;
-    scrollSet(id);
+    setTargetId(id);
+
+    if(document.getElementById(`popup${id}`)) {
+      scrollSet(id);
+    } else {
+      history.push(`/works/${id}`);
+    }
   };
 
   const onClickIcon = (id) => {
-    hideCard();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-  };
-
-  const onMouseEnter = (id) => {
-    hideCard();
-    document.getElementById(`desc${id}`).style.opacity = 1;
-    document.getElementById(`desc${id}`).style.zIndex = 1;
-    document.getElementById(`pointer${id}`).style.opacity = 0;
-  };
-
-  const onMouseLeave = (id) => {
-    hideCard();
-  };
-
-  // Initialize Popup
-  const hidePopup = () => {
-    data.map((item) => {
-      return (document.getElementById(`popup${item.id}`).style.zIndex = 5);
-    });
-  };
-
-  // Initialize Card
-  const hideCard = () => {
-    data.map((item) => {
-      return (
-        (document.getElementById(`desc${item.id}`).style.opacity = 0),
-        (document.getElementById(`desc${item.id}`).style.zIndex = -1)
-      );
-    });
-  };
+    setTargetId(id);
+  }
 
   // Popup Scroll Set
   const scrollSet = (id) => {
-    const height =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body.clientHeight;
+    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     const target_height = document.getElementById(`popup${id}`).offsetHeight;
     scroll.scrollTo(
-      document.getElementById(`popup${id}`).offsetTop -
-        (height / 2 - target_height / 2)
+      document.getElementById(`popup${id}`).offsetTop - (height / 2 - target_height / 2)
     );
   };
 
   return (
-    <div className="view-layout container" id="view-layout">
+    <Layout>
       <Popup
-        id="x"
         title="All works"
         width="400"
         top="50"
         left="26"
-        padding
         highlight
       >
         {data
@@ -97,30 +59,25 @@ function Work(props) {
           .reverse()
           .map((item) => {
             return (
-              <span className="mr-2" key={item.id}>
-                <span className="f-n">
-                  <a
-                    href={`#work${item.id}`}
-                    onClick={() => onClickFootnote(item.id)}
-                    onTouchStart={() => onClickFootnote(item.id)}
-                  >
-                    [{item.id}]
-                  </a>
+              <span className={cn('list--wrapper', 'mr-2')} key={item.id}>
+                <span className={cn('list--footnote')}
+                  onClick={() => onClickFootnote(item.id)}
+                  onTouchStart={() => onClickFootnote(item.id)}
+                >
+                  [{item.id}]
                 </span>
                 <Link
                   to={`/works/${item.id}`}
-                  className="text-decoration-none"
+                  className={cn('list--link')}
                   onTouchStart={() => touchRedirect(`/works/${item.id}`, screenSize)}
                 >
-                  <span className="work-list">
-                    {item.title} ( {item.info.date} ) [{item.info.cate}]
-                  </span>
+                  {item.title} ( {item.info.date} ) [{item.info.cate}] 
                 </Link>
               </span>
             );
           })}
       </Popup>
-      <div className="bd-t" />
+
       {data
         .slice(0)
         .reverse()
@@ -131,21 +88,20 @@ function Work(props) {
               key={item.id}
               title={item.title}
               width="500"
-              padding={false}
-              highlight={false}
+              isPadding={false}
+              zIndex={item.id === targetId ? 999 : 5+item.id} 
             >
               <Card
                 key={item.id}
-                index={item.id}
                 item={item}
-                onClickIcon={onClickIcon}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
+                targetId={item.id === targetId && targetId}
+                onClickClose={()=>setTargetId(null)}
+                onClickIcon={()=>[setTargetId(null), onClickIcon(item.id)]}
               />
             </Popup>
           );
         })}
-    </div>
+    </Layout>
   );
 }
 

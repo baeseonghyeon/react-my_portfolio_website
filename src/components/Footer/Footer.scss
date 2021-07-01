@@ -1,7 +1,7 @@
 @import '../../scss/variable.scss';
 
 .footer {
-  z-index: 10;
+  z-index: $z-layout;
   position: fixed;
   bottom: 0;
   width: 100%;

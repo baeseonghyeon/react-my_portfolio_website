@@ -351,7 +351,11 @@ const workData = [
             {
               title: 'GooglePlay(셀러)',
               src: 'https://play.google.com/store/apps/details?id=net.dstruck.dieseltruckSeller'
-            }
+            },
+            {
+              title: 'AppStore(딜러)',
+              src: 'https://apps.apple.com/kr/app/%EB%94%94%EC%A0%A4%ED%8A%B8%EB%9F%AD-%EB%94%9C%EB%9F%AC%EC%9A%A9/id1558957863'
+            },
           ]
         },
         links: null,
@@ -481,6 +485,9 @@ const workData = [
           },
           {
             title: 'GooglePlay(Seller)'
+          },
+          {
+            title: 'AppStore(Dealer)',
           }
         ]
       }),

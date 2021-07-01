@@ -1,63 +1,101 @@
-import React, { useEffect } from 'react';
-import './Card.scss';
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './Card.module.scss';
+import cb from 'classnames/bind';
 import CardHover from './CardHover';
 import YoutubeIframe from '../YoutubeIframe';
+import useMediaQuery from '../../hook/useMediaQuery';
 
-function Card(props) {
-  const { item } = props;
+const cn = cb.bind(styles);
+
+const Card = (props) => {
+  const { item, targetId, onClickClose, onClickIcon } = props;
+  const [width] = useMediaQuery();
+  
+  // Card Position
+  const cardRef = useRef(null);
+  const iconRef = useRef(null);
+
+  const pointerPosition = () => {
+    if (cardRef.current && iconRef.current) {
+      iconRef.current.style.left = `${
+        Math.random() * (cardRef.current.offsetWidth - iconRef.current.offsetWidth)
+      }px`;
+      iconRef.current.style.top = `${
+        Math.random() * (cardRef.current.offsetHeight - iconRef.current.offsetHeight)
+      }px`;
+    }
+  };
 
   useEffect(() => {
     pointerPosition();
   }, []);
 
-  const pointerPosition = () => {
-    const pointer = document.getElementById(`pointer${item.id}`);
-    const parent = document.getElementById(`work${item.id}`);
-    pointer.style.left = `${
-      Math.random() * (parent.offsetWidth - pointer.offsetWidth)
-    }px`;
-    pointer.style.top = `${
-      Math.random() * (parent.offsetHeight - pointer.offsetHeight)
-    }px`;
+  // InnerCard Visible Set
+  const [visibility, setVisibility] = useState(false);
+  const [iconVisibility, setIconVisibility] = useState(true);
+
+  const showInnerCard  = () => {
+    setIconVisibility(false);
+    setVisibility(true);
   };
 
+  const hideInnerCard = () => {
+    setVisibility(false);
+  }
+
+  // FootNote Target Show 
+  useEffect(()=>{
+    if (visibility) setVisibility(false);
+    if (targetId === item.id) {
+      showInnerCard();
+    }
+  }, [targetId])
+
   return (
-    <div className="card-wrapper">
-      <div
-        className={`card card${item.id % 2}`}
-        id={`work${item.id}`}
-        onMouseEnter={() => props.onMouseEnter(item.id)}
-        onMouseLeave={() => props.onMouseLeave(item.id)}
-      >
-        <span
-          className="pointer"
-          id={`pointer${item.id}`}
-          onClick={() => props.onClickIcon(item.id)}
-          onTouchStart={() => props.onClickIcon(item.id)}
+    <div
+      className={cn('card', 'container')}
+      id={`work${item.id}`}
+      onMouseEnter={() => width > 769 && showInnerCard()}
+      onMouseLeave={() => width > 769 && hideInnerCard()}
+      ref={cardRef}
+    >
+
+    {iconVisibility && 
+      <span
+        className={cn('icon--pointer')}
+        id={`pointer${item.id}`}
+        onClick={() => [onClickIcon(), showInnerCard()]}
+        onTouchStart={() => [onClickIcon(), showInnerCard()]}
+        ref={iconRef}
+      />
+    }
+
+    {item.videos ? (
+      <div className={cn('iframe--wrapper')}>
+        <YoutubeIframe
+          className={cn('iframe--video')}
+          width={550}
+          height={344}
+          src={item.videos[0].src}
         />
-        {item.videos ? (
-          <div className="ifram-wrapper">
-            <YoutubeIframe
-              className="work-video"
-              width={550}
-              height={344}
-              src={item.videos[0].src}
-            />
-          </div>
-        ) : item.thumb || item.images ? (
-          <img
-            src={item.thumb ? item.thumb : item.images[0].src}
-            className="work-img"
-            alt={item.title}
-          />
-        ) : (
-          <div className="empty-thumb">
-            <span>Thumbnail is Empty :-(</span>
-          </div>
-        )}
-        {/* Description */}
-        <CardHover item={item} />
       </div>
+    ) : item.thumb || item.images ? (
+      <img
+        src={item.thumb ? item.thumb : item.images[0].src}
+        className={cn('image')}
+        alt={item.title}
+      />
+    ) : (
+      <div className={cn('placeholder')}>
+        <span>Thumbnail is Empty :-(</span>
+      </div>
+    )}
+      {/* InnerCard */}
+      <CardHover 
+        item={item} 
+        isVisible={visibility} 
+        onClickClose={() => [onClickClose(), hideInnerCard()]}
+      />
     </div>
   );
 }

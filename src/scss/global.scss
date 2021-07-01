@@ -51,16 +51,7 @@ body {
   padding-right: 15px;
   margin-bottom: 0;
 }
-.layout {
-  width: 100%;
-}
-.view-layout {
-  word-wrap: break-word;
-  opacity: 0;
-  -webkit-overflow-scrolling: touch;
-  transform: scale(0.95);
-  transition: all ease 0.4s 0s;
-}
+
 .pd-12 {
   padding: 0 12px;
 }
@@ -126,20 +117,6 @@ ul {
     line-height: $l-h-ss;
   }
 }
-.f-n {
-  a {
-    font-size: $ft-s-f-n;
-  }
-  position: relative;
-  top: -4px;
-  -webkit-text-stroke: 0.2px;
-  margin-right: 2px;
-}
-.f-n-s {
-  font-size: 0.5rem;
-  vertical-align: 6px;
-  -webkit-text-stroke: 0.2px;
-}
 .t-underline {
   text-decoration: underline;
 }
@@ -177,9 +154,6 @@ ul {
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
-  .view-layout {
-    padding: 45px 11px;
-  }
   .outLine {
     margin-top: 33px;
     border: none;
@@ -193,10 +167,6 @@ ul {
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
-  .view-layout {
-    padding: 45px 11px;
-    -webkit-overflow-scrolling: touch;
-  }
   .outLine {
     margin-top: 33px;
     border: none;
