@@ -10,9 +10,15 @@ import TistoryIcon from '../../components/Icon/TistoryIcon';
 import Popup from '../../components/Popup';
 import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
-
-import './About.scss';
 import Layout from '../../components/Layout';
+
+// import './About.scss';
+import styles from './About.module.scss';
+import cb from 'classnames/bind';
+
+
+
+const cn = cb.bind(styles);
 
 function About(props) {
   const { data } = props;
@@ -65,13 +71,19 @@ function About(props) {
           {contactContents.map((item) => {
             return (
               <li>
+                  {item.icon && 
+                  (
+                    <span className={cn('icon--container')}>
+                      {item.icon}
+                    </span>
+                  )}
                 <a
                   target="_blank"
                   href={item.url}
                   rel="noopener noreferrer"
                   onTouchStart={() => touchRedirect(item.url, screenSize)}
                 >
-                  {item.icon && item.icon} {item.text}
+                  {item.text}
                 </a>
               </li>
             );
@@ -82,13 +94,13 @@ function About(props) {
     {
       title: 'COMMENT',
       width: 400,
-      children: [<p className="about-align-left">{data.comment}</p>]
+      children: [<p>{data.comment}</p>]
     },
     {
       title: 'CAREER',
       width: 500,
       children: [
-        <span className="style-list">
+        <span className="style--list">
           <ul>
             {data.career.map((item) => {
               return (
@@ -116,7 +128,7 @@ function About(props) {
       title: 'SKILL',
       width: 500,
       children: [
-        <span className="style-list">
+        <span className="style--list">
           <ul>
             {data.stack.map((item) => {
               return (

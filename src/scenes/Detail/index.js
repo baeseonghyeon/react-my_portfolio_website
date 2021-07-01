@@ -89,6 +89,7 @@ function Detail({ match, data }) {
           <p>
             {/* 내용 */}
             {item.content.text}
+            {' '}
             {/* 관련 링크 */}
             {item.content.links &&
               item.content.links.map((link, idx) => {
@@ -99,9 +100,9 @@ function Detail({ match, data }) {
                     rel="noopener noreferrer"
                     onTouchStart={() => touchRedirect(link.src)}
                   >
-                    {idx === 0 && ' ('}
+                    {idx === 0 && '('}
                     {link.title}
-                    {idx !== item.content.links.length - 1 ? ', ' : ') '}
+                    {idx !== item.content.links.length - 1 ? ', ' : ')'}
                   </a>
                 );
               })}

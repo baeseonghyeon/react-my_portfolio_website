@@ -24,8 +24,8 @@ const Work = (props) => {
   // FootNote Click Event
   const onClickFootnote = (id) => {
     setTargetId(id);
-
     if(document.getElementById(`popup${id}`)) {
+      history.push(`#work${id}`)
       scrollSet(id);
     } else {
       history.push(`/works/${id}`);
