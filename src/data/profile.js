@@ -6,12 +6,13 @@ const profileData = [
         intro:
           '배성현은 프론트엔드 개발자, UI개발자, 웹/앱 개발자, UI/UX 기획자, IT서비스 기획자, 프로덕트 매니저입니다.',
         comment:
+          // '배성현은 프론트엔드 개발자, UI개발자, 웹/앱 개발자, UI/UX 기획자, IT서비스 기획자, 프로덕트 매니저입니다.',
           '디자이너의 시선으로 기획하며, 기획자의 생각으로 개발합니다. 심미적으로 아름답고 기능적으로 효과적인 서비스를 만들고 있습니다. 대한민국에 거주하며 삼육대학교에서 경영정보학과를 전공했습니다.',
         career: [
           {
             title: '(주)올드루키 프론트엔드 개발자, 서비스 기획자',
             date: '2019-2021',
-            url: 'https://nt.oldrookiecorp.com/6b2d9843993f4cf4adc434d686f86cfa'
+            url: 'https://oldrookiecorp.notion.site/152e5886209e4832a350dbc74b22a7ae'
           },
           {
             title: 'Google Developer Student Clubs Lead',

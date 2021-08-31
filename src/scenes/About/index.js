@@ -133,7 +133,7 @@ function About(props) {
             {data.stack.map((item) => {
               return (
                 <li>
-                  {item.category}({item.stacks})
+                  <p>{item.category}({item.stacks})</p>
                 </li>
               );
             })}
@@ -142,28 +142,24 @@ function About(props) {
       ]
     },
     {
-      title: 'INFORMATION',
+      title: 'ABOUT WEBSITE',
       width: 300,
       children: [
-        <span>
-          {data.footer.map((item, idx) => {
-            return (
-              <>
-                <p>{item.text}</p>
-                {idx !== data.footer.length - 1 && <br />}
-              </>
-            );
-          })}
-        </span>
+        data.footer.map((item, idx) => {
+          return (
+            <p className={cn(idx !== data.footer.length - 1 && 'mb-3')}>{item.text}</p>
+          );
+        })
       ]
     }
   ];
 
   return (
-    <Layout>
+    <Layout>  
       {popupContents.map((item, idx) => {
         return (
           <Popup
+            key={item.id}
             id={popupContents.length-idx}
             title={item.title}
             width={item.width}

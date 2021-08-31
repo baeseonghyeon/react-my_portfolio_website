@@ -68,7 +68,7 @@ function Detail({ match, data }) {
             if (info.content) {
               return (
                 <li>
-                  <strong>{info.type}:</strong> {info.content}
+                  <p><strong>{info.type} : </strong> {info.content}</p>
                 </li>
               );
             }

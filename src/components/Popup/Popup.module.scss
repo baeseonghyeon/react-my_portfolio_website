@@ -24,6 +24,9 @@
     font-weight: bold;
     touch-action: auto;
     cursor: pointer;
+    span {
+      display: inline-block;
+    }
     .btn {
       &--close {
         position: absolute;
@@ -37,12 +40,16 @@
       border-color: var(--text-color);
     }
   }
-
   .content {
     text-align: left;
     touch-action: auto;
     &--isPadding {
       padding: 12px 10px 15px;
+    }
+    &__wrapper {
+      p {
+        display: inline-table;
+      }
     }
   }
 }
@@ -51,7 +58,10 @@
   z-index: 100;
   .title {
     background-color: var(--text-color);
-    color: var(--bkg-color) !important;
+    span {
+      color: var(--bkg-color) !important;
+      display: inline-block;
+    }
     .btn {
       &--close {
         color: var(--bkg-color) !important;
@@ -72,6 +82,9 @@
     left: auto !important;
     box-shadow: 0vh 0vh 0.5vh var(--text-color) !important;
     transform: initial !important;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -86,6 +99,9 @@
     left: auto !important;
     box-shadow: 0vh 0vh 0.5vh var(--text-color) !important;
     transform: initial !important;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 

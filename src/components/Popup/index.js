@@ -7,7 +7,7 @@ import useMediaQuery from '../../hook/useMediaQuery';
 const cn = cb.bind(styles);
 
 const Popup = (props) => {
-  const { 
+  const {
     id,
     children,
     highlight,
@@ -28,16 +28,24 @@ const Popup = (props) => {
   // Popup Render Position Set
   const myRef = useRef(null);
 
+  // const colorArray = ['#ffffff', '#59a65b', '#f0bc4d', '#d85241', '#5586ec'];
+  // const [randomColor, setRandomColor] =  useState('#ffffff');
+
   useEffect(() => {
     if (!isFixed && (!top || !left)) {
       popupPosition();
     }
+    // setRandomColor(colorArray[Math.floor(Math.random() * colorArray.length)]);
   }, []);
 
+  
+
+
+
   const popupPosition = () => {
-    if(myRef.current){
-      myRef.current.style.left = `${ Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.13 }px`;
-      myRef.current.style.top = `${ Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.12 }px`;
+    if (myRef.current) {
+      myRef.current.style.left = `${Math.random() * ((window.innerWidth - myRef.current.offsetWidth) * 0.8) + window.innerWidth * 0.13}px`;
+      myRef.current.style.top = `${Math.random() * ((window.innerHeight - myRef.current.offsetHeight) * 0.7) + window.innerHeight * 0.12}px`;
     }
   };
 
@@ -47,51 +55,53 @@ const Popup = (props) => {
   const onClickClose = (id) => {
     setHide(true);
     setTimeout(function () {
-      if(myRef.current && myRef.current.id === `popup${id}`){
+      if (myRef.current && myRef.current.id === `popup${id}`) {
         myRef.current.remove();
-      }      
+      }
     }, 250);
   };
 
   // Popup zIndex
-  const [zIndexValue, setZIndexValue] = useState(highlight? 100 : 5+id);
+  const [zIndexValue, setZIndexValue] = useState(highlight ? 100 : 5 + id);
 
-  useEffect(()=>{
-    setZIndexValue(highlight? zIndex+100 : zIndex)
-  },[zIndex])
+  useEffect(() => {
+    setZIndexValue(highlight ? zIndex + 100 : zIndex)
+  }, [zIndex])
 
   return (
     <Draggable
       disabled={screenWidth > 769 ? false : true}
       axis="both"
-      handle={'.handleTarget' }
+      handle={'.handleTarget'}
       defaultPosition={{ x: 0, y: 0 }}
       position={null}
       grid={[25, 25]}
       scale={1}
       onDrag={() => setZIndexValue(9999)}
-      onStop={() => setZIndexValue(highlight? 100 : 5+id)}
-      // onTouchStart={() => setZIndexValue(999)}
-      // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
+      onStop={() => setZIndexValue(highlight ? 100 : 5 + id)}
+    // onTouchStart={() => setZIndexValue(999)}
+    // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
     >
       <div
-        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', className )}
+        className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', className)}
         id={`popup${id}`}
         style={{
           width: `${width}px`,
           maxWidth: `${maxWidth}px`,
           top: `${top && top}px`,
           left: `${left && left}px`,
-          zIndex: `${zIndexValue && zIndexValue}` 
+          zIndex: `${zIndexValue && zIndexValue}`
+          // ,
+          // backgroundColor: randomColor
         }}
         onMouseEnter={() => screenWidth > 769 && setZIndexValue(999)}
-        onMouseLeave={() => screenWidth > 769 && setZIndexValue(highlight? 100 : 5+id)}
+        onMouseLeave={() => screenWidth > 769 && setZIndexValue(highlight ? 100 : 5 + id)}
         // onTouchStart={() => setZIndexValue(999)}
         // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
         ref={myRef}
       >
         <div className={cn('title')}>
-          {title}
+          <span>{title}</span>
           <span
             className={cn('btn--close')}
             onClick={() => onClickCloseBtn ? onClickCloseBtn() : onClickClose(id)}
@@ -103,11 +113,13 @@ const Popup = (props) => {
         <div
           className={cn('content', isPadding && 'content--isPadding')}
         >
-          {children}
+          <span className={cn('content__wrapper')} >
+            {children}
+          </span>
         </div>
       </div>
     </Draggable>
-  ) 
+  )
 }
 
 export default React.memo(Popup);

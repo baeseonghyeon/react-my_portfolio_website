@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState }  from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Popup from '../../Popup';
@@ -36,7 +36,7 @@ const CardHover = (props) => {
       isFixed
       onClickCloseBtn={() => onClickClose()}
     >
-      <p className="desc">
+      <p>
         {item.content.text.substr(0, item.eg ? 110 : 65)}
         {item.content.text.length > (item.eg ? 110 : 65) && (
           <span>
