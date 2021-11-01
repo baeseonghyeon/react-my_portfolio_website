@@ -8,11 +8,13 @@ import YoutubeIframe from '../../components/YoutubeIframe';
 import externalLinkText from '../../lib/externalLinkText';
 import Popup from '../../components/Popup';
 import Layout from '../../components/Layout';
+import { useSelector } from 'react-redux';
 
 const cn = cb.bind(styles);
 
 function Detail({ match, data }) {
   const item = data[match.params.id - 1];
+  const LANG = useSelector((state) => state.languageReducer).lang;
 
   // Popup Touch Screen Redirect Set
   const [width] = useMediaQuery();
@@ -49,7 +51,7 @@ function Detail({ match, data }) {
       type: 'Stack'
     },
     {
-      content: item.info.collabor,
+      content: item.info.collabor ? item.info.collabor[LANG] : null,
       type: 'Collaborator'
     }
   ];
@@ -88,7 +90,7 @@ function Detail({ match, data }) {
         <div className="desc px-0">
           <p>
             {/* 내용 */}
-            {item.content.text}
+            {item.content[LANG]}
             {' '}
             {/* 관련 링크 */}
             {item.content.links &&
@@ -101,7 +103,7 @@ function Detail({ match, data }) {
                     onTouchStart={() => touchRedirect(link.src)}
                   >
                     {idx === 0 && '('}
-                    {link.title}
+                    {link[LANG]}
                     {idx !== item.content.links.length - 1 ? ', ' : ')'}
                   </a>
                 );
@@ -133,7 +135,7 @@ function Detail({ match, data }) {
         return (
           <Popup
             id={idx}
-            title={item.title}
+            title={item.title[LANG]}
             width={content.width}
             position={content.position ? content.position : false}
             top={content.top && content.top}

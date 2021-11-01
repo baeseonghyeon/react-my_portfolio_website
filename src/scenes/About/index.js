@@ -12,10 +12,9 @@ import useMediaQuery from '../../hook/useMediaQuery';
 import touchRedirect from '../../lib/touchRedirect';
 import Layout from '../../components/Layout';
 
-// import './About.scss';
 import styles from './About.module.scss';
 import cb from 'classnames/bind';
-
+import { useSelector } from 'react-redux';
 
 
 const cn = cb.bind(styles);
@@ -23,6 +22,7 @@ const cn = cb.bind(styles);
 function About(props) {
   const { data } = props;
   const [screenSize] = useMediaQuery();
+  const LANG = useSelector((state) => state.languageReducer).lang;
 
   const contactContents = [
     {
@@ -59,7 +59,7 @@ function About(props) {
       top: 50,
       left: 26,
       isHighlight: true,
-      children: [<p>{data.intro}</p>]
+      children: [<p>{data.intro[LANG]}</p>]
     },
     {
       title: 'CONTACT',
@@ -94,7 +94,7 @@ function About(props) {
     {
       title: 'COMMENT',
       width: 400,
-      children: [<p>{data.comment}</p>]
+      children: [<p>{data.comment[LANG]}</p>]
     },
     {
       title: 'CAREER',
@@ -112,10 +112,10 @@ function About(props) {
                       rel="noopener noreferrer"
                       onTouchStart={() => touchRedirect(item.url, screenSize)}
                     >
-                      {item.title} ( {item.date} )
+                      {item.title[LANG]} ( {item.date} )
                     </a>
                   ) : (
-                    `${item.title} ( ${item.date} )`
+                    `${item.title[LANG]} ( ${item.date} )`
                   )}
                 </li>
               );
@@ -133,7 +133,7 @@ function About(props) {
             {data.stack.map((item) => {
               return (
                 <li>
-                  <p>{item.category}({item.stacks})</p>
+                  <p>{item.category[LANG]}({item.stacks})</p>
                 </li>
               );
             })}
@@ -147,7 +147,7 @@ function About(props) {
       children: [
         data.footer.map((item, idx) => {
           return (
-            <p className={cn(idx !== data.footer.length - 1 && 'mb-3')}>{item.text}</p>
+            <p className={cn(idx !== data.footer.length - 1 && 'mb-3')}>{item[LANG]}</p>
           );
         })
       ]

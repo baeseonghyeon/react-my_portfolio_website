@@ -28,14 +28,10 @@ const Popup = (props) => {
   // Popup Render Position Set
   const myRef = useRef(null);
 
-  // const colorArray = ['#ffffff', '#59a65b', '#f0bc4d', '#d85241', '#5586ec'];
-  // const [randomColor, setRandomColor] =  useState('#ffffff');
-
   useEffect(() => {
     if (!isFixed && (!top || !left)) {
       popupPosition();
     }
-    // setRandomColor(colorArray[Math.floor(Math.random() * colorArray.length)]);
   }, []);
 
   
@@ -79,8 +75,6 @@ const Popup = (props) => {
       scale={1}
       onDrag={() => setZIndexValue(9999)}
       onStop={() => setZIndexValue(highlight ? 100 : 5 + id)}
-    // onTouchStart={() => setZIndexValue(999)}
-    // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
     >
       <div
         className={cn('container', 'handleTarget', highlight && 'highlight', hide && 'hide', className)}
@@ -91,13 +85,9 @@ const Popup = (props) => {
           top: `${top && top}px`,
           left: `${left && left}px`,
           zIndex: `${zIndexValue && zIndexValue}`
-          // ,
-          // backgroundColor: randomColor
         }}
         onMouseEnter={() => screenWidth > 769 && setZIndexValue(999)}
         onMouseLeave={() => screenWidth > 769 && setZIndexValue(highlight ? 100 : 5 + id)}
-        // onTouchStart={() => setZIndexValue(999)}
-        // onTouchEnd={() => setZIndexValue(highlight? 100 : 5+id)}
         ref={myRef}
       >
         <div className={cn('title')}>

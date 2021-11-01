@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-// import './Footer.scss';
 import cb from 'classnames/bind';
 import { FiSun, FiMoon } from 'react-icons/fi';
-
+import moment from 'moment';
+import 'moment/locale/ko';
 import TopBtn from '../TopBtn';
+import { setLanguage } from '../../modules/Language/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const cn = cb.bind(styles);
 
 function Footer(props) {
-  const { langs, darkState } = props;
+  const { darkState } = props;
+  const nowYear = moment().format('YYYY'); 
+  const dispatch = useDispatch();
+  const LANG = useSelector((state) => state.languageReducer).lang;
 
   return (
     <div className={cn('container')}>
@@ -20,7 +25,7 @@ function Footer(props) {
           target="blank"
           rel="noopener noreferrer"
         />
-        <span>2020 Bae Seonghyeon (github.io)</span>
+        <span>{nowYear ? nowYear : '2021'} Bae Seonghyeon (github.io)</span>
       </span>
       <span className={cn("toggle__container")}>
         <span className={cn("darkmode__wrapper")}>
@@ -40,24 +45,21 @@ function Footer(props) {
           </span>
         </span>
         <span className={cn("dividing__line")}>|</span>
-        {langs.map((lang, index) => {
-          return (
-            <span className={cn("language__wrapper")} key={index}>
+            <span className={cn("language__wrapper")} >
               <span
-                className={cn('language__toggle', lang.set === 'KR' && 'language__toggle--active')}
-                onClick={() => props.langToggle('KR')}
+                className={cn('language__toggle', LANG === 'KR' && 'language__toggle--active')}
+                onClick={()=> dispatch(setLanguage('KR'))}
               >
                 KR
               </span>
               <span
-                className={cn('language__toggle', 'mr-0', lang.set === 'EN' && 'language__toggle--active')}
-                onClick={() => props.langToggle('EN')}
+                className={cn('language__toggle', 'mr-0', LANG === 'EN' && 'language__toggle--active')}
+                onClick={()=> dispatch(setLanguage('EN'))}
               >
                 EN
               </span>
             </span>
-          );
-        })}
+ 
       </span>
     </div>
   );
