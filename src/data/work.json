@@ -18,11 +18,11 @@
         },
         "links": [
           {
-            "type": "web",
+            "type": "website",
             "src": "http://sahmyook.likelion.org/"
           },
           {
-            "type": "github",
+            "type": "Github Code",
             "src": "https://github.com/baeseonghyeon/likelion_syu_website"
           }
         ],
@@ -58,7 +58,7 @@
         },
         "links": [
           {
-            "type": "web",
+            "type": "website",
             "src": "http://syulib.suedumi.com/bbs/event.php"
           }
         ],
@@ -91,12 +91,12 @@
             }
         },
         "content": {
-          "KR": "팜클라우드의 유저 웹 모듈 입니다. 웹 기반 모듈을 통해 무인 스마트팜의 재배 환경을 모니터링하고 제어할 수 있습니다. 사업초기 웹 모듈 프로토타입의 기획과 화면설계, 프론트 엔드 개발을 담당했습니다.",
-          "EN": "It is User Web module for the farm cloud. The Web-based modules allow to monitor and control the growing environment of unattended smart farms. I was responsible for planning, screen design, and front-end development of early web module prototypes."
+          "KR": "컨테이너 도시 농장 팜클라우드의 유저 웹 인터페이스 입니다. 웹 기반 인터페이스를 통해 무인 스마트팜의 재배 환경을 모니터링하고 제어할 수 있습니다. 사업초기 웹 모듈 프로토타입의 기획과 화면설계, 프론트 엔드 개발을 담당했습니다.",
+          "EN": "It is User Web interface for the farm cloud(Contianer City Farm). The Web-based interface allow to monitor and control the growing environment of unattended smart farms. I was responsible for planning, screen design, and front-end development of early web module prototypes."
         },
         "links": [
           {
-            "type": "web",
+            "type": "website",
             "src": "http://dfarmcloud.com/"
           }
         ],
@@ -152,7 +152,7 @@
         },
         "links": [
           {
-            "type": "github",
+            "type": "Github Code",
             "src": "https://github.com/baeseonghyeon/hanium-smartcar"
           }
         ],
@@ -192,7 +192,7 @@
         },
         "links": [
           {
-            "type": "github",
+            "type": "Github Code",
             "src": "https://github.com/likelion-syu/syufesta"
           }
         ],
@@ -217,7 +217,7 @@
       {
         "title": {
             "KR": "올드루키(프로토타입)",
-            "EN": "OLDROOKIE Corp.(Prototype)"
+            "EN": "oldrookie Corp(Prototype)"
         },
         "info": {
             "date": "2019",
@@ -225,18 +225,18 @@
             "role": "development / planning",
             "stack": "React, scss, Git",
             "collabor": {
-                "KR": "OLDROOKIE(유경수, 곽예린)",
-                "EN": "OLDROOKIE"
+                "KR": "oldrookie(유경수, 곽예린)",
+                "EN": "oldrookie"
             }
         },
         "content": {
           "KR": "(주)올드루키의 기업 홈페이지 입니다. 회사의 정보게시를 위해 제작되었습니다. 웹사이트 기획과 프론트엔드 개발을 담당하였습니다. (아직 개발중인 프로젝트 입니다.)",
-          "EN": "This is website of the OLDROOKIE corporate. It is designed to publish the company information. I was in charge of website planning and front-end development. (This project is still in development.)"
+          "EN": "This is website of the oldrookie corporate. It is designed to publish the company information. I was in charge of website planning and front-end development. (This project is still in development.)"
         },
         "links": [
           {
-            "type": "web",
-            "src": "https://www.OLDROOKIEcorp.com/"
+            "type": "website",
+            "src": "https://www.oldrookiecorp.com/"
           }
         ],
         "thumb": null,
@@ -258,8 +258,8 @@
           "role": "development / planning / design",
           "stack": "React Native, scss, Git",
           "collabor": {
-            "KR": "OLDROOKIE(유경수, 곽예린)",
-            "EN": "OLDROOKIE"
+            "KR": "oldrookie(유경수, 곽예린)",
+            "EN": "oldrookie"
           }
         },
         "content": {
@@ -295,14 +295,14 @@
           "EN": "This is the Github gardener ('Do you Know Grass?') event attendance website held by the Developer Student Clubs Sahmyook University. This website was developed through code and design refactoring of Gardeners season5 of GDG Pangyo.",
           "links": [
             {
-              "title": "junho85 Github Link",
+              "KR": "junho85 Github Link",
               "src": "https://github.com/junho85/garden4"
             }
           ]
         },
         "links": [
           {
-            "type": "github",
+            "type": "Github Code",
             "src": "https://github.com/DSC-Sahmyook/SYU_Garden"
           }
         ],
@@ -328,8 +328,8 @@
           "role": "development",
           "stack": "ReactNative, React, TypeScript, SCSS, StoryBook, Git, GraphQL",
           "collabor": {
-            "KR": "OLDROOKIE(유경수, 박기홍, 김혜원), 유미스",
-            "EN": "OLDROOKIE, Yumis"
+            "KR": "oldrookie(유경수, 박기홍, 김혜원), 유미스",
+            "EN": "oldrookie, Yumis"
           }
         },
         "content": {
@@ -381,8 +381,8 @@
           "role": "development",
           "stack": "ReactNative, React, TypeScript, SCSS, StoryBook, Git, GraphQL",
           "collabor": {
-            "KR": "OLDROOKIE(유경수, 박기홍, 김혜원), 유미스",
-            "EN": "OLDROOKIE, Yumis"
+            "KR": "oldrookie(유경수, 박기홍, 김혜원), 유미스",
+            "EN": "oldrookie, Yumis"
           }
         },
         "content": {
@@ -391,12 +391,10 @@
           "links": [
             {
                 "KR": "GooglePlay",
-                "EN": "GooglePlay",
                 "src": "https://play.google.com/store/apps/details?id=com.wonitclient"
             },
             {
                 "KR": "AppStore",
-                "EN": "AppStore",
                 "src": "https://apps.apple.com/kr/app/clubber/id1561355313"
             }
           ]
@@ -412,6 +410,146 @@
           }
         ],
         "videos": null
+      },
+      {
+        "title": {
+            "KR": "KT스마트메시지 초성 퀴즈 이벤트",
+            "EN": "KT Smart Message Quiz Event"
+        },
+        "info": {
+          "date": "2021",
+          "cate": "Website",
+          "role": "development",
+          "stack": "React, TypeScript, SCSS, Git, node.js, cafe24, Jenkins",
+          "collabor": {
+            "KR": "oldrookie(유경수, 배성현, 이수연), 아이디어오븐",
+            "EN": "oldrookie, IdeaOven"
+          }
+        },
+        "content": {
+          "KR": "KT 엔터프라이즈에서 진행한 KT 스마트메시지 초성퀴즈 이벤트 웹사이트를 외주 개발하였습니다. 해당 웹사이트를 통해 번호인증 이후 이벤트에 참여할 수 있도록 인증서버와 클라이언트를 개발하였습니다. 본 이벤트는 9월 29일부터 10월 30일까지 약 20일간 진행되었습니다. 기간 동안 총 7,320명이 이 웹사이트를 통해 이벤트에 응모하였습니다.",
+          "EN": "We outsourced and developed the KT Smart Message Initial Quiz Event website held by KT Enterprise. We have developed an authentication server and client so that you can participate in the event after number authentication through the website. This event lasted about 20 days from September 29th to October 30th. A total of 7,320 people applied for the event through this website during the period."
+        },
+        "links": [
+          {
+            "type": "website",
+            "src": "http://www.event-ktsmartmessage.com/"
+          }
+        ],
+        "thumb": "https://drive.google.com/uc?export=view&id=17qWFUoWSJtMzN1sdSD_-Don0jKweUTTs",
+        "images": [
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1MfegIMhCgJoIpRfEsFnY8pnSQqUAMQtq"
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1JZspoYh3nxl7SyVHWI2R0PAWczp0hsgO",
+            "fullSize": true
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1R894AuZtFMaK4MUI6L-28BvpYai8922K",
+            "fullSize": true
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1DrSKq_fz1mEPFw-3DzmBK50n7w4vLHE-",
+            "fullSize": true
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1-tRTp0Q8AgD9YdspEJEenZFkpcHMtm3R",
+            "fullSize": true
+          }
+        ],
+        "videos": [
+          {
+            "src": "https://www.youtube.com/embed/7vvj5gc4Pjs"
+          }
+        ]
+      },
+      {
+        "title": {
+            "KR": "해픈(HaFFn)",
+            "EN": "HaFFn"
+        },
+        "info": {
+          "date": "2021",
+          "cate": "Website",
+          "role": "development / planning / design",
+          "stack": "React, Next.js, TypeScript, SCSS, Git, AWS",
+          "collabor": {
+            "KR": "oldrookie",
+            "EN": "oldrookie"
+          }
+        },
+        "content": {
+          "KR": "현실을 담은 패션플랫폼 해픈의 프로모션 웹사이트 입니다. 해픈은 3D로 모델링된 실제 의류 아이템을 가상으로 살펴보고, 입혀보고, 공유하고, 구매할 수 있는 패션 의류 커머스 메타버스 플랫폼입니다. 해픈의 웹사이트 클라이언트의 개발과 기획, 디자인을 담당했습니다.",
+          "EN": "It's a haffn website for promotion that fashion platform that contains reality. HaFFn is a fashion commerce metabus platform that able to virtually look at, wear, share, and purchase real clothing items modeled in 3D. I was in charge of web client development, planning, and design."
+        },
+        "links": [
+          {
+            "type": "website",
+              "src": "https://www.haffn.com/"
+          }
+        ],
+        "videos": [
+          {
+            "src": "https://www.youtube.com/embed/pc_ndpLZTMc" 
+          },
+          {
+            "src": "https://www.youtube.com/embed/ijrx6tS981k"
+          }
+        ]
+      },
+      {
+        "title": {
+            "KR": "해픈(HaFFn)",
+            "EN": "HaFFn"
+        },
+        "info": {
+          "date": "2021",
+          "cate": "Application",
+          "role": "development / planning / design",
+          "stack": "Flutter, TypeScript, SCSS, Git, AWS",
+          "collabor": {
+            "KR": "oldrookie",
+            "EN": "oldrookie"
+          }
+        },
+        "content": {
+          "KR": "현실을 담은 패션플랫폼 해픈, 해픈은 3D로 모델링된 실제 의류 아이템을 가상으로 살펴보고, 입혀보고, 공유하고, 구매할 수 있는 패션 의류 커머스 메타버스 플랫폼입니다. 해픈의 앱 클라이언트의 개발과 기획, 디자인을 담당했습니다.",
+          "EN": "It's a app that fashion platform that contains reality. HaFFn is a fashion commerce metabus platform that able to virtually look at, wear, share, and purchase real clothing items modeled in 3D. I was in charge of app client development, planning, and design."
+        },
+        "links": [
+          {
+            "type": "Google Play",
+              "src": "https://play.google.com/store/apps/details?id=com.oldrookiecorp.haffn"
+          },
+          {
+            "type": "App Store",
+              "src": "https://apps.apple.com/us/app/haffn/id1588212092"
+          }
+        ],
+        "images": [
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1SIOXy51y5UHtiLRY5cIhNsIZzyuLKCtA"
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1QUbJahznG7o9z55wdaL_QMUKcm6VVFQH"
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1n2RPC6tFIcrZamm6d0rC6-KdQtc7GyFb"
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1gOf2qE65UUPEG4Lu5mHN_NuKZg4EHc_8"
+          },
+          {
+            "src": "https://drive.google.com/uc?export=view&id=1UyMXv3BFzkJwVhZuKQpSD1gihp1_H7Yn"
+          }
+        ],
+        "videos": [
+          {
+            "src": "https://www.youtube.com/embed/nR-PDwWCJ80"
+          }
+        ]
       }
+     
     ]
   }

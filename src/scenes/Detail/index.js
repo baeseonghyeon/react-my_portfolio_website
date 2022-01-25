@@ -103,7 +103,7 @@ function Detail({ match, data }) {
                     onTouchStart={() => touchRedirect(link.src)}
                   >
                     {idx === 0 && '('}
-                    {link[LANG]}
+                    {link[LANG] ? link[LANG] : link['KR']}
                     {idx !== item.content.links.length - 1 ? ', ' : ')'}
                   </a>
                 );
@@ -152,7 +152,11 @@ function Detail({ match, data }) {
         {item.videos &&
           item.videos.map((video) => {
             return (
-              <div className="col-md-6 mb-0 p-0">
+              <div
+              className={`
+                ${video.fullSize ? 'col-md-12' : 'col-md-6'} mb-0 p-0
+              `}
+              >
                 <div className={cn("video--wrapper")}>
                   <YoutubeIframe
                     className={cn('video')}

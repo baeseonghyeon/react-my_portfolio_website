@@ -13,9 +13,9 @@
           {
             "title": {
                 "KR": "(주)올드루키 프론트엔드 개발자, 서비스 기획자",
-                "EN": "OLDROOKIE Corp FE Developer, Service Planner"
+                "EN": "oldrookie Corp FE Developer, Service Planner"
             },
-            "date": "2020-2021",
+            "date": "2020-2022",
             "url": "https://oldrookiecorp.notion.site/152e5886209e4832a350dbc74b22a7ae"
           },
           {
@@ -50,14 +50,14 @@
                 "EN": "WEB"
             },
             "stacks":
-              "HTML5, CSS3, SCSS, React, Svelte, StoryBook, A-frame, Django, Ruby on Rails, CodeIgniter"
+              "HTML5, CSS3, SCSS, React, Next.js, Svelte, StoryBook, A-frame, Django, Ruby on Rails, CodeIgniter"
           },
           {
             "category": {
                 "KR": "앱",
                 "EN": "APP"
             },
-            "stacks": "React Native"
+            "stacks": "Flutter, React Native"
           },
           {
             "category": {
