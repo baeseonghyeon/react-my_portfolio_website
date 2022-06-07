@@ -2,18 +2,26 @@
     "data": 
       {
         "intro": {
-            "KR": "배성현은 프론트엔드 개발자, UI개발자, 웹/앱 개발자, UI/UX 기획자, IT서비스 기획자, 프로덕트 매니저입니다.",
-            "EN": "Bae Seonghyeon is a Front-end Developer, UI Developer, WEB/APP Developer, UI/UX Planner, IT Service Planner, Product Manager."
+            "KR": "배성현은 프론트엔드 개발자, 소프트웨어 엔지니어, 웹/앱 개발자, UI개발자, UI/UX 기획자, 서비스 기획자 입니다.",
+            "EN": "Bae Seonghyeon is a Front-end Developer, Software Engineer, WEB/APP Developer, UI Developer, UI/UX Planner, IT Service Planner, Product Manager."
         },
         "comment": {
-            "KR": "디자이너의 시선으로 기획하며, 기획자의 생각으로 개발합니다. 심미적으로 아름답고 기능적으로 효과적인 서비스를 만들고 있습니다. 대한민국에 거주하며 삼육대학교에서 경영정보학과를 전공했습니다.",
-            "EN": "I plan with the eyes of the designer and develop with the idea of the planner. I'm interested in creating a service that is aesthetically beautiful and functionally effective. I live in Korea and majored in Management Information Systems at Sahmyook University."
+            "KR": "디자이너의 시선과 기획자의 생각으로 개발합니다. 심미적으로 아름답고 기능적으로 효과적인 서비스를 만들고 있습니다. 대한민국 경기도에 거주하며 삼육대학교 경영정보학과를 전공했습니다.",
+            "EN": "I develop it from the eye of the designer and the idea of the planner. I'm interested in creating a service that is aesthetically beautiful and functionally effective. I live in Gyeonggi-do, Republic of Korea, and majored in Management Information Systems at Sahmyook University."
         },
         "career": [
           {
             "title": {
-                "KR": "(주)올드루키 프론트엔드 개발자, 서비스 기획자",
-                "EN": "oldrookie Corp FE Developer, Service Planner"
+                "KR": "바오밥파트너즈 메타버스 개발팀 소프트웨어 엔지니어",
+                "EN": "Baobab Partners Inc. Metaverse Development Team, Software Engineer"
+            },
+            "date": "2022",
+            "url": "https://www.bao-bab.co.kr/"
+          },
+          {
+            "title": {
+                "KR": "(주)올드루키 서비스 개발팀 소프트웨어 엔지니어, 기획자",
+                "EN": "oldrookie Corp SoftWare Engineer, Service Planner"
             },
             "date": "2020-2022",
             "url": "https://oldrookiecorp.notion.site/152e5886209e4832a350dbc74b22a7ae"
@@ -61,10 +69,17 @@
           },
           {
             "category": {
+                "KR": "3D",
+                "EN": "3D"
+            },
+            "stacks": "Unity"
+          },
+          {
+            "category": {
                 "KR": "프로그래밍언어",
                 "EN": "LANGUAGE"
             },
-            "stacks": "JavaScript, TypeScript, Python, PHP, Ruby, C++"
+            "stacks": "JavaScript, TypeScript, Python, C++, C#, Ruby, PHP"
           },
           {
             "category": {

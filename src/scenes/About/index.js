@@ -34,11 +34,11 @@ function About(props) {
       url: 'https://github.com/baeseonghyeon',
       icon: [<FontAwesomeIcon icon={faGithub} />]
     },
-    {
-      text: 'Blog',
-      url: 'https://baeseongh.tistory.com/',
-      icon: [<TistoryIcon />]
-    },
+    // {
+    //   text: 'Blog',
+    //   url: 'https://baeseongh.tistory.com/',
+    //   icon: [<TistoryIcon />]
+    // },
     {
       text: 'Linkedin',
       url: 'https://www.linkedin.com/in/%EC%84%B1%ED%98%84-%EB%B0%B0-abb1441a4/',
