@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState }  from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Popup from '../../Popup';
@@ -7,12 +7,14 @@ import externalLinkText from '../../../lib/externalLinkText';
 
 import styles from './CardHover.module.scss';
 import cb from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 const cn = cb.bind(styles);
 
 
 const CardHover = (props) => {
-  const { item, onClickClose, isVisible } = props;
+  const { item, id, onClickClose, isVisible } = props;
+  const LANG = useSelector((state) => state.languageReducer).lang;
 
   // Popup Touch Screen Redirect Set
   const history = useHistory();
@@ -29,21 +31,21 @@ const CardHover = (props) => {
 
   return (
     <Popup
-      id={`desc${item.id}`}
+      id={`desc${id}`}
       title={`${item.info.cate} - ${item.info.role}`}
       className={cn('container', isVisible ? 'show' : 'hide' )}
       isPadding
       isFixed
       onClickCloseBtn={() => onClickClose()}
     >
-      <p className="desc">
-        {item.content.text.substr(0, item.eg ? 110 : 65)}
-        {item.content.text.length > (item.eg ? 110 : 65) && (
+      <p>
+        {item.content[LANG].substr(0, LANG === 'EN' ? 110 : 65)}
+        {item.content[LANG].length > (LANG === 'EN' ? 110 : 65) && (
           <span>
             ...
             <Link
-              to={`/works/${item.id}`}
-              onTouchStart={() => touchRedirect(`/works/${item.id}`)}
+              to={`/works/${id}`}
+              onTouchStart={() => touchRedirect(`/works/${id}`)}
             >
               read more
             </Link>
@@ -69,11 +71,11 @@ const CardHover = (props) => {
         })}
 
       {/* 더보기 버튼 */}
-      {item.content.text.length < (item.eg ? 110 : 65) && (
+      {item.content[LANG].length < (LANG === 'EN' ? 110 : 65) && (
         <Link
           className="more-btn d-block"
-          to={`/works/${item.id}`}
-          onTouchStart={() => touchRedirect(`/works/${item.id}`)}
+          to={`/works/${id}`}
+          onTouchStart={() => touchRedirect(`/works/${id}`)}
         >
           Read More →
         </Link>

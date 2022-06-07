@@ -8,7 +8,7 @@ import useMediaQuery from '../../hook/useMediaQuery';
 const cn = cb.bind(styles);
 
 const Card = (props) => {
-  const { item, targetId, onClickClose, onClickIcon } = props;
+  const { id, item, targetId, onClickClose, onClickIcon } = props;
   const [width] = useMediaQuery();
   
   // Card Position
@@ -46,7 +46,7 @@ const Card = (props) => {
   // FootNote Target Show 
   useEffect(()=>{
     if (visibility) setVisibility(false);
-    if (targetId === item.id) {
+    if (targetId === id) {
       showInnerCard();
     }
   }, [targetId])
@@ -54,8 +54,8 @@ const Card = (props) => {
   return (
     <div
       className={cn('card', 'container')}
-      id={`work${item.id}`}
-      onMouseEnter={() => width > 769 && showInnerCard()}
+      id={`work${id}`}
+      onMouseEnter={() => width > 769 && [onClickIcon(), showInnerCard()]}
       onMouseLeave={() => width > 769 && hideInnerCard()}
       ref={cardRef}
     >
@@ -63,7 +63,7 @@ const Card = (props) => {
     {iconVisibility && 
       <span
         className={cn('icon--pointer')}
-        id={`pointer${item.id}`}
+        id={`pointer${id}`}
         onClick={() => [onClickIcon(), showInnerCard()]}
         onTouchStart={() => [onClickIcon(), showInnerCard()]}
         ref={iconRef}
@@ -92,6 +92,7 @@ const Card = (props) => {
     )}
       {/* InnerCard */}
       <CardHover 
+        id={id}
         item={item} 
         isVisible={visibility} 
         onClickClose={() => [onClickClose(), hideInnerCard()]}

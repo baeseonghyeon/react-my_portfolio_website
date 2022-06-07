@@ -10,7 +10,7 @@ const useRenderEffect = (node) => {
       node.current.style.opacity = 1;
       node.current.style.transform = 'initial'
     }
-  }, []);
+  }, [node]);
 };
 
 export default useRenderEffect;

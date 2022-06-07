@@ -26,17 +26,18 @@ div {
 }
 
 //== LAYOUT ==//
-#root,
-.App,
-#Home {
-  // height: 100vh;
+html {
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+  -moz-text-size-adjust: none; /*Firefox*/
+  -ms-text-size-adjust: none; /*Ie*/
+  -o-text-size-adjust: none; /*old versions of Opera*/
 }
 body {
   background-color: var(--bkg-color);
   min-height: 100vh;
   max-width: 100vw;
   margin: 0;
-  // overflow: hidden;
 }
 .container {
   max-width: 100% !important;
@@ -75,6 +76,7 @@ p {
   line-height: $l-h;
   text-align: left;
   margin-bottom: 20px;
+  display: inline-block;
 }
 a {
   color: var(--text-color-blue);
@@ -100,6 +102,10 @@ ul {
     a {
       letter-spacing: $l-s;
       font-weight: $f-w;
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
     }
   }
 }
@@ -120,7 +126,8 @@ ul {
 .t-underline {
   text-decoration: underline;
 }
-.style-list {
+.style--list {
+  display: inline-block;
   ul {
     padding-left: 15px;
     li:before {

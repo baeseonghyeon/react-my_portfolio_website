@@ -1,0 +1,110 @@
+{
+    "data": 
+      {
+        "intro": {
+            "KR": "배성현은 프론트엔드 개발자, 소프트웨어 엔지니어, 웹/앱 개발자, UI개발자, UI/UX 기획자, 서비스 기획자 입니다.",
+            "EN": "Bae Seonghyeon is a Front-end Developer, Software Engineer, WEB/APP Developer, UI Developer, UI/UX Planner, IT Service Planner, Product Manager."
+        },
+        "comment": {
+            "KR": "디자이너의 시선과 기획자의 생각으로 개발합니다. 심미적으로 아름답고 기능적으로 효과적인 서비스를 만들고 있습니다. 대한민국 경기도에 거주하며 삼육대학교 경영정보학과를 전공했습니다.",
+            "EN": "I develop it from the eye of the designer and the idea of the planner. I'm interested in creating a service that is aesthetically beautiful and functionally effective. I live in Gyeonggi-do, Republic of Korea, and majored in Management Information Systems at Sahmyook University."
+        },
+        "career": [
+          {
+            "title": {
+                "KR": "바오밥파트너즈 메타버스 개발팀 소프트웨어 엔지니어",
+                "EN": "Baobab Partners Inc. Metaverse Development Team, Software Engineer"
+            },
+            "date": "2022",
+            "url": "https://www.bao-bab.co.kr/"
+          },
+          {
+            "title": {
+                "KR": "(주)올드루키 서비스 개발팀 소프트웨어 엔지니어, 기획자",
+                "EN": "oldrookie Corp SoftWare Engineer, Service Planner"
+            },
+            "date": "2020-2022",
+            "url": "https://oldrookiecorp.notion.site/152e5886209e4832a350dbc74b22a7ae"
+          },
+          {
+            "title": {
+                "KR": "Google Developer Student Clubs Lead",
+                "EN": "Google Developer Student Clubs Lead"
+            },
+            "date": "2019-2020",
+            "url": "https://google.dev/badges/community/dsc/2019/lead?fbclid=IwAR0bSPj_62TH30Xa5ZbkIfVdjsXLmX9V_yt2oei95m-lfQqTz3veIk5Ry9A"
+          },
+          {
+            "title": {
+                "KR": "멋쟁이사자처럼 at 삼육대학교 6기, 7기 대표",
+                "EN": "LIKELION at Sahmyook University 6th, 7th Leader"
+            },
+            "date": "2018-2019",
+            "url": "http://sahmyook.likelion.org/users/2"
+          },
+          {
+            "title": {
+                "KR": "오픈버스(주) 개발팀 인턴",
+                "EN": "OPENBUS Development Team Intern"
+            },
+            "date": "2018-2019",
+            "url": "http://www.openbus.me/index.php"
+          }
+        ],
+        "stack": [
+          {
+            "category": {
+                "KR": "웹",
+                "EN": "WEB"
+            },
+            "stacks":
+              "HTML5, CSS3, SCSS, React, Next.js, Svelte, StoryBook, A-frame, Django, Ruby on Rails, CodeIgniter"
+          },
+          {
+            "category": {
+                "KR": "앱",
+                "EN": "APP"
+            },
+            "stacks": "Flutter, React Native"
+          },
+          {
+            "category": {
+                "KR": "3D",
+                "EN": "3D"
+            },
+            "stacks": "Unity"
+          },
+          {
+            "category": {
+                "KR": "프로그래밍언어",
+                "EN": "LANGUAGE"
+            },
+            "stacks": "JavaScript, TypeScript, Python, C++, C#, Ruby, PHP"
+          },
+          {
+            "category": {
+                "KR": "데이터베이스",
+                "EN": "DATABASE"
+            },
+            "stacks": "MySQL, GraphQL, MongoDB, SQLite, PostgreSQL"
+          },
+          {
+            "category": {
+                "KR": "인프라",
+                "EN": "INFRA"
+            },
+            "stacks": "Git, AWS, GCP, Docker"
+          }
+        ],
+        "footer": [
+          {
+            "KR": "이 웹사이트는 React.js를 통해 개발되어 Github.io에 배포 되었습니다.",
+            "EN": "This website was developed using React.js and Deployed on Github.io" 
+          },
+          {
+            "KR": "웹사이트 개발 및 디자인 (배성현)",
+            "EN": "Website developed and designed by Bae Seonghyeon"
+          }
+        ]
+      }
+  }

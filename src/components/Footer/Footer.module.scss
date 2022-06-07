@@ -1,0 +1,102 @@
+@import '../../scss/variable.scss';
+
+.container {
+  z-index: $z-layout;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: $ft-s-small;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  height: 40px;
+  .copy__right {
+    text-align: left;
+    padding-left: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      text-decoration: none;
+      height: 100%;
+      width: 4px;
+    }
+    &::before {
+      content: '©';
+      float: left;
+      margin-left: -13px;
+    }
+  }
+  .toggle__container {
+    position: relative;
+    top: 1px;
+    min-width: 118px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    // 다크모드
+    .darkmode {
+      &__wrapper {
+        display: flex;
+      }
+      &__toggle {
+        margin: 0 5px;
+        margin-bottom: 0.2rem;
+        height: 18px;
+        cursor: pointer;
+        svg {
+          stroke: var(--text-color);
+          margin: 0 1.7px 1px;
+          padding-bottom: 2px;
+          width: $ft-s-small;
+        }
+        &--active {
+          border-bottom: $b-w solid var(--text-color);
+          svg {
+            // stroke-width: 3.5px;
+          }
+        }
+      }
+    }
+
+    // 구분 선
+    .dividing__line {
+      margin: 0 5px;
+      padding-bottom: 0.2rem;
+    }
+
+    // 언어변경
+    .language {
+      &__wrapper {
+        width: 49px;
+        margin-bottom: 0.2rem;
+      }
+      &__toggle {
+        margin: 0 5px;
+        cursor: pointer;
+        &--active {
+          border-width: $b-w;
+          border-bottom: $b-w solid var(--text-color);
+          // font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+//== DEVICE SCREEN ==//
+/*대부분의 스마트폰 모바일 기기(세로)*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+    padding: 0.5rem 11px;
+    .copy__right {
+      padding-left: 15px;
+    }
+  }
+}
+
+/*저해상도 태블릿, 모바일(가로)*/
+@media (min-width: 481px) and (max-width: 767px) {
+}

@@ -11,6 +11,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
   transition: none;
+  width: fit-content;
   .toggle {
     min-width: fit-content;
     transition: all ease 0.1s 0s;
@@ -54,4 +55,9 @@
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
+  .container {
+    padding: 10px 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }

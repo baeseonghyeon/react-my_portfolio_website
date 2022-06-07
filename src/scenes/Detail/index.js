@@ -8,11 +8,13 @@ import YoutubeIframe from '../../components/YoutubeIframe';
 import externalLinkText from '../../lib/externalLinkText';
 import Popup from '../../components/Popup';
 import Layout from '../../components/Layout';
+import { useSelector } from 'react-redux';
 
 const cn = cb.bind(styles);
 
 function Detail({ match, data }) {
   const item = data[match.params.id - 1];
+  const LANG = useSelector((state) => state.languageReducer).lang;
 
   // Popup Touch Screen Redirect Set
   const [width] = useMediaQuery();
@@ -49,7 +51,7 @@ function Detail({ match, data }) {
       type: 'Stack'
     },
     {
-      content: item.info.collabor,
+      content: item.info.collabor ? item.info.collabor[LANG] : null,
       type: 'Collaborator'
     }
   ];
@@ -68,7 +70,7 @@ function Detail({ match, data }) {
             if (info.content) {
               return (
                 <li>
-                  <strong>{info.type}:</strong> {info.content}
+                  <p><strong>{info.type} : </strong> {info.content}</p>
                 </li>
               );
             }
@@ -88,7 +90,8 @@ function Detail({ match, data }) {
         <div className="desc px-0">
           <p>
             {/* 내용 */}
-            {item.content.text}
+            {item.content[LANG]}
+            {' '}
             {/* 관련 링크 */}
             {item.content.links &&
               item.content.links.map((link, idx) => {
@@ -99,9 +102,9 @@ function Detail({ match, data }) {
                     rel="noopener noreferrer"
                     onTouchStart={() => touchRedirect(link.src)}
                   >
-                    {idx === 0 && ' ('}
-                    {link.title}
-                    {idx !== item.content.links.length - 1 ? ', ' : ') '}
+                    {idx === 0 && '('}
+                    {link[LANG] ? link[LANG] : link['KR']}
+                    {idx !== item.content.links.length - 1 ? ', ' : ')'}
                   </a>
                 );
               })}
@@ -132,7 +135,7 @@ function Detail({ match, data }) {
         return (
           <Popup
             id={idx}
-            title={item.title}
+            title={item.title[LANG]}
             width={content.width}
             position={content.position ? content.position : false}
             top={content.top && content.top}
@@ -149,7 +152,11 @@ function Detail({ match, data }) {
         {item.videos &&
           item.videos.map((video) => {
             return (
-              <div className="col-md-6 mb-0 p-0">
+              <div
+              className={`
+                ${video.fullSize ? 'col-md-12' : 'col-md-6'} mb-0 p-0
+              `}
+              >
                 <div className={cn("video--wrapper")}>
                   <YoutubeIframe
                     className={cn('video')}

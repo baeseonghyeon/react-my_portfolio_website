@@ -8,8 +8,8 @@ import Work from './scenes/Work';
 import Detail from './scenes/Detail';
 import NotFound from './scenes/NotFound';
 // data
-import workData from './data/work';
-import profileData from './data/profile';
+import profileData from './data/profile.json';
+import workData from './data/work.json';
 
 // Render Scroll Top Set
 function _ScrollToTop(props) {
@@ -24,44 +24,9 @@ const ScrollToTop = withRouter(_ScrollToTop);
 
 function App() {
   // Data Setting
-  const DATA = {
-    profile: {
-      kr: profileData[0],
-      en: profileData[1]
-    },
-    work: {
-      kr: workData[0],
-      en: workData[1]
-    }
-  };
-
-  // Language Setting
-  const [langs, setLangs] = useState([
-    {
-      set: 'KR',
-      work_data: DATA.work.kr,
-      profile_data: DATA.profile.kr
-    }
-  ]);
-
-  const langToggle = (data) => {
-    setLangs(
-      langs.map((lang) =>
-        data === 'EN'
-          ? {
-              ...lang,
-              set: 'EN',
-              work_data: DATA.work.en,
-              profile_data: DATA.profile.en
-            }
-          : {
-              ...lang,
-              set: 'KR',
-              work_data: DATA.work.kr,
-              profile_data: DATA.profile.kr
-            }
-      )
-    );
+  const data = {
+    profile: profileData,
+    work: workData,
   };
 
   // OS UI-Mode Check
@@ -77,9 +42,11 @@ function App() {
     if (darkState) {
       document.body.classList.add('dark-theme');
       document.body.classList.remove('light-theme');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#111');
     } else {
       document.body.classList.add('light-theme');
       document.body.classList.remove('dark-theme');
+      document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#ffffff');
     }
   }, [darkState]);
 
@@ -91,6 +58,8 @@ function App() {
     }
   }, [prefersDarkScheme.matches]);
 
+  // console.log(data.profile);
+
   return (
     <div className="App">
       <Header />
@@ -100,31 +69,33 @@ function App() {
             path="/"
             exact
             render={() => (
-              <About data={langs[0].profile_data.data} />
+              <About data={data.profile.data} />
             )}
           />
           <Route
             path="/about"
             exact
-            render={() => <About data={langs[0].profile_data.data} />}
+            render={() => 
+            <About data={data.profile.data} />
+          }
           />
           <Route
             path="/works"
             exact
-            render={() => <Work data={langs[0].work_data.data} />}
+            render={() => 
+            <Work data={data.work.data}
+            />}
           />
           <Route
             path="/works/:id"
             render={(match) => (
-              <Detail data={langs[0].work_data.data} {...match} />
+              <Detail data={data.work.data} {...match} />
             )}
           />
           <Route path="*" component={NotFound} />
         </Switch>
       </ScrollToTop>
       <Footer
-        langs={langs}
-        langToggle={langToggle}
         darkModeToggle={(e) => setDarkState(e)}
         darkState={darkState}
       />

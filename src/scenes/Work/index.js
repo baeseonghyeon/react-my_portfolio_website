@@ -11,6 +11,7 @@ import touchRedirect from '../../lib/touchRedirect';
 
 import styles from './Work.module.scss';
 import cb from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 const cn = cb.bind(styles);
 
@@ -18,14 +19,14 @@ const Work = (props) => {
   const { data } = props;
   const [screenSize] = useMediaQuery();
   const history = useHistory();
-  
+  const LANG = useSelector((state) => state.languageReducer).lang;
   const [targetId, setTargetId] = useState(null);  
   
   // FootNote Click Event
   const onClickFootnote = (id) => {
     setTargetId(id);
-
     if(document.getElementById(`popup${id}`)) {
+      history.push(`#work${id}`)
       scrollSet(id);
     } else {
       history.push(`/works/${id}`);
@@ -57,21 +58,22 @@ const Work = (props) => {
         {data
           .slice(0)
           .reverse()
-          .map((item) => {
+          .map((item, idx) => {
+            const id = data.length - idx;
             return (
-              <span className={cn('list--wrapper', 'mr-2')} key={item.id}>
+              <span className={cn('list--wrapper', 'mr-2')} key={id}>
                 <span className={cn('list--footnote')}
-                  onClick={() => onClickFootnote(item.id)}
-                  onTouchStart={() => onClickFootnote(item.id)}
+                  onClick={() => onClickFootnote(id)}
+                  onTouchStart={() => onClickFootnote(id)}
                 >
-                  [{item.id}]
+                  [{id}]
                 </span>
                 <Link
-                  to={`/works/${item.id}`}
+                  to={`/works/${id}`}
                   className={cn('list--link')}
-                  onTouchStart={() => touchRedirect(`/works/${item.id}`, screenSize)}
+                  onTouchStart={() => touchRedirect(`/works/${id}`, screenSize)}
                 >
-                  {item.title} ( {item.info.date} ) [{item.info.cate}] 
+                  {item.title[LANG]} ( {item.info.date} ) [{item.info.cate}] 
                 </Link>
               </span>
             );
@@ -81,22 +83,24 @@ const Work = (props) => {
       {data
         .slice(0)
         .reverse()
-        .map((item) => {
+        .map((item, idx) => {
+          const id = data.length - idx;
           return (
             <Popup
-              id={item.id}
-              key={item.id}
-              title={item.title}
+              id={id}
+              key={id}
+              title={item.title[LANG]}
               width="500"
               isPadding={false}
-              zIndex={item.id === targetId ? 999 : 5+item.id} 
+              zIndex={id === targetId ? 999 : 5+id} 
             >
               <Card
-                key={item.id}
+                id={id}
+                key={id}
                 item={item}
-                targetId={item.id === targetId && targetId}
+                targetId={id === targetId && targetId}
                 onClickClose={()=>setTargetId(null)}
-                onClickIcon={()=>[setTargetId(null), onClickIcon(item.id)]}
+                onClickIcon={()=>[setTargetId(null), onClickIcon(id)]}
               />
             </Popup>
           );

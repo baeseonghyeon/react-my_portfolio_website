@@ -4,20 +4,21 @@
   -webkit-overflow-scrolling: touch;
   transform: scale(0.95);
   transition: all ease 0.4s 0s;
+  // overflow-x: hidden;
 }
 
 //== DEVICE SCREEN ==//
 /*대부분의 스마트폰 모바일 기기(세로)*/
 @media (min-width: 320px) and (max-width: 480px) {
   .container {
-    padding: 45px 11px;
+    padding: 45px 11px 40px;
   }
 }
 
 /*저해상도 태블릿, 모바일(가로)*/
 @media (min-width: 481px) and (max-width: 767px) {
   .container {
-    padding: 45px 11px;
+    padding: 45px 11px 40px;
     -webkit-overflow-scrolling: touch;
   }
 }
