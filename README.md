@@ -1,5 +1,4 @@
 # Bae SeongHyeon 배성현 웹 사이트
-### [Visit the website](https://baeseonghyeon.github.io/)
 
 **이 웹사이트는 React.js를 통해 개발, Github.io에 배포 되었습니다.**
 
